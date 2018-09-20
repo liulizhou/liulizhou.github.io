@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/09/20/liulizhou/</loc>
+    
+    <lastmod>2018-09-20T15:35:02.605Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/20/iccv-2017-gan-ar/</loc>
+    
+    <lastmod>2018-09-20T15:35:01.969Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/20/iccv-2015-arcnn/</loc>
+    
+    <lastmod>2018-09-20T15:35:01.217Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/09/20/hexo-next-blog/</loc>
     
-    <lastmod>2018-09-20T15:26:01.180Z</lastmod>
+    <lastmod>2018-09-20T15:35:00.417Z</lastmod>
     
   </url>
   
@@ -33,27 +54,6 @@
     <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2018-09-20T12:14:09.556Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/20/iccv-2017-gan-ar/</loc>
-    
-    <lastmod>2018-09-20T10:28:55.724Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/20/iccv-2015-arcnn/</loc>
-    
-    <lastmod>2018-09-20T10:25:04.474Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/20/liulizhou/</loc>
-    
-    <lastmod>2018-09-20T02:48:21.201Z</lastmod>
     
   </url>
   

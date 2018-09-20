@@ -3,13 +3,25 @@
   
     
     <entry>
-      <title>hexo-next-blog</title>
+      <title>Hexo搭建个人Blog记录</title>
       <link href="/2018/09/20/hexo-next-blog/"/>
       <url>/2018/09/20/hexo-next-blog/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>记录了整个站点搭建的过程<br><a id="more"></a></p>]]></content>
       
       
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
       
     </entry>
     
@@ -45,7 +57,7 @@
       <link href="/2018/09/20/iccv-2015-arcnn/"/>
       <url>/2018/09/20/iccv-2015-arcnn/</url>
       
-        <content type="html"><![CDATA[<p>这是ICCV2015年的一篇文章，算是比较早用深度学习做压缩失真消除，后面的大多数方法都是与这篇文章里面的去除效果做对比。</p>]]></content>
+        <content type="html"><![CDATA[<p>论文分析，文章2015年发表在ICCV上，使用深度学习做压缩失真消除<br><!--moew--></p><p>这是ICCV2015年的一篇文章，算是比较早用深度学习做压缩失真消除，后面的大多数方法都是与这篇文章里面的去除效果做对比。</p>]]></content>
       
       
       <categories>
@@ -74,7 +86,7 @@
       <link href="/2018/09/20/iccv-2017-gan-ar/"/>
       <url>/2018/09/20/iccv-2017-gan-ar/</url>
       
-        <content type="html"><![CDATA[<p>这篇文章是2017年ICCV的一篇文章， 主要是用GAN做压缩失真的消除，关于图像和视频压缩失真，前面的文章已经讨论过这个问题，感兴趣的可以查看这篇博客。</p><h3 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h3><p>研究深度网络主要关注一下几点：</p><ul><li>网络架构：本文使用GAN，一个生成网络和一个判别网络，生成网络使用的一个9层的餐差结构</li></ul><p>本文使用GAN，一个生成网络和一个判别网络</p><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>下图是整个网络结构的架构图</p><h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3>]]></content>
+        <content type="html"><![CDATA[<p>论文分析，文章2017年发表在ICCV上，使用GAN做压缩失真消除<br><a id="more"></a></p><p>这篇文章是2017年ICCV的一篇文章， 主要是用GAN做压缩失真的消除，关于图像和视频压缩失真，前面的文章已经讨论过这个问题，感兴趣的可以查看这篇博客。</p><h3 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h3><p>研究深度网络主要关注一下几点：</p><ul><li>网络架构：本文使用GAN，一个生成网络和一个判别网络，生成网络使用的一个9层的餐差结构</li></ul><p>本文使用GAN，一个生成网络和一个判别网络</p><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>下图是整个网络结构的架构图</p><h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3>]]></content>
       
       
       <categories>
