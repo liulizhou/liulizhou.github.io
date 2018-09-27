@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/09/27/pytorch-api-Conv-Deconv/</loc>
+    
+    <lastmod>2018-09-27T02:12:46.959Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/09/20/iccv-2015-arcnn/</loc>
     
     <lastmod>2018-09-20T15:37:00.404Z</lastmod>
