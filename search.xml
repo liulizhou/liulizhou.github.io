@@ -3,11 +3,47 @@
   
     
     <entry>
+      <title>i3wm-using-skills</title>
+      <link href="/2018/09/30/i3wm-using-skills/"/>
+      <url>/2018/09/30/i3wm-using-skills/</url>
+      
+        <content type="html"><![CDATA[<p>这篇文章记录的是linux下i3窗口管理器的使用方法和技巧<br><a id="more"></a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> i3 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> i3 </tag>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>tmux-using-skills</title>
+      <link href="/2018/09/30/tmux-using-skills/"/>
+      <url>/2018/09/30/tmux-using-skills/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    <entry>
       <title>Pytorch API中的卷积与反卷积操作</title>
       <link href="/2018/09/27/pytorch-api-Conv-Deconv/"/>
       <url>/2018/09/27/pytorch-api-Conv-Deconv/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>本篇文章解析卷积与反卷积操作以及Pytorch中的相关API<br><a id="more"></a></p>]]></content>
       
       
       <categories>
