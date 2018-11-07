@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title>linux-mount-command</title>
+      <link href="/2018/11/07/linux-mount-command/"/>
+      <url>/2018/11/07/linux-mount-command/</url>
+      
+        <content type="html"><![CDATA[<p>这篇博客主要探讨了磁盘（包括U盘）分区和挂载的一些问题。<br><a id="more"></a></p><h3 id="探讨的问题说明"><a href="#探讨的问题说明" class="headerlink" title="探讨的问题说明"></a>探讨的问题说明</h3><ul><li>Linux中的文件系统</li><li>如何对新硬盘进行分区并挂载</li><li>如何对U盘进行挂载</li></ul><h3 id="1-linux中的文件系统"><a href="#1-linux中的文件系统" class="headerlink" title="1. linux中的文件系统"></a>1. linux中的文件系统</h3><h3 id="2-如何对新硬盘进行分区并挂载"><a href="#2-如何对新硬盘进行分区并挂载" class="headerlink" title="2. 如何对新硬盘进行分区并挂载"></a>2. 如何对新硬盘进行分区并挂载</h3><h3 id="3-如何对U盘进行挂载"><a href="#3-如何对U盘进行挂载" class="headerlink" title="3. 如何对U盘进行挂载"></a>3. 如何对U盘进行挂载</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> command </tag>
+            
+            <tag> mount </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>i3wm-using-skills</title>
       <link href="/2018/09/30/i3wm-using-skills/"/>
       <url>/2018/09/30/i3wm-using-skills/</url>
