@@ -133,7 +133,7 @@
 <meta property="og:site_name" content="Liu Lizhou.IQIYI">
 <meta property="og:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-07T12:54:35.911Z">
+<meta property="og:updated_time" content="2018-11-07T13:07:16.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="各种安装BUG记录">
 <meta name="twitter:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
@@ -399,7 +399,7 @@
                 
               
 
-              <time title="创建时间：2018-11-07 17:40:06 / 修改时间：20:54:35" itemprop="dateCreated datePublished" datetime="2018-11-07T17:40:06+08:00">2018-11-07</time>
+              <time title="创建时间：2018-11-07 17:40:06 / 修改时间：21:07:16" itemprop="dateCreated datePublished" datetime="2018-11-07T17:40:06+08:00">2018-11-07</time>
             
 
             
@@ -469,11 +469,7 @@
 <p>如果使用上述命令，可能会出现包冲突问题，我使用conda5.3.0=py37,出现了以下包冲突问题：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">UnsatisfiableError: The following specifications were found to be <span class="keyword">in</span> conflict:</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; hdf51.10.2=hba1933b_1</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; mkl-service1.1.2=py37h90e4bf4_5</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; numexpr2.6.8=py37hd89afb7_0</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; pango1.42.4=h049681c_0 -&gt; harfbuzz[version='&gt;=1.7.6,&lt;2.0a0']&gt; - anaconda5.3.0=py37_0 -&gt; scikit-learn0.19.2=py37h4989274_0</span><br><span class="line">- opencv3</span><br></pre></td></tr></table></figure>
 <p>解决这个问题参考了<a href="https://github.com/ContinuumIO/anaconda-issues/issues/1674" target="_blank" rel="noopener">这个网址</a>，使用下面的命令：</p>
-<p><code>conda install -c conda-forge opencv</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge opencv</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,<br>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.<br>Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.<br>conda install -c conda-forge opencv</p>
-</blockquote>
 
       
     </div>
