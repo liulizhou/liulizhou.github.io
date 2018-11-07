@@ -125,18 +125,18 @@
 
 
 
-  <meta name="description" content="本博客是一个系列博客，记录了我运到的各种软件安装问题。">
+  <meta name="description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
 <meta name="keywords" content="install,index">
 <meta property="og:type" content="article">
-<meta property="og:title" content="install_problems_index">
+<meta property="og:title" content="各种安装BUG记录">
 <meta property="og:url" content="http://yoursite.com/2018/11/07/install-problems-index/index.html">
 <meta property="og:site_name" content="Liu Lizhou.IQIYI">
-<meta property="og:description" content="本博客是一个系列博客，记录了我运到的各种软件安装问题。">
+<meta property="og:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-07T10:06:08.460Z">
+<meta property="og:updated_time" content="2018-11-07T10:29:45.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="install_problems_index">
-<meta name="twitter:description" content="本博客是一个系列博客，记录了我运到的各种软件安装问题。">
+<meta name="twitter:title" content="各种安装BUG记录">
+<meta name="twitter:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
 
 
 
@@ -153,7 +153,7 @@
   };
 </script>
 
-  <title>install_problems_index | Liu Lizhou.IQIYI</title>
+  <title>各种安装BUG记录 | Liu Lizhou.IQIYI</title>
   
 
 
@@ -374,7 +374,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">install_problems_index
+          <h1 class="post-title" itemprop="name headline">各种安装BUG记录
               
             
           </h1>
@@ -399,7 +399,7 @@
                 
               
 
-              <time title="创建时间：2018-11-07 17:40:06 / 修改时间：18:06:08" itemprop="dateCreated datePublished" datetime="2018-11-07T17:40:06+08:00">2018-11-07</time>
+              <time title="创建时间：2018-11-07 17:40:06 / 修改时间：18:29:45" itemprop="dateCreated datePublished" datetime="2018-11-07T17:40:06+08:00">2018-11-07</time>
             
 
             
@@ -463,10 +463,17 @@
       
 
       
-        <p>本博客是一个系列博客，记录了我运到的各种软件安装问题。<br><a id="more"></a></p>
+        <p>本博客是一个系列博客，记录了我碰到的各种软件安装问题。<br><a id="more"></a></p>
 <h3 id="Anaconda安装opencv3"><a href="#Anaconda安装opencv3" class="headerlink" title="Anaconda安装opencv3"></a>Anaconda安装opencv3</h3><p>最常见的使用Anaconda安装opencv3的命令：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install</span> -c menpo opencv3</span><br></pre></td></tr></table></figure></p>
 <p>如果使用上述命令，可能会出现包冲突问题，我使用conda5.3.0=py37,出现了以下包冲突问题：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UnsatisfiableError: The following specifications were found <span class="keyword">to</span> be <span class="keyword">in</span> conflict:</span><br><span class="line">  - <span class="attribute">anaconda</span>==5.3.0=py37_0 -&gt; <span class="attribute">hdf5</span>==1.10.2=hba1933b_1</span><br><span class="line">  - <span class="attribute">anaconda</span>==5.3.0=py37_0 -&gt; <span class="attribute">mkl-service</span>==1.1.2=py37h90e4bf4_5</span><br><span class="line">  - <span class="attribute">anaconda</span>==5.3.0=py37_0 -&gt; <span class="attribute">numexpr</span>==2.6.8=py37hd89afb7_0</span><br><span class="line">  - <span class="attribute">anaconda</span>==5.3.0=py37_0 -&gt; <span class="attribute">pango</span>==1.42.4=h049681c_0 -&gt; harfbuzz[<span class="attribute">version</span>=<span class="string">'&gt;=1.7.6,&lt;2.0a0'</span>]</span><br><span class="line">  - <span class="attribute">anaconda</span>==5.3.0=py37_0 -&gt; <span class="attribute">scikit-learn</span>==0.19.2=py37h4989274_0</span><br><span class="line">  - opencv3</span><br></pre></td></tr></table></figure></p>
-<p>解决这个问题参考了<a href="https://github.com/ContinuumIO/anaconda-issues/issues/1674" target="_blank" rel="noopener">这个网址</a>，使用下面的命令：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install</span> -c conda-forge opencv</span><br></pre></td></tr></table></figure></p>
+<p>解决这个问题参考了<a href="https://github.com/ContinuumIO/anaconda-issues/issues/1674" target="_blank" rel="noopener">这个网址</a>，使用下面的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge opencv</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install</span> -c conda-forge opencv</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,<br>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.<br>Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+</blockquote>
+<blockquote>
+<p>conda install -c conda-forge opencv</p>
+</blockquote>
 
       
     </div>
