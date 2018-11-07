@@ -2,79 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/09/30/i3wm-using-skills/</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
-    <lastmod>2018-09-30T08:04:45.427Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/30/tmux-using-skills/</loc>
-    
-    <lastmod>2018-09-30T07:57:01.019Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/27/pytorch-api-Conv-Deconv/</loc>
-    
-    <lastmod>2018-09-27T02:17:49.375Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/20/iccv-2015-arcnn/</loc>
-    
-    <lastmod>2018-09-20T15:37:00.404Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/20/liulizhou/</loc>
-    
-    <lastmod>2018-09-20T15:35:02.605Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/20/iccv-2017-gan-ar/</loc>
-    
-    <lastmod>2018-09-20T15:35:01.969Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/20/hexo-next-blog/</loc>
-    
-    <lastmod>2018-09-20T15:35:00.417Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/20/image-video-quality/</loc>
-    
-    <lastmod>2018-09-20T15:22:58.750Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
-    
-    <lastmod>2018-09-20T12:17:05.137Z</lastmod>
+    <lastmod>2018-11-02T17:11:38.503Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/about/index.html</loc>
     
-    <lastmod>2018-09-20T12:16:42.773Z</lastmod>
+    <lastmod>2018-11-02T17:11:38.499Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://yoursite.com/2018/09/30/i3wm-using-skills/</loc>
     
-    <lastmod>2018-09-20T12:14:09.556Z</lastmod>
+    <lastmod>2018-11-02T17:11:38.479Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2018-11-02T17:11:38.479Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/27/pytorch-api-Conv-Deconv/</loc>
+    
+    <lastmod>2018-11-02T17:11:38.467Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/30/tmux-using-skills/</loc>
+    
+    <lastmod>2018-11-02T17:11:38.467Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/20/iccv-2015-arcnn/</loc>
+    
+    <lastmod>2018-11-02T17:11:38.459Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/20/image-video-quality/</loc>
+    
+    <lastmod>2018-11-02T17:11:38.451Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/20/iccv-2017-gan-ar/</loc>
+    
+    <lastmod>2018-11-02T17:11:38.439Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/20/liulizhou/</loc>
+    
+    <lastmod>2018-11-02T17:11:38.439Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/20/hexo-next-blog/</loc>
+    
+    <lastmod>2018-11-02T17:11:38.423Z</lastmod>
     
   </url>
   
