@@ -133,7 +133,7 @@
 <meta property="og:site_name" content="Liu Lizhou.IQIYI">
 <meta property="og:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-07T13:07:16.438Z">
+<meta property="og:updated_time" content="2018-11-15T14:03:45.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="各种安装BUG记录">
 <meta name="twitter:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
@@ -399,12 +399,24 @@
                 
               
 
-              <time title="创建时间：2018-11-07 17:40:06 / 修改时间：21:07:16" itemprop="dateCreated datePublished" datetime="2018-11-07T17:40:06+08:00">2018-11-07</time>
+              <time title="创建时间：2018-11-07 17:40:06" itemprop="dateCreated datePublished" datetime="2018-11-07T17:40:06+08:00">2018-11-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-15 22:03:45" itemprop="dateModified" datetime="2018-11-15T22:03:45+08:00">2018-11-15</time>
               
             
           </span>
@@ -470,6 +482,14 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">UnsatisfiableError: The following specifications were found to be <span class="keyword">in</span> conflict:</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; hdf51.10.2=hba1933b_1</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; mkl-service1.1.2=py37h90e4bf4_5</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; numexpr2.6.8=py37hd89afb7_0</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; pango1.42.4=h049681c_0 -&gt; harfbuzz[version='&gt;=1.7.6,&lt;2.0a0']&gt; - anaconda5.3.0=py37_0 -&gt; scikit-learn0.19.2=py37h4989274_0</span><br><span class="line">- opencv3</span><br></pre></td></tr></table></figure>
 <p>解决这个问题参考了<a href="https://github.com/ContinuumIO/anaconda-issues/issues/1674" target="_blank" rel="noopener">这个网址</a>，使用下面的命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge opencv</span><br></pre></td></tr></table></figure>
+<h1 id="eclipse-c-中不能添加带版本号的库"><a href="#eclipse-c-中不能添加带版本号的库" class="headerlink" title="eclipse c++中不能添加带版本号的库"></a>eclipse c++中不能添加带版本号的库</h1><p>这里以libtorch为例来说明这个情况。</p>
+<p>我们下载libtorch后，解压得到libtorch库如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">libbenchmark.a                    libcaffe2_protos.a     libcudart<span class="number">-5</span>d6d23a3.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnnpack.a                   libnvToolsExt<span class="number">-422e3301</span>.so<span class="number">.1</span>  libonnx_proto.a     libshm.so</span><br><span class="line">libbenchmark_main.a               libcaffe2.so           libgomp<span class="number">-7</span>bcb08ae.so           libnnpack_reference_layers.a  libonnx.a                    libprotobuf.a       libtorch.so</span><br><span class="line">libc10.so                         libclog.a              libgomp<span class="number">-7</span>bcb08ae.so<span class="number">.1</span>         libnvrtc<span class="number">-56</span>d4825a.so          libonnxifi_dummy.so          libprotobuf-lite.a  libtorch.so<span class="number">.1</span></span><br><span class="line">libcaffe2_gpu.so                  libcpuinfo.a           libgtest.a                    libnvrtc<span class="number">-56</span>d4825a.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libonnxifi_loader.a          libprotoc.a</span><br><span class="line">libcaffe2_module_test_dynamic.so  libcudart<span class="number">-5</span>d6d23a3.so  libgtest_main.a               libnvrtc-builtins.so          libonnxifi.so                libpthreadpool.a</span><br></pre></td></tr></table></figure>
+<p>上面的库中，我们主要使用libtorch.so, 我们ldd看下libtorch.so的依赖项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldd libtorch.so</span><br></pre></td></tr></table></figure>
+<p>得到下面的依赖项：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">maxliu@maxliu-tp:/data/source/libtorch/lib$ ldd libtorch.so</span><br><span class="line">        linux-vdso.so.1 =&gt;  (0x00007ffc1d396000)</span><br><span class="line">        libnvToolsExt-422e3301.so.1 =&gt; /data/source/libtorch/lib/libnvToolsExt-422e3301.so.1 (0x00007f83c70de000)</span><br><span class="line">        libdl.so.2 =&gt; /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f83c6eda000)</span><br><span class="line">        librt.so.1 =&gt; /lib/x86_64-linux-gnu/librt.so.1 (0x00007f83c6cd2000)</span><br><span class="line">        libcaffe2.so =&gt; /data/source/libtorch/lib/libcaffe2.so (0x00007f83be54d000)</span><br><span class="line">        libcaffe2_gpu.so =&gt; /data/source/libtorch/lib/libcaffe2_gpu.so (0x00007f839ce71000)</span><br><span class="line">        libc10.so =&gt; /data/source/libtorch/lib/libc10.so (0x00007f839cc59000)</span><br><span class="line">        libpthread.so.0 =&gt; /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f839ca3c000)</span><br><span class="line">        libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f839c733000)</span><br><span class="line">        libstdc++.so.6 =&gt; /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f839c3b1000)</span><br><span class="line">        libgcc_s.so.1 =&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f839c19b000)</span><br><span class="line">        libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f839bdd1000)</span><br><span class="line">        /lib64/ld-linux-x86<span class="number">-64.</span>so<span class="number">.2</span> (<span class="number">0x00007f83c809b000</span>)</span><br><span class="line">        libgomp-7bcb08ae.so.1 =&gt; /data/source/libtorch/lib/libgomp-7bcb08ae.so.1 (0x00007f839bba7000)</span><br></pre></td></tr></table></figure>
+<p>我们可以看到libtorch.so依赖libnvToolsExt-422e3301.so.1，这个so文件带版本号，而我们在eclipse中添加库时，只能添加so文件的名字，也就是nvToolsExt-422e3301, eclipse调用g++使用参数-l进行链接，即-lnvToolsExt-422e3301，在实际链接库会自动补上前缀lib和后缀so，所以无法找到带版本号的库，碰到这个问题，我目前还没有找到解决方法，不行的话我们还是写CMakeList来解决吧。</p>
 
       
     </div>
@@ -526,8 +546,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/15/gflags-and-libtorch-compile-problem/" rel="prev" title="gflags_and_libtorch_compile_problem">
-                gflags_and_libtorch_compile_problem <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/15/gflags-and-libtorch-compile-problem/" rel="prev" title="libtorch和gflags的编译安装问题">
+                libtorch和gflags的编译安装问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -791,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Anaconda安装opencv3"><span class="nav-text">Anaconda安装opencv3</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Anaconda安装opencv3"><span class="nav-text">Anaconda安装opencv3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eclipse-c-中不能添加带版本号的库"><span class="nav-text">eclipse c++中不能添加带版本号的库</span></a></li></ol></div>
             
 
           </div>
