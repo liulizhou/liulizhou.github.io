@@ -3,6 +3,37 @@
   
     
     <entry>
+      <title>gflags_and_libtorch_compile_problem</title>
+      <link href="/2018/11/15/gflags-and-libtorch-compile-problem/"/>
+      <url>/2018/11/15/gflags-and-libtorch-compile-problem/</url>
+      
+        <content type="html"><![CDATA[<p>这篇文章记录了gflags的安装、libtorch的安装以及过程中的一些问题<br><!--moew--></p><h1 id="gflags说明"><a href="#gflags说明" class="headerlink" title="gflags说明"></a>gflags说明</h1><h1 id="libtorch说明"><a href="#libtorch说明" class="headerlink" title="libtorch说明"></a>libtorch说明</h1><h1 id="gflags安装"><a href="#gflags安装" class="headerlink" title="gflags安装"></a>gflags安装</h1><h1 id="libtorch安装"><a href="#libtorch安装" class="headerlink" title="libtorch安装"></a>libtorch安装</h1><h1 id="bug-gflags和libtorch冲突问题"><a href="#bug-gflags和libtorch冲突问题" class="headerlink" title="[bug] gflags和libtorch冲突问题"></a>[bug] gflags和libtorch冲突问题</h1><p>我们可能在CMakeList.txt文件中像这样链接gflags和libtorch的库(error):</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target_link_libraries(pycvt <span class="string">"$&#123;TORCH_LIBRARIES&#125;"</span> gflags)</span><br><span class="line">备注：其中的pycvt是程序名。</span><br></pre></td></tr></table></figure><p>文件CMakeList.txt中的链接命令是没有问题的，但是我们make编译链接库的过程中，可能会出现下面的问题：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CMakeFiles/pycvt.dir/pycvt.cpp.o：在函数‘main’中：</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0xe1</span>)：对‘google::ParseCommandLineFlags(int*, char***, bool)’未定义的引用</span><br><span class="line">CMakeFiles/pycvt.dir/pycvt.cpp.o：在函数‘__static_initialization_and_destruction_0(int, int)’中：</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x4c5</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x568</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x60b</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x6ae</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x709</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;int&gt;(char const*, char const*, char const*, int*, int*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x72e</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;int&gt;(char const*, char const*, char const*, int*, int*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x79b</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x83e</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br></pre></td></tr></table></figure><p>出现这个问题的原因是libtorch中自带了gflags（在c10命名空间下），所以如果我们想使用gflags自己用libtorch自带的就可以了，比如gflags中是这样添加命令的：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEFINE_string(model, <span class="string">"valid"</span>, <span class="string">"the torch model path"</span>);</span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gflags::ParseCommandLineFlags(&amp;argc, &amp;argv, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure><p>我们换成libtorch库下的gflags，应该是这样的：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C10_DEFINE_string(model, <span class="string">"valid"</span>, <span class="string">"the torch model path"</span>);</span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c10::ParseCommandLineFlags(&amp;argc, &amp;argv);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> gflags </category>
+          
+          <category> libtorch </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> gflags </tag>
+            
+            <tag> libtorch </tag>
+            
+            <tag> install </tag>
+            
+            <tag> bug </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>各种安装BUG记录</title>
       <link href="/2018/11/07/install-problems-index/"/>
       <url>/2018/11/07/install-problems-index/</url>
@@ -32,7 +63,7 @@
       <link href="/2018/11/07/linux-mount-command/"/>
       <url>/2018/11/07/linux-mount-command/</url>
       
-        <content type="html"><![CDATA[<p>这篇博客主要探讨了磁盘（包括U盘）分区和挂载的一些问题。<br><a id="more"></a></p><h3 id="探讨的问题说明"><a href="#探讨的问题说明" class="headerlink" title="探讨的问题说明"></a>探讨的问题说明</h3><ul><li>Linux中的文件系统</li><li>如何对新硬盘进行分区并挂载</li><li>如何对U盘进行挂载</li></ul><h3 id="linux中的文件系统"><a href="#linux中的文件系统" class="headerlink" title="linux中的文件系统"></a>linux中的文件系统</h3><h3 id="如何对新硬盘进行分区并挂载"><a href="#如何对新硬盘进行分区并挂载" class="headerlink" title="如何对新硬盘进行分区并挂载"></a>如何对新硬盘进行分区并挂载</h3><p>写作参考网址：<a href="http://www.cnblogs.com/fieldtianye/p/9295986.html" target="_blank" rel="noopener">http://www.cnblogs.com/fieldtianye/p/9295986.html</a></p><h3 id="如何对U盘进行挂载"><a href="#如何对U盘进行挂载" class="headerlink" title="如何对U盘进行挂载"></a>如何对U盘进行挂载</h3>]]></content>
+        <content type="html"><![CDATA[<p>这篇博客主要探讨了磁盘（包括U盘）分区和挂载的一些问题。<br><a id="more"></a></p><h1 id="探讨的问题说明"><a href="#探讨的问题说明" class="headerlink" title="探讨的问题说明"></a>探讨的问题说明</h1><ul><li>Linux中的文件系统</li><li>如何对新硬盘进行分区并挂载</li><li>如何对U盘进行挂载</li></ul><h1 id="linux中的文件系统"><a href="#linux中的文件系统" class="headerlink" title="linux中的文件系统"></a>linux中的文件系统</h1><p>首先我们认识下linux中的文件系统</p><h1 id="如何对新硬盘进行分区并挂载"><a href="#如何对新硬盘进行分区并挂载" class="headerlink" title="如何对新硬盘进行分区并挂载"></a>如何对新硬盘进行分区并挂载</h1><p>写作参考网址：<a href="http://www.cnblogs.com/fieldtianye/p/9295986.html" target="_blank" rel="noopener">http://www.cnblogs.com/fieldtianye/p/9295986.html</a></p><h1 id="如何对U盘进行挂载"><a href="#如何对U盘进行挂载" class="headerlink" title="如何对U盘进行挂载"></a>如何对U盘进行挂载</h1>]]></content>
       
       
       <categories>
