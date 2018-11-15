@@ -133,7 +133,7 @@
 <meta property="og:site_name" content="Liu Lizhou.IQIYI">
 <meta property="og:description" content="这篇文章记录了gflags的安装、libtorch的安装以及过程中的一些问题 gflags说明libtorch说明gflags安装libtorch安装[bug] gflags和libtorch冲突问题我们可能在CMakeList.txt文件中像这样链接gflags和libtorch的库(error): 12target_link_libraries(pycvt &quot;$&amp;#123;TORCH_LIBR">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-15T13:40:02.704Z">
+<meta property="og:updated_time" content="2018-11-15T13:45:26.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gflags_and_libtorch_compile_problem">
 <meta name="twitter:description" content="这篇文章记录了gflags的安装、libtorch的安装以及过程中的一些问题 gflags说明libtorch说明gflags安装libtorch安装[bug] gflags和libtorch冲突问题我们可能在CMakeList.txt文件中像这样链接gflags和libtorch的库(error): 12target_link_libraries(pycvt &quot;$&amp;#123;TORCH_LIBR">
@@ -399,7 +399,7 @@
                 
               
 
-              <time title="创建时间：2018-11-15 21:16:50 / 修改时间：21:40:02" itemprop="dateCreated datePublished" datetime="2018-11-15T21:16:50+08:00">2018-11-15</time>
+              <time title="创建时间：2018-11-15 21:16:50 / 修改时间：21:45:26" itemprop="dateCreated datePublished" datetime="2018-11-15T21:16:50+08:00">2018-11-15</time>
             
 
             
@@ -475,8 +475,9 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target_link_libraries(pycvt <span class="string">"$&#123;TORCH_LIBRARIES&#125;"</span> gflags)</span><br><span class="line">备注：其中的pycvt是程序名。</span><br></pre></td></tr></table></figure>
 <p>文件CMakeList.txt中的链接命令是没有问题的，但是我们make编译链接库的过程中，可能会出现下面的问题：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CMakeFiles/pycvt.dir/pycvt.cpp.o：在函数‘main’中：</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0xe1</span>)：对‘google::ParseCommandLineFlags(int*, char***, bool)’未定义的引用</span><br><span class="line">CMakeFiles/pycvt.dir/pycvt.cpp.o：在函数‘__static_initialization_and_destruction_0(int, int)’中：</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x4c5</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x568</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x60b</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x6ae</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x709</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;int&gt;(char const*, char const*, char const*, int*, int*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x72e</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;int&gt;(char const*, char const*, char const*, int*, int*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x79b</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br><span class="line">pycvt.cpp:(.text+<span class="number">0x83e</span>)：对‘google::FlagRegisterer::FlagRegisterer&lt;std::string&gt;(char const*, char const*, char const*, std::string*, std::string*)’未定义的引用</span><br></pre></td></tr></table></figure>
-<p>出现这个问题的原因是libtorch中自带了gflags（在c10命名空间下），所以如果我们想使用gflags自己用libtorch自带的就可以了，比如gflags中是这样添加命令的：</p>
+<p>出现这个问题的原因是libtorch中自带了gflags（在c10命名空间下），所以如果我们想使用gflags, 用libtorch自带的就可以了，比如gflags中是这样添加命令的：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEFINE_string(model, <span class="string">"valid"</span>, <span class="string">"the torch model path"</span>);</span><br></pre></td></tr></table></figure>
+<p><code>DEFINE_string(model, &quot;valid&quot;, &quot;the torch model path&quot;);</code></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gflags::ParseCommandLineFlags(&amp;argc, &amp;argv, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
 <p>我们换成libtorch库下的gflags，应该是这样的：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C10_DEFINE_string(model, <span class="string">"valid"</span>, <span class="string">"the torch model path"</span>);</span><br></pre></td></tr></table></figure>
