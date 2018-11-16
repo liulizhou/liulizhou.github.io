@@ -1272,13 +1272,8 @@ pre .javascript .function {
 .use-motion .collection-title {
   opacity: 0;
 }
-.posts-expand .post-eof {
-  display: block;
-  margin: 80px auto 60px;
-  width: 100%;
-  height: 2px;
-  background: #ccc;
-  text-align: center;
+.posts-expand {
+  padding-top: 40px;
 }
 @media (max-width: 1060px) {
   .posts-expand {
@@ -1843,7 +1838,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2ae4cc;
+  background: #ffd0b4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3101,4 +3096,9 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+i,
+.posts-expand .post-eof {
+  margin: 0px;
+  background-color: rgba(255,255,255,0);
 }
