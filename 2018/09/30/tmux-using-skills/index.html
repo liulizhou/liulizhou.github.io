@@ -125,18 +125,18 @@
 
 
 
-  <meta name="description" content="这篇文章记录了tmux的一些使用技巧。 启用鼠标滚屏和窗口切换我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下Ctrl+b后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在~/.tmux.conf，如果没有需要自己创建一个，文件中加入下面的指令： set -g mouse on 使文件生效(不要使用so">
+  <meta name="description" content="这篇文章记录了tmux的一些使用技巧。 启用鼠标滚屏和窗口切换我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下Ctrl+b后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在~/.tmux.conf，如果没有需要自己创建一个，文件中加入下面的指令，这个指令重写了Mouse-mode的一系列指令，包括窗格切">
 <meta name="keywords" content="Blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tmux-using-skills">
 <meta property="og:url" content="http://yoursite.com/2018/09/30/tmux-using-skills/index.html">
 <meta property="og:site_name" content="Liu Lizhou.IQIYI">
-<meta property="og:description" content="这篇文章记录了tmux的一些使用技巧。 启用鼠标滚屏和窗口切换我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下Ctrl+b后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在~/.tmux.conf，如果没有需要自己创建一个，文件中加入下面的指令： set -g mouse on 使文件生效(不要使用so">
+<meta property="og:description" content="这篇文章记录了tmux的一些使用技巧。 启用鼠标滚屏和窗口切换我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下Ctrl+b后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在~/.tmux.conf，如果没有需要自己创建一个，文件中加入下面的指令，这个指令重写了Mouse-mode的一系列指令，包括窗格切">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-16T06:15:54.247Z">
+<meta property="og:updated_time" content="2018-11-16T06:35:53.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tmux-using-skills">
-<meta name="twitter:description" content="这篇文章记录了tmux的一些使用技巧。 启用鼠标滚屏和窗口切换我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下Ctrl+b后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在~/.tmux.conf，如果没有需要自己创建一个，文件中加入下面的指令： set -g mouse on 使文件生效(不要使用so">
+<meta name="twitter:description" content="这篇文章记录了tmux的一些使用技巧。 启用鼠标滚屏和窗口切换我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下Ctrl+b后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在~/.tmux.conf，如果没有需要自己创建一个，文件中加入下面的指令，这个指令重写了Mouse-mode的一系列指令，包括窗格切">
 
 
 
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-16 14:15:54" itemprop="dateModified" datetime="2018-11-16T14:15:54+08:00">2018-11-16</time>
+                <time title="修改时间：2018-11-16 14:35:53" itemprop="dateModified" datetime="2018-11-16T14:35:53+08:00">2018-11-16</time>
               
             
           </span>
@@ -458,10 +458,11 @@
 
       
         <p>这篇文章记录了tmux的一些使用技巧。<br><!--moew--></p>
-<h1 id="启用鼠标滚屏和窗口切换"><a href="#启用鼠标滚屏和窗口切换" class="headerlink" title="启用鼠标滚屏和窗口切换"></a>启用鼠标滚屏和窗口切换</h1><p>我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下<code>Ctrl+b</code>后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在<code>~/.tmux.conf</code>，如果没有需要自己创建一个，文件中加入下面的指令：</p>
+<h1 id="启用鼠标滚屏和窗口切换"><a href="#启用鼠标滚屏和窗口切换" class="headerlink" title="启用鼠标滚屏和窗口切换"></a>启用鼠标滚屏和窗口切换</h1><p>我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下<code>Ctrl+b</code>后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在<code>~/.tmux.conf</code>，如果没有需要自己创建一个，文件中加入下面的指令，这个指令重写了<code>Mouse-mode</code>的一系列指令，包括窗格切换、调整窗格大小、窗口切换(窗口：window，窗格pane),指令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -g mouse on</span><br></pre></td></tr></table></figure>
 <p>使文件生效(不要使用<code>source ~/.tmux.conf</code>,无法识别tmux的指令，例如setw，not found)：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tmux <span class="built_in">source</span>-file ~/.tmux.conf</span><br></pre></td></tr></table></figure>
+<p>另外启用鼠标后，不能正常的复制tmux中的内容和粘贴，复制tmux中的内容时需要按住<code>Shift</code>键，可以使用<code>Shift+Insert</code>粘贴剪贴板内容到命令行。</p>
 
       
     </div>
