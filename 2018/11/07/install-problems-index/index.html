@@ -126,14 +126,14 @@
 
 
   <meta name="description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
-<meta name="keywords" content="install,index">
+<meta name="keywords" content="linux,install,bug,index">
 <meta property="og:type" content="article">
 <meta property="og:title" content="各种安装BUG记录">
 <meta property="og:url" content="http://yoursite.com/2018/11/07/install-problems-index/index.html">
 <meta property="og:site_name" content="Liu Lizhou.IQIYI">
 <meta property="og:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-15T14:03:45.816Z">
+<meta property="og:updated_time" content="2018-11-30T13:14:34.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="各种安装BUG记录">
 <meta name="twitter:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-15 22:03:45" itemprop="dateModified" datetime="2018-11-15T22:03:45+08:00">2018-11-15</time>
+                <time title="修改时间：2018-11-30 21:14:34" itemprop="dateModified" datetime="2018-11-30T21:14:34+08:00">2018-11-30</time>
               
             
           </span>
@@ -433,7 +433,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Install-Problem/" itemprop="url" rel="index"><span itemprop="name">Install Problem</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/install/" itemprop="url" rel="index"><span itemprop="name">install</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/install/bug/" itemprop="url" rel="index"><span itemprop="name">bug</span></a></span>
 
                 
                 
@@ -482,6 +489,19 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">UnsatisfiableError: The following specifications were found to be <span class="keyword">in</span> conflict:</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; hdf51.10.2=hba1933b_1</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; mkl-service1.1.2=py37h90e4bf4_5</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; numexpr2.6.8=py37hd89afb7_0</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; pango1.42.4=h049681c_0 -&gt; harfbuzz[version='&gt;=1.7.6,&lt;2.0a0']&gt; - anaconda5.3.0=py37_0 -&gt; scikit-learn0.19.2=py37h4989274_0</span><br><span class="line">- opencv3</span><br></pre></td></tr></table></figure>
 <p>解决这个问题参考了<a href="https://github.com/ContinuumIO/anaconda-issues/issues/1674" target="_blank" rel="noopener">这个网址</a>，使用下面的命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install -c conda-forge opencv</span><br></pre></td></tr></table></figure>
+<p>使用conda上述命令直接安装Opencv，可以正常使用，但是imshow依赖第三分GUI，无法正常显示图像，imshow出现下面的问题：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.error: OpenCV(<span class="number">3.4</span><span class="number">.2</span>) /tmp/build/<span class="number">80754</span>af9/opencv-suite_1535558553474/work/modules/highgui/src/window.cpp:<span class="number">632</span>: error: (<span class="number">-2</span>:Unspecified error) The function <span class="keyword">is</span> <span class="keyword">not</span> implemented.</span><br></pre></td></tr></table></figure>
+<p>解决办法就是自己编译Opencv,打开开关GTK+2.x,这里给出我的cmake配置(下面一个bug index也讨论到了无法显示GUI的问题，下面的bug index给出的cmake没有配置python-opencv，这个给出编译python的cmake配置)：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span> -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_GTK2=ON -D WITH_OPENGL=ON -D PYTHON3_EXECUTABLE=~/anaconda3/bin/python3.7 -D PYTHON_INCLUDE_DIR=~/anaconda3/include/python3.7m -D PYTHON_LIBRARY=~/anaconda3/lib/python3.7/site-packages/numpy/core/include/ ..</span><br></pre></td></tr></table></figure>
+<p>cmake主要是打开GUI配置项<code>WITH_GTK2=ON</code>，配置python路径。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make -j7</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>成功编译安装Opencv后，在python中还不能<code>import cv2</code>,还需要设置一下，取Opencv的安装路径下找到下面的文件（我的安装路径<code>/usr/local</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/lib/python3.7/site-packages/cv2.cpython-37m-x86_64-linux-gnu.so</span><br></pre></td></tr></table></figure>
+<p>复制到anaconda的site-packages,这个site-packages就是我们cmake配置里的那个。如果你不知道这个这个路径，可以在python代码中打印出来：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(next(p <span class="keyword">for</span> p <span class="keyword">in</span> sys.path <span class="keyword">if</span> <span class="string">'site-packages'</span> <span class="keyword">in</span> p))</span><br><span class="line">/home/maxliu/anaconda3/lib/python3<span class="number">.7</span>/site-packages</span><br></pre></td></tr></table></figure>
+<p>接下来拷贝cv2文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /usr/<span class="built_in">local</span>/lib/python3.7/site-packages/cv2.cpython-37m-x86_64-linux-gnu.so /home/maxliu/anaconda3/lib/python3.7/site-packages</span><br></pre></td></tr></table></figure>
+<p>python中成功<code>import cv2</code>。<a href="https://stackoverflow.com/questions/38787748/installing-opencv-3-1-with-anaconda-python3" target="_blank" rel="noopener">参考</a></p>
 <h1 id="eclipse-c-中不能添加带版本号的库"><a href="#eclipse-c-中不能添加带版本号的库" class="headerlink" title="eclipse c++中不能添加带版本号的库"></a>eclipse c++中不能添加带版本号的库</h1><p>这里以libtorch为例来说明这个情况。</p>
 <p>我们下载libtorch后，解压得到libtorch库如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">libbenchmark.a                    libcaffe2_protos.a     libcudart<span class="number">-5</span>d6d23a3.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnnpack.a                   libnvToolsExt<span class="number">-422e3301</span>.so<span class="number">.1</span>  libonnx_proto.a     libshm.so</span><br><span class="line">libbenchmark_main.a               libcaffe2.so           libgomp<span class="number">-7</span>bcb08ae.so           libnnpack_reference_layers.a  libonnx.a                    libprotobuf.a       libtorch.so</span><br><span class="line">libc10.so                         libclog.a              libgomp<span class="number">-7</span>bcb08ae.so<span class="number">.1</span>         libnvrtc<span class="number">-56</span>d4825a.so          libonnxifi_dummy.so          libprotobuf-lite.a  libtorch.so<span class="number">.1</span></span><br><span class="line">libcaffe2_gpu.so                  libcpuinfo.a           libgtest.a                    libnvrtc<span class="number">-56</span>d4825a.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libonnxifi_loader.a          libprotoc.a</span><br><span class="line">libcaffe2_module_test_dynamic.so  libcudart<span class="number">-5</span>d6d23a3.so  libgtest_main.a               libnvrtc-builtins.so          libonnxifi.so                libpthreadpool.a</span><br></pre></td></tr></table></figure>
@@ -490,6 +510,26 @@
 <p>得到下面的依赖项：</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">maxliu@maxliu-tp:/data/source/libtorch/lib$ ldd libtorch.so</span><br><span class="line">        linux-vdso.so.1 =&gt;  (0x00007ffc1d396000)</span><br><span class="line">        libnvToolsExt-422e3301.so.1 =&gt; /data/source/libtorch/lib/libnvToolsExt-422e3301.so.1 (0x00007f83c70de000)</span><br><span class="line">        libdl.so.2 =&gt; /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f83c6eda000)</span><br><span class="line">        librt.so.1 =&gt; /lib/x86_64-linux-gnu/librt.so.1 (0x00007f83c6cd2000)</span><br><span class="line">        libcaffe2.so =&gt; /data/source/libtorch/lib/libcaffe2.so (0x00007f83be54d000)</span><br><span class="line">        libcaffe2_gpu.so =&gt; /data/source/libtorch/lib/libcaffe2_gpu.so (0x00007f839ce71000)</span><br><span class="line">        libc10.so =&gt; /data/source/libtorch/lib/libc10.so (0x00007f839cc59000)</span><br><span class="line">        libpthread.so.0 =&gt; /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f839ca3c000)</span><br><span class="line">        libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f839c733000)</span><br><span class="line">        libstdc++.so.6 =&gt; /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f839c3b1000)</span><br><span class="line">        libgcc_s.so.1 =&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f839c19b000)</span><br><span class="line">        libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f839bdd1000)</span><br><span class="line">        /lib64/ld-linux-x86<span class="number">-64.</span>so<span class="number">.2</span> (<span class="number">0x00007f83c809b000</span>)</span><br><span class="line">        libgomp-7bcb08ae.so.1 =&gt; /data/source/libtorch/lib/libgomp-7bcb08ae.so.1 (0x00007f839bba7000)</span><br></pre></td></tr></table></figure>
 <p>我们可以看到libtorch.so依赖libnvToolsExt-422e3301.so.1，这个so文件带版本号，而我们在eclipse中添加库时，只能添加so文件的名字，也就是nvToolsExt-422e3301, eclipse调用g++使用参数-l进行链接，即-lnvToolsExt-422e3301，在实际链接库会自动补上前缀lib和后缀so，所以无法找到带版本号的库，碰到这个问题，我目前还没有找到解决方法，不行的话我们还是写CMakeList来解决吧。</p>
+<h1 id="cmake编译安装Opencv3-4后，无法显示GUI"><a href="#cmake编译安装Opencv3-4后，无法显示GUI" class="headerlink" title="cmake编译安装Opencv3.4后，无法显示GUI"></a>cmake编译安装Opencv3.4后，无法显示GUI</h1><p>g++编译运行出现<code>imshow</code>无法显示的问题：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">terminate called after throwing an instance of <span class="string">'cv::Exception'</span></span><br><span class="line">what():  OpenCV(<span class="number">3.4</span><span class="number">.2</span>) /tmp/build/<span class="number">80754</span>af9/opencv-suite_1535558553474/work/modules/highgui/src/window.cpp:<span class="number">632</span>: error: (<span class="number">-2</span>:Unspecified error) The function <span class="keyword">is</span> <span class="keyword">not</span> implemented. Rebuild the library <span class="keyword">with</span> Windows, GTK+ <span class="number">2.</span>x <span class="keyword">or</span> Carbon support. If you are on Ubuntu <span class="keyword">or</span> Debian, install libgtk2<span class="number">.0</span>-dev <span class="keyword">and</span> pkg-config, then re-run cmake <span class="keyword">or</span> configure script <span class="keyword">in</span> function <span class="string">'cvShowImage'</span></span><br></pre></td></tr></table></figure>
+<p>按照<code>error</code>安装GTK和QT（linux下的gui支持），我下载Opncv3.4的版本安装QT4.x(注意这里不能安装QT5.x, 因为opencv3.4不支持配置QT5.x):</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install qt4*o</span><br><span class="line">sudo apt-get install qtcreator</span><br></pre></td></tr></table></figure>
+<p>安装GTK+2.x:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libgtk2.0-dev</span><br></pre></td></tr></table></figure>
+<p>配置Opencv, Cmkae命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span> -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_GTK2=ON -D WITH_OPENGL=ON ..</span><br><span class="line">O</span><br></pre></td></tr></table></figure>
+<p>我试验了下，好像不能同时开启QT和GTK, 我这里开启了GTK+2.x(我也安装了GTK+3.x,我没有试验能不能顺利编译通过，有兴趣的可以试验下，使用<code>WITH_GTK=ON</code>默认会使用GTK+3.x)查看配置结果，GTK+2.x配置成功：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">--   GUI:</span><br><span class="line">--     GTK+:                        YES (ver <span class="number">2.24</span><span class="number">.30</span>)</span><br><span class="line">--       GThread :                  YES (ver <span class="number">2.48</span><span class="number">.2</span>)</span><br><span class="line">--       GtkGlExt:                  NO</span><br><span class="line">--     OpenGL support:              NO</span><br><span class="line">--     VTK support:                 NO</span><br></pre></td></tr></table></figure>
+<p>我使用GTK+2.x成功了，如果你使用GTK+2.x失败，可以参考<a href="https://stackoverflow.com/questions/28776053/opencv-gtk2-x-error" target="_blank" rel="noopener">Stackoverflow</a>, 配置使用GTK+3.x代替，安装GTK+3.x:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libgtk-3-dev</span><br></pre></td></tr></table></figure>
+<p>重新执行上面的cmake配置命令，<code>make &amp;&amp; make install</code>.</p>
+<h1 id="编译Opencv-bug"><a href="#编译Opencv-bug" class="headerlink" title="编译Opencv bug"></a>编译Opencv bug</h1><p>真的是莫名其妙的bug，整了一天，最后重装了protobuf就好了，真的很莫名其妙！！！</p>
+<h1 id="安装PIL"><a href="#安装PIL" class="headerlink" title="安装PIL"></a>安装PIL</h1><p>使用conda安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install pil</span><br></pre></td></tr></table></figure>
+<p>出现下面的bug：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">UnsatisfiableError: The following specifications were found to be <span class="keyword">in</span> </span><br><span class="line">conflict:</span><br><span class="line"> - pil -&gt; python 2.6*</span><br><span class="line"> - python <span class="number">3.6</span>*</span><br></pre></td></tr></table></figure>
+<p>可能是由于<code>pil</code>包不支持跑一趟python3,安装<code>pillow</code>，同时支持python2和python3:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install pillow</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -510,7 +550,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
             <a href="/tags/install/" rel="tag"># install</a>
+          
+            <a href="/tags/bug/" rel="tag"># bug</a>
           
             <a href="/tags/index/" rel="tag"># index</a>
           
@@ -614,7 +658,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -649,7 +693,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -802,7 +852,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Anaconda安装opencv3"><span class="nav-text">Anaconda安装opencv3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eclipse-c-中不能添加带版本号的库"><span class="nav-text">eclipse c++中不能添加带版本号的库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Anaconda安装opencv3"><span class="nav-text">Anaconda安装opencv3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eclipse-c-中不能添加带版本号的库"><span class="nav-text">eclipse c++中不能添加带版本号的库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cmake编译安装Opencv3-4后，无法显示GUI"><span class="nav-text">cmake编译安装Opencv3.4后，无法显示GUI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译Opencv-bug"><span class="nav-text">编译Opencv bug</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装PIL"><span class="nav-text">安装PIL</span></a></li></ol></div>
             
 
           </div>

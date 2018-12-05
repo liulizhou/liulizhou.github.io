@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/12/03/libtorch-bug-index/</loc>
+    
+    <lastmod>2018-12-04T02:07:49.618Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/07/install-problems-index/</loc>
+    
+    <lastmod>2018-11-30T13:14:34.764Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/30/conda-using-skill/</loc>
+    
+    <lastmod>2018-11-30T09:20:41.143Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/30/pytorch-debug-index/</loc>
+    
+    <lastmod>2018-11-30T07:53:42.404Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/16/linux-any-commands/</loc>
+    
+    <lastmod>2018-11-30T07:12:23.823Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/19/linux-install-index/</loc>
+    
+    <lastmod>2018-11-19T08:47:48.076Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/09/30/tmux-using-skills/</loc>
     
     <lastmod>2018-11-16T06:35:53.649Z</lastmod>
@@ -9,23 +51,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/11/16/linux-any-commands/</loc>
-    
-    <lastmod>2018-11-16T03:06:38.362Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/11/15/gflags-and-libtorch-compile-problem/</loc>
     
     <lastmod>2018-11-15T14:06:30.743Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/11/07/install-problems-index/</loc>
-    
-    <lastmod>2018-11-15T14:03:45.816Z</lastmod>
     
   </url>
   
