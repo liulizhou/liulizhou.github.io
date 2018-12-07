@@ -133,7 +133,7 @@
 <meta property="og:site_name" content="Liu Lizhou.IQIYI">
 <meta property="og:description" content="这篇文件记录了使用libtorch过程中运到的一些bug">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-04T02:07:49.618Z">
+<meta property="og:updated_time" content="2018-12-07T03:06:55.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="libtorch-bug-index">
 <meta name="twitter:description" content="这篇文件记录了使用libtorch过程中运到的一些bug">
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-04 10:07:49" itemprop="dateModified" datetime="2018-12-04T10:07:49+08:00">2018-12-04</time>
+                <time title="修改时间：2018-12-07 11:06:55" itemprop="dateModified" datetime="2018-12-07T11:06:55+08:00">2018-12-07</time>
               
             
           </span>
@@ -468,8 +468,8 @@
 <p><code>get_parameters()</code>返回的是const类型的引用，不能使用一个引用赋值给一个对象，应该使用下面的调用方式：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> torch::OrderedDict&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, torch::jit::script::NamedParameter&gt;&amp; param = <span class="keyword">module</span>-&gt;get_parameters();</span><br></pre></td></tr></table></figure>
 <p>这里论述下面的两个问题：</p>
-<h2 id="关于const的使用"><a href="#关于const的使用" class="headerlink" title="关于const的使用"></a>关于const的使用</h2><h2 id="关于引用、对象的使用"><a href="#关于引用、对象的使用" class="headerlink" title="关于引用、对象的使用"></a>关于引用、对象的使用</h2><h1 id="libtorch和pytorch的版本问题"><a href="#libtorch和pytorch的版本问题" class="headerlink" title="libtorch和pytorch的版本问题"></a>libtorch和pytorch的版本问题</h1><p>高版本的pytorch trace生成的model不能用低版本的litorch load</p>
-
+<h2 id="关于const的使用"><a href="#关于const的使用" class="headerlink" title="关于const的使用"></a>关于const的使用</h2><h2 id="关于引用、对象的使用"><a href="#关于引用、对象的使用" class="headerlink" title="关于引用、对象的使用"></a>关于引用、对象的使用</h2><h1 id="libtorch和pytorch的版本问题"><a href="#libtorch和pytorch的版本问题" class="headerlink" title="libtorch和pytorch的版本问题"></a>libtorch和pytorch的版本问题</h1><p>高版本的pytorch trace生成的model不能用低版本的litorch load, 否则报下面的异常：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">terminate called after throwing an instance of <span class="string">'c10::Error'</span></span><br><span class="line">  what():  tag == RecordTags::FOOTER ASSERT FAILED at /pytorch/caffe2/serialize/inline_container.h:234, please report a bug to PyTorch. File footer has wrong record type. Is this file corrupted? (readAndV</span><br><span class="line">alidateFileFooter at /pytorch/caffe2/serialize/inline_container.h:<span class="number">234</span>)</span><br><span class="line">frame <span class="comment">#0: std::function&lt;std::string ()&gt;::operator()() const + 0x11 (0x7f95aad91b81 in /data/source/libtorch/lib/libc10.so)</span></span><br><span class="line">frame <span class="comment">#1: c10::Error::Error(c10::SourceLocation, std::string const&amp;) + 0x2a (0x7f95aad9144a in /data/source/libtorch/lib/libc10.so)</span></span><br><span class="line">frame <span class="comment">#2: &lt;unknown function&gt; + 0x682b0e (0x7f95d7c91b0e in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="comment">#3: &lt;unknown function&gt; + 0x686833 (0x7f95d7c95833 in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="comment">#4: &lt;unknown function&gt; + 0x67b5f9 (0x7f95d7c8a5f9 in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="comment">#5: torch::jit::load(std::istream&amp;) + 0x7c (0x7f95d7c9018c in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="comment">#6: torch::jit::load(std::string const&amp;) + 0x130 (0x7f95d7c903b0 in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="comment">#7: init_model(std::shared_ptr&lt;torch::jit::script::Module&gt;&amp;, std::string) + 0x50 (0x43d9d0 in ./pycvt)</span></span><br><span class="line">frame <span class="comment">#8: main + 0x8f (0x452862 in ./pycvt)</span></span><br><span class="line">frame <span class="comment">#9: __libc_start_main + 0xf0 (0x7f95aa433830 in /lib/x86_64-linux-gnu/libc.so.6)</span></span><br><span class="line">frame <span class="comment">#10: _start + 0x29 (0x43c4b9 in ./pycvt)</span></span><br><span class="line"></span><br><span class="line">已放弃</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -505,6 +505,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/07/AI-multimedia-research-plan/" rel="prev" title="多媒体中的AI技术发展规划">
+                多媒体中的AI技术发展规划 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -581,7 +585,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -622,7 +626,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -679,7 +685,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
