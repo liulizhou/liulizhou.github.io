@@ -125,18 +125,18 @@
 
 
 
-  <meta name="description" content="本片文章简单介绍AR项目及C++ API。">
+  <meta name="description" content="本文档简单介绍AR项目及C++ API。">
 <meta name="keywords" content="AR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Artifact_Reduction_Project">
 <meta property="og:url" content="http://yoursite.com/2018/12/11/Artifact-Reduction-Project/index.html">
 <meta property="og:site_name" content="Liu Lizhou.IQIYI">
-<meta property="og:description" content="本片文章简单介绍AR项目及C++ API。">
+<meta property="og:description" content="本文档简单介绍AR项目及C++ API。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-11T08:06:27.812Z">
+<meta property="og:updated_time" content="2018-12-11T08:43:39.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Artifact_Reduction_Project">
-<meta name="twitter:description" content="本片文章简单介绍AR项目及C++ API。">
+<meta name="twitter:description" content="本文档简单介绍AR项目及C++ API。">
 
 
 
@@ -399,7 +399,7 @@
                 
               
 
-              <time title="创建时间：2018-12-11 15:46:58 / 修改时间：16:06:27" itemprop="dateCreated datePublished" datetime="2018-12-11T15:46:58+08:00">2018-12-11</time>
+              <time title="创建时间：2018-12-11 15:46:58 / 修改时间：16:43:39" itemprop="dateCreated datePublished" datetime="2018-12-11T15:46:58+08:00">2018-12-11</time>
             
 
             
@@ -463,15 +463,38 @@
       
 
       
-        <p>本片文章简单介绍AR项目及C++ API。</p>
+        <p>本文档简单介绍AR项目及C++ API。</p>
 <a id="more"></a>
 <h2 id="ENCD-Project"><a href="#ENCD-Project" class="headerlink" title="ENCD Project"></a>ENCD Project</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ENCD项目主要是用于去除图像或视频由于压缩导致的块效应和振铃效应，项目有python实现部分和C++实现部分，Python主要用于训练生成模型，C++主要是实现Python生成模型的前匮网络和一些数据处理，用于部署。</p>
-<h3 id="块效应"><a href="#块效应" class="headerlink" title="块效应"></a>块效应</h3><h3 id="振铃效应"><a href="#振铃效应" class="headerlink" title="振铃效应"></a>振铃效应</h3><h3 id="块效应消除"><a href="#块效应消除" class="headerlink" title="块效应消除"></a>块效应消除</h3><h3 id="工程依赖"><a href="#工程依赖" class="headerlink" title="工程依赖"></a>工程依赖</h3><ul>
+<h3 id="块效应"><a href="#块效应" class="headerlink" title="块效应"></a>块效应</h3><h3 id="振铃效应"><a href="#振铃效应" class="headerlink" title="振铃效应"></a>振铃效应</h3><h3 id="工程依赖"><a href="#工程依赖" class="headerlink" title="工程依赖"></a>工程依赖</h3><ul>
 <li>libtorch</li>
 <li>opencv</li>
 </ul>
-<h4 id="libtorch"><a href="#libtorch" class="headerlink" title="libtorch"></a>libtorch</h4><p>libtorch，用于实现python训练生成模型的前匮网络计算，支持CPU和GPU，libtorch <a href="">下载</a></p>
-<h4 id="opencv"><a href="#opencv" class="headerlink" title="opencv"></a>opencv</h4><p>opencv 安装</p>
+<h4 id="libtorch"><a href="#libtorch" class="headerlink" title="libtorch"></a>libtorch</h4><p>libtorch，用于实现python训练生成模型的前匮网络计算，支持CPU和GPU，libtorch库<a href="">下载</a>，提供动态和静态链接库和头文件，可直接链接到工程中。</p>
+<h4 id="opencv"><a href="#opencv" class="headerlink" title="opencv"></a>opencv</h4><ul>
+<li>opencv source<a href="">下载</a></li>
+</ul>
+<h3 id="编译工程"><a href="#编译工程" class="headerlink" title="编译工程"></a>编译工程</h3><p>工程使用C++11标准，主要依赖opencv和libtorch库，opencv在cmakelist文件中通过<code>find_package</code>自动寻找库安装路径，需要指定libtorch库路径进行编译，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -DCMAKE-PREFIX-PATH=/path-to-libtorch ..</span><br></pre></td></tr></table></figure>
+<h3 id="命令行使用"><a href="#命令行使用" class="headerlink" title="命令行使用"></a>命令行使用</h3><p>编译完成后，生成pycvt可执行文件，可运行程序进行图像或视频质量增强。</p>
+<ul>
+<li>处理yuv文件：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./pycvt --model path-to-model --yuvfi path-to-yuv-file --width w --height h</span><br></pre></td></tr></table></figure>
+<ul>
+<li>处理图像文件：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./pycvt --model path-to-model --image path-to-image-file</span><br></pre></td></tr></table></figure>
+<ul>
+<li>处理bin文件：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./pycvt --model path-to-model --bin path-to-bin-file --width w --height h</span><br></pre></td></tr></table></figure>
+<ul>
+<li>处理视频文件：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./pycvt --model path-to-model --video path-to-vide-file</span><br></pre></td></tr></table></figure>
+<h3 id="静态库文件使用"><a href="#静态库文件使用" class="headerlink" title="静态库文件使用"></a>静态库文件使用</h3><p>编译完成后，会生成动态shencd.so和静态库文件stencd.a，可集成到项目中,主要使用其中对yuv数据进行增强函数，函数定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">@param src: source yuv420 data</span><br><span class="line">@param dst: enhanced output yuv420 data</span><br><span class="line">@param width: src yuv420 data width</span><br><span class="line">@param height: src yuv420 data height</span><br><span class="line">@param model_path: model path <span class="keyword">for</span> image enhancd </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">encd_image_fix</span><span class="params">(<span class="keyword">uint8_t</span>* src, <span class="keyword">uint8_t</span>* dst, <span class="keyword">int</span> width, <span class="keyword">int</span> height, <span class="built_in">string</span> model_path)</span></span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -792,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ENCD-Project"><span class="nav-text">ENCD Project</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块效应"><span class="nav-text">块效应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#振铃效应"><span class="nav-text">振铃效应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块效应消除"><span class="nav-text">块效应消除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工程依赖"><span class="nav-text">工程依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#libtorch"><span class="nav-text">libtorch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#opencv"><span class="nav-text">opencv</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ENCD-Project"><span class="nav-text">ENCD Project</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块效应"><span class="nav-text">块效应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#振铃效应"><span class="nav-text">振铃效应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工程依赖"><span class="nav-text">工程依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#libtorch"><span class="nav-text">libtorch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#opencv"><span class="nav-text">opencv</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译工程"><span class="nav-text">编译工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行使用"><span class="nav-text">命令行使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态库文件使用"><span class="nav-text">静态库文件使用</span></a></li></ol></li></ol></div>
             
 
           </div>
