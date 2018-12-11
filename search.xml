@@ -376,11 +376,11 @@
             
             <tag> AR </tag>
             
-            <tag> CNN </tag>
-            
             <tag> ICCV </tag>
             
             <tag> Paper </tag>
+            
+            <tag> CNN </tag>
             
         </tags>
       
@@ -405,11 +405,11 @@
             
             <tag> AR </tag>
             
+            <tag> GAN </tag>
+            
             <tag> ICCV </tag>
             
             <tag> Paper </tag>
-            
-            <tag> GAN </tag>
             
         </tags>
       
