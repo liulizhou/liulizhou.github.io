@@ -30,7 +30,7 @@
       <link href="/2018/12/07/AI-multimedia-research-plan/"/>
       <url>/2018/12/07/AI-multimedia-research-plan/</url>
       
-        <content type="html"><![CDATA[<p>这篇文章主要记录构建部门AI体系的一些想法</p><a id="more"></a><h1 id="整体结构"><a href="#整体结构" class="headerlink" title="整体结构"></a>整体结构</h1><p><img src="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/kate.png" alt="kate"></p><p><img src="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/kate.png" width="50%" align="center"></p><h1 id="研究热点"><a href="#研究热点" class="headerlink" title="研究热点"></a>研究热点</h1><h1 id="体系架构"><a href="#体系架构" class="headerlink" title="体系架构"></a>体系架构</h1>]]></content>
+        <content type="html"><![CDATA[<p>这篇文章主要记录构建部门AI体系的一些想法</p><a id="more"></a><h1 id="基础构建"><a href="#基础构建" class="headerlink" title="基础构建"></a>基础构建</h1><p>为了更好的学习和交流，我们应该统一开发平台</p><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">试验深度学习框架：`pytorch+caffe+caffe2`，以`python`客户端为主</span><br><span class="line">深度学习项目部署：`pytorch1<span class="number">.0</span> c++`</span><br><span class="line">服务器端部署：caffe2，为移动端和服务器端部署做了很多优化</span><br><span class="line">移动端部署：ncnn， 支持caffe2模型转ncnn模型，pytorch模型可通过onnx转caffe2模型</span><br></pre></td></tr></table></figure><h1 id="应用研究"><a href="#应用研究" class="headerlink" title="应用研究"></a>应用研究</h1><p>主要为编解码服务，研究下列应用：</p><ol><li><p>Artiface Reduction, 主要指块效应和振铃效应</p></li><li><p>图像超分辨，主要是不损失质量的情况下，增大图像分辨率，类比于<code>bicubic</code></p></li><li><p>SDR转HDR，主要增加颜色深度，使画面看起来更鲜艳</p></li><li><p>质量增强， 主要是增强颜色、纹理、亮度等</p></li><li><p>图像和视频质量评估，主要是用打分的形式评估图像和视频的主观质量</p></li><li><p>视频场景分割，主要是对分割视频中不同的场景，视频质量评估可能会用到</p></li><li><p>Inpainting，主要用于遮标，目前遮标严重影响视频观看体验</p></li></ol><h1 id="学习研究"><a href="#学习研究" class="headerlink" title="学习研究"></a>学习研究</h1><p>学习研究的目的最终实现的平台的高度自定义和学术的研究积累，为产品的快速迭代推出提供有力支持，学习研究主要分为三个方向：</p><ol><li>PC框架研究，主要研究我们使用的开发平台，探究下面几个方向：</li></ol><ul><li><p>框架性能评估，性能瓶颈等</p></li><li><p>深度网络中主要模块的实现方法，如卷积计算、网络层的实现、loss的实现</p></li><li><p>如何自定义层</p></li></ul><ol start="2"><li>移动端框架研究，ncnn.</li></ol><ul><li><p>性能优势、劣势、瓶颈</p></li><li><p>网络层的实现方法以及优化策略</p></li><li><p>x86, ARM汇编级优化策略</p></li></ul><ol start="3"><li>学术研究</li></ol><p>主要跟踪深度学习最新的会议，研究深度深度学习算法最新的研究进展，与部门项目结合的可能性，分享并试验探究方法可行性。主要指的是跟踪最新的期刊和会议，如：CVPR、ECCV, ICCV NIPS TPAMI AAAI等。</p>]]></content>
       
       
       
@@ -376,11 +376,11 @@
             
             <tag> AR </tag>
             
+            <tag> CNN </tag>
+            
             <tag> ICCV </tag>
             
             <tag> Paper </tag>
-            
-            <tag> CNN </tag>
             
         </tags>
       
@@ -405,11 +405,11 @@
             
             <tag> AR </tag>
             
-            <tag> GAN </tag>
-            
             <tag> ICCV </tag>
             
             <tag> Paper </tag>
+            
+            <tag> GAN </tag>
             
         </tags>
       
