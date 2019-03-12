@@ -7,9 +7,23 @@
       <link href="/2019/03/07/sdr-to-hdr10/"/>
       <url>/2019/03/07/sdr-to-hdr10/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="记录SDR转HDR10的方法"><a href="#记录SDR转HDR10的方法" class="headerlink" title="记录SDR转HDR10的方法"></a>记录SDR转HDR10的方法</h1><a id="more"></a><h1 id="摄像机拍摄视频的流程"><a href="#摄像机拍摄视频的流程" class="headerlink" title="摄像机拍摄视频的流程"></a>摄像机拍摄视频的流程</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">start=&gt;start: Scene Light In</span><br><span class="line">end=&gt;end: Display Light Out</span><br><span class="line">op1=&gt;operation: Camera OETF</span><br><span class="line">op2=&gt;operation: Display EOTF</span><br><span class="line"></span><br><span class="line">start(right)-&gt;op1(right)-&gt;op2(right)-&gt;end</span><br><span class="line"></span><br><span class="line">start@&gt;op1(&#123;&quot;stroke&quot;:&quot;Red&quot;&#125;)@&gt;op2(&#123;&quot;stroke&quot;:&quot;Red&quot;&#125;)@&gt;end(&#123;&quot;stroke&quot;:&quot;Red&quot;&#125;)</span><br></pre></td></tr></table></figure><h1 id="SDR-定义"><a href="#SDR-定义" class="headerlink" title="SDR 定义"></a>SDR 定义</h1><p>SDR（Standard Dynamic Range, 标准动态范围）是主流Rec.709标准，需要满足的主要参数如下：</p><ul><li>EOTF（Electro-Optical Transfer Function, 电光转换函数）：BT.1886</li></ul><h1 id="HDR-定义"><a href="#HDR-定义" class="headerlink" title="HDR 定义"></a>HDR 定义</h1><h1 id="SDR转HDR10概述"><a href="#SDR转HDR10概述" class="headerlink" title="SDR转HDR10概述"></a>SDR转HDR10概述</h1>]]></content>
       
       
+      <categories>
+          
+          <category> hdr10 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> sdr </tag>
+            
+            <tag> hdr10 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -168,9 +182,9 @@
             
             <tag> bug </tag>
             
-            <tag> pytorch </tag>
-            
             <tag> index </tag>
+            
+            <tag> pytorch </tag>
             
         </tags>
       
@@ -451,11 +465,11 @@
             
             <tag> AR </tag>
             
+            <tag> CNN </tag>
+            
             <tag> ICCV </tag>
             
             <tag> Paper </tag>
-            
-            <tag> CNN </tag>
             
         </tags>
       
@@ -480,11 +494,11 @@
             
             <tag> AR </tag>
             
-            <tag> GAN </tag>
-            
             <tag> ICCV </tag>
             
             <tag> Paper </tag>
+            
+            <tag> GAN </tag>
             
         </tags>
       
