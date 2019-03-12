@@ -126,14 +126,14 @@
 
 
   <meta name="description" content="本文记录了pytorch中碰到的一些bug">
-<meta name="keywords" content="pytorch,bug,index">
+<meta name="keywords" content="bug,pytorch,index">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytorch-bug-index">
 <meta property="og:url" content="http://yoursite.com/2018/11/30/pytorch-debug-index/index.html">
 <meta property="og:site_name" content="Liu Lizhou">
 <meta property="og:description" content="本文记录了pytorch中碰到的一些bug">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-30T07:53:42.404Z">
+<meta property="og:updated_time" content="2018-12-27T12:43:42.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pytorch-bug-index">
 <meta name="twitter:description" content="本文记录了pytorch中碰到的一些bug">
@@ -399,12 +399,24 @@
                 
               
 
-              <time title="创建时间：2018-11-30 15:47:35 / 修改时间：15:53:42" itemprop="dateCreated datePublished" datetime="2018-11-30T15:47:35+08:00">2018-11-30</time>
+              <time title="创建时间：2018-11-30 15:47:35" itemprop="dateCreated datePublished" datetime="2018-11-30T15:47:35+08:00">2018-11-30</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-27 20:43:42" itemprop="dateModified" datetime="2018-12-27T20:43:42+08:00">2018-12-27</time>
               
             
           </span>
@@ -473,6 +485,16 @@
         <p>本文记录了pytorch中碰到的一些bug<br><a id="more"></a></p>
 <h1 id="error-RuntimeError-Couldn’t-export-Python-operator-lt-python-value-gt"><a href="#error-RuntimeError-Couldn’t-export-Python-operator-lt-python-value-gt" class="headerlink" title="[error]RuntimeError: Couldn’t export Python operator &lt;python_value&gt;"></a>[error]RuntimeError: Couldn’t export Python operator &lt;python_value&gt;</h1><p>Pytorch训练过程中使用torch.jit.ScriptModule来trace模型，<code>net.save(path)</code>保存模型时候出现下面的错误：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">File <span class="string">"train.py"</span>, line <span class="number">69</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    train(opt, data_loader, model, visualizer)</span><br><span class="line">  File <span class="string">"train.py"</span>, line <span class="number">42</span>, <span class="keyword">in</span> train</span><br><span class="line">    model.save(<span class="string">'latest'</span>)</span><br><span class="line">  File <span class="string">"/opt/ml/job/models/conditional_gan_model.py"</span>, line <span class="number">132</span>, <span class="keyword">in</span> save</span><br><span class="line">    self.save_network(self.netG, <span class="string">'G'</span>, label, self.gpu_ids)</span><br><span class="line">  File <span class="string">"/opt/ml/job/models/base_model.py"</span>, line <span class="number">49</span>, <span class="keyword">in</span> save_network</span><br><span class="line">    network.save(save_path)</span><br><span class="line">RuntimeError: Couldn<span class="string">'t export Python operator &lt;python_value&gt;</span></span><br><span class="line"><span class="string">Defined at:</span></span><br><span class="line"><span class="string">@torch.jit.script_method</span></span><br><span class="line"><span class="string">def forward(self, x):</span></span><br><span class="line"><span class="string">    output = self.model(x)</span></span><br><span class="line"><span class="string">        ~~~~~~~~~~ &lt;--- HERE</span></span><br><span class="line"><span class="string">    return output</span></span><br><span class="line"><span class="string">===============End of job stdout&amp;stderr==============</span></span><br></pre></td></tr></table></figure>
+<h1 id="error-Import-Error"><a href="#error-Import-Error" class="headerlink" title="[error] Import Error"></a>[error] Import Error</h1><p>安装完<code>pytorch后</code>，导入<code>import torch</code>,出现下面的错误：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">"/home/maxliu/anaconda3/lib/python3.7/site-packages/torch/__init__.py"</span>, line <span class="number">84</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> torch._C <span class="keyword">import</span> *</span><br><span class="line">ImportError: /home/maxliu/anaconda3/lib/python3<span class="number">.7</span>/site-packages/torch/lib/libtorch_python.so: undefined symbol: _ZNK3c104Type11isSubtypeOfESt10shared_ptrIS0_E</span><br></pre></td></tr></table></figure>
+<p>首先我能够明确安装<code>nvidia, cuda, cudnn</code>没有任何问题，那么问题出在哪里了呢，使用命令查看这个符号：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">c++filt _ZNK3c104Type11isSubtypeOfESt10shared_ptrIS0_E</span><br></pre></td></tr></table></figure>
+<p>得到下面的函数：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">c10::Type::isSubtypeOf(<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;c10::Type&gt;) <span class="keyword">const</span></span><br></pre></td></tr></table></figure>
+<p>这里怀疑在搜索<code>c10</code>的库时候链接的版本库出了问题，因为安装的<code>pytorch</code>是最新的版本，而我之前使用过旧的<code>libtorch</code>版本，并且加入到了<code>LD_LIBRARY_PATH</code>，<code>echo $LD_LIBRARY_PATH</code>查看<code>LD_LIBRARY_PATH</code>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">/usr/local/cuda/lib64:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/data/source/libtorch/lib:</span><br></pre></td></tr></table></figure>
+<p>其中<code>/data/source/libtorch/lib</code>就是我之前加入的旧库，<code>import torch</code>引入了旧的库导致找不到符号，在<code>LD_LIBRARY_PATH</code>中去除这个库即可。</p>
+
       
     </div>
 
@@ -492,9 +514,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/pytorch/" rel="tag"># pytorch</a>
-          
             <a href="/tags/bug/" rel="tag"># bug</a>
+          
+            <a href="/tags/pytorch/" rel="tag"># pytorch</a>
           
             <a href="/tags/index/" rel="tag"># index</a>
           
@@ -598,7 +620,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -643,7 +665,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -704,7 +730,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -800,7 +830,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#error-RuntimeError-Couldn’t-export-Python-operator-lt-python-value-gt"><span class="nav-text">[error]RuntimeError: Couldn’t export Python operator &lt;python_value&gt;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#error-RuntimeError-Couldn’t-export-Python-operator-lt-python-value-gt"><span class="nav-text">[error]RuntimeError: Couldn’t export Python operator &lt;python_value&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#error-Import-Error"><span class="nav-text">[error] Import Error</span></a></li></ol></div>
             
 
           </div>
@@ -827,7 +857,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

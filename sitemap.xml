@@ -2,44 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/12/03/libtorch-bug-index/</loc>
+    <loc>http://yoursite.com/2018/12/28/HDR-Project/</loc>
     
-    <lastmod>2018-12-18T20:38:44.850Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/12/11/Artifact-Reduction-Project/</loc>
-    
-    <lastmod>2018-12-11T13:53:32.890Z</lastmod>
+    <lastmod>2019-03-12T09:14:58.541Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/11/30/conda-using-skill/</loc>
+    <loc>http://yoursite.com/2019/03/07/sdr-to-hdr10/</loc>
     
-    <lastmod>2018-12-07T03:06:46.834Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/11/07/install-problems-index/</loc>
-    
-    <lastmod>2018-11-30T13:14:34.764Z</lastmod>
+    <lastmod>2019-03-07T12:58:40.363Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/11/30/pytorch-debug-index/</loc>
+    <loc>http://yoursite.com/2019/01/21/deep-learning-report/</loc>
     
-    <lastmod>2018-11-30T07:53:42.404Z</lastmod>
+    <lastmod>2019-01-22T03:13:42.591Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2018/11/16/linux-any-commands/</loc>
     
-    <lastmod>2018-11-30T07:12:23.823Z</lastmod>
+    <lastmod>2019-01-16T06:18:11.364Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/01/07/deep-learning-architecture/</loc>
+    
+    <lastmod>2019-01-07T11:13:19.806Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/30/pytorch-debug-index/</loc>
+    
+    <lastmod>2018-12-27T12:43:42.427Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/30/conda-using-skill/</loc>
+    
+    <lastmod>2018-12-27T02:21:53.493Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/03/libtorch-bug-index/</loc>
+    
+    <lastmod>2018-12-26T06:35:48.266Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/07/install-problems-index/</loc>
+    
+    <lastmod>2018-12-26T06:35:42.462Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/11/Artifact-Reduction-Project/</loc>
+    
+    <lastmod>2018-12-26T06:35:39.070Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/25/vf-qrestore/</loc>
+    
+    <lastmod>2018-12-25T15:44:39.869Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/19/vim-using-skill/</loc>
+    
+    <lastmod>2018-12-24T08:55:49.770Z</lastmod>
     
   </url>
   

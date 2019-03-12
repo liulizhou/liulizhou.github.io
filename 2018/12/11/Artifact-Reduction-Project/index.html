@@ -139,7 +139,7 @@
 <meta property="og:image" content="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/unringing.png">
 <meta property="og:image" content="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/ringingtest.jpg">
 <meta property="og:image" content="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/ringingtestresult.png">
-<meta property="og:updated_time" content="2018-12-11T13:53:32.890Z">
+<meta property="og:updated_time" content="2018-12-26T06:35:39.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Artifact Reduction Project">
 <meta name="twitter:description" content="本文档简单介绍AR项目及C++ API。">
@@ -406,12 +406,24 @@
                 
               
 
-              <time title="创建时间：2018-12-11 15:46:58 / 修改时间：21:53:32" itemprop="dateCreated datePublished" datetime="2018-12-11T15:46:58+08:00">2018-12-11</time>
+              <time title="创建时间：2018-12-11 15:46:58" itemprop="dateCreated datePublished" datetime="2018-12-11T15:46:58+08:00">2018-12-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-26 14:35:39" itemprop="dateModified" datetime="2018-12-26T14:35:39+08:00">2018-12-26</time>
               
             
           </span>
@@ -472,8 +484,9 @@
       
         <p>本文档简单介绍AR项目及C++ API。</p>
 <a id="more"></a>
-<h2 id="ENCD-Project"><a href="#ENCD-Project" class="headerlink" title="ENCD Project"></a>ENCD Project</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ENCD项目主要是用于去除图像或视频由于压缩导致的块效应和振铃效应，项目有python实现部分和C++实现部分，Python主要用于训练生成模型，C++主要是实现Python生成模型的前匮网络和一些数据处理，用于部署。<br>项目地址：<br>opencv源码地址：<br>libtorch库地址：<br>目录结构：</p>
+<h2 id="ENCD-Project"><a href="#ENCD-Project" class="headerlink" title="ENCD Project"></a>ENCD Project</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ENCD项目主要是用于去除图像或视频由于压缩导致的块效应和振铃效应，项目有python实现部分和C++实现部分，Python主要用于训练生成模型，C++主要是实现Python生成模型的前匮网络和一些数据处理，用于部署。<br>项目地址：ftp /liulizhou/ENCD<br>opencv源码地址：ftp /liulizhou/opencv<br>libtorch库地址：ftp /liulizhou/libtorch<br>目录结构：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── CMakeLists.txt</span><br><span class="line">├── dataprocess.cpp</span><br><span class="line">├── dataprocess.h</span><br><span class="line">├── encd.cpp</span><br><span class="line">├── encd.h</span><br><span class="line">├── img</span><br><span class="line">│   ├── blockresult.png</span><br><span class="line">│   ├── m_01702.png</span><br><span class="line">│   ├── plant_1000.yuv_90.yuv</span><br><span class="line">│   ├── plant_500.yuv_375.yuv</span><br><span class="line">│   ├── plant_500.yuv_405.yuv</span><br><span class="line">│   ├── plant_500.yuv_45.yuv</span><br><span class="line">│   ├── plant_500.yuv_540.yuv</span><br><span class="line">│   ├── plant_500.yuv_570.yuv</span><br><span class="line">│   ├── plant_500.yuv_690.yuv</span><br><span class="line">│   ├── plant_500.yuv_90.yuv</span><br><span class="line">│   ├── ringingtest.jpg</span><br><span class="line">│   └── ringingtestresult.png</span><br><span class="line">├── latest_scriptnet_G.pth</span><br><span class="line">├── model.pt</span><br><span class="line">├── model.pth</span><br><span class="line">├── netG_trace_final.pth</span><br><span class="line">├── pycvt.cpp</span><br><span class="line">├── README.md</span><br><span class="line">├── real_a_s.bin</span><br><span class="line">├── resnet18.pth</span><br><span class="line">├── test_train.pth</span><br><span class="line">├── test_utils.cpp</span><br><span class="line">├── test_utils.h</span><br><span class="line">├── utils.cpp</span><br><span class="line">├── utils.h</span><br><span class="line">├── v_tensor.bin</span><br><span class="line">├── yuv.cpp</span><br><span class="line">└── yuv.h</span><br></pre></td></tr></table></figure>
+<p>目录中使用测试模型：<code>latest_scriptnet_G.pth</code><br>目录中yuv文件图像大小：<code>width 1920 height 1080</code></p>
 <h3 id="块效应"><a href="#块效应" class="headerlink" title="块效应"></a>块效应</h3><p><img src="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/m_01702.png" alt="block"><br><img src="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/blockresult.png" alt="unblock"></p>
 <h3 id="振铃效应"><a href="#振铃效应" class="headerlink" title="振铃效应"></a>振铃效应</h3><p><img src="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/ringing.png" alt="ringing"> <img src="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/unringing.png" alt="unringging"></p>
 <p><img src="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/ringingtest.jpg" alt="ringingtest"><br><img src="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/ringingtestresult.png" alt="unringingtest"></p>
@@ -487,7 +500,7 @@
 <li>opencv source下载如上</li>
 <li>install</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span> -D WITH_TBB=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_GTK2=ON -D WITH_OPENGL=ON ..</span><br><span class="line"></span><br><span class="line">make -j7</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line"></span><br><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span> -D WITH_TBB=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_GTK2=ON -D WITH_OPENGL=ON ..</span><br><span class="line"></span><br><span class="line">make -j7</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 <h3 id="编译ENCD工程"><a href="#编译ENCD工程" class="headerlink" title="编译ENCD工程"></a>编译ENCD工程</h3><p>工程使用C++11标准，主要依赖opencv和libtorch库，opencv在cmakelist文件中通过<code>find_package</code>自动寻找库安装路径，需要指定libtorch库路径进行编译，命令如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -DCMAKE-PREFIX-PATH=/path-to-libtorch ..</span><br></pre></td></tr></table></figure>
 <h3 id="命令行使用"><a href="#命令行使用" class="headerlink" title="命令行使用"></a>命令行使用</h3><p>编译完成后，生成pycvt可执行文件，可运行程序进行图像或视频质量增强。</p>
@@ -510,7 +523,7 @@
 <h3 id="静态库文件使用"><a href="#静态库文件使用" class="headerlink" title="静态库文件使用"></a>静态库文件使用</h3><p>编译完成后，会生成动态shencd.so和静态库文件stencd.a，可集成到项目中,主要使用其中对yuv数据进行增强函数，函数定义如下：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">@param src: source yuv420 data</span><br><span class="line">@param dst: enhanced output yuv420 data</span><br><span class="line">@param width: src yuv420 data width</span><br><span class="line">@param height: src yuv420 data height</span><br><span class="line">@param model_path: model path <span class="keyword">for</span> image enhancd</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">encd_image_fix</span><span class="params">(<span class="keyword">uint8_t</span>* src, <span class="keyword">uint8_t</span>* dst, <span class="keyword">int</span> width, <span class="keyword">int</span> height, <span class="built_in">string</span> model_path)</span></span></span><br></pre></td></tr></table></figure>
 <h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p>测试图像例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">width: <span class="number">1080</span></span><br><span class="line">height: <span class="number">576</span></span><br><span class="line">model size: <span class="number">6.2</span>M</span><br><span class="line">model init: <span class="number">19.71</span>ms</span><br><span class="line">data preprocess: </span><br><span class="line">forward: <span class="number">16.21</span>ms</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">width: <span class="number">1024</span></span><br><span class="line">height: <span class="number">576</span></span><br><span class="line">model size: <span class="number">6.2</span>M</span><br><span class="line">model init: <span class="number">19.71</span>ms</span><br><span class="line">data preprocess: <span class="number">84.16</span>ms</span><br><span class="line">forward: <span class="number">16.21</span>ms</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -552,6 +565,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/19/vim-using-skill/" rel="prev" title="vim-using-skill">
+                vim-using-skill <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -628,7 +645,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -673,7 +690,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -734,7 +755,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -857,7 +882,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
