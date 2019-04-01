@@ -208,9 +208,9 @@
     
       <category term="bug" scheme="http://yoursite.com/tags/bug/"/>
     
-      <category term="index" scheme="http://yoursite.com/tags/index/"/>
-    
       <category term="pytorch" scheme="http://yoursite.com/tags/pytorch/"/>
+    
+      <category term="index" scheme="http://yoursite.com/tags/index/"/>
     
   </entry>
   
@@ -492,11 +492,11 @@
     
       <category term="AR" scheme="http://yoursite.com/tags/AR/"/>
     
-      <category term="CNN" scheme="http://yoursite.com/tags/CNN/"/>
-    
       <category term="ICCV" scheme="http://yoursite.com/tags/ICCV/"/>
     
       <category term="Paper" scheme="http://yoursite.com/tags/Paper/"/>
+    
+      <category term="CNN" scheme="http://yoursite.com/tags/CNN/"/>
     
   </entry>
   
