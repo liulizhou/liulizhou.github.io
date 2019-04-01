@@ -1,119 +1,151 @@
 <!DOCTYPE html>
-<html lang="zh-CN" >
+<html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="身后有尾巴!!!">
-	<meta name="keywords" content="Blog">
-	<title>Deep Generative Adversarial Compression Artifact Removal - Liu Lizhou</title>
-    <link rel="alternate" href type="application/atom+xml">
-	<link rel="shortcut icon" href>
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="/css/style.css">
+    <meta charset="utf-8">
+<title>Deep Generative Adversarial Compression Artifact Removal - Liu Lizhou</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="身后有尾巴!!!">
+
+
+
+<meta name="keywords" content="Blog">
+
+
+
+    <meta name="description" content="论文分析，文章2017年发表在ICCV上，使用GAN做压缩失真消除">
+<meta name="keywords" content="AR,ICCV,Paper,GAN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Generative Adversarial Compression Artifact Removal">
+<meta property="og:url" content="http://liulizhou.github.io/2018/09/20/iccv-2017-gan-ar/index.html">
+<meta property="og:site_name" content="Liu Lizhou">
+<meta property="og:description" content="论文分析，文章2017年发表在ICCV上，使用GAN做压缩失真消除">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-02T17:11:38.439Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deep Generative Adversarial Compression Artifact Removal">
+<meta name="twitter:description" content="论文分析，文章2017年发表在ICCV上，使用GAN做压缩失真消除">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
 </head>
-
 <body>
-	<div class="body-box">
-		<!-- 内容 -->
-		<div class="content-box">
-			<div class="sidebar">
-	<div class="widget-me">
-			<h2 class="me-name">
-					<a href="/">llz</a>
-					<small>271</small>
-			</h2>
-			<div class="me-avatar">
-					<a href="/"><img src="/imgs/avatar.jpeg"></a>
-			</div>
-	</div>
-	<div class="sidebar-wrap">
-		<div class="widget-account">
-				<ul>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-github"></i>
-								</a>
-						</li>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-facebook"></i>
-								</a>
-						</li>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-google"></i>
-								</a>
-						</li>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-instagram"></i>
-								</a>
-						</li>
-					
-				</ul>
-		</div>
-		<div class="widget-nav">
-				<nav class="nav-list">
-						<ul>
-								
-										<li>
-												<a href="/" class>
-														<span>主页</span>
-												</a>
-										</li>
-								
-										<li>
-												<a href="/archives/" class>
-														<span>归档</span>
-												</a>
-										</li>
-								
-										<li>
-												<a href="/about/" class>
-														<span>关于</span>
-												</a>
-										</li>
-								
-						</ul>
-				</nav>
-		</div>
-		<div class="widget-search">
-			<h2 class="widget-title">搜索</h2>
-			<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search"><input type="search" name="q" class="search-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://liulizhou.github.io"></form>
-		</div>
-		
-			<div class="widget-late">
-			<h2 class="widget-title">近期</h2>
-			<ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/21/deep-learning-report/">deep-learning-report</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/deep-learning-architecture/">deep-learning-architecture</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/HDR-Project/">HDR-Project</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/vf-qrestore/">vf_qrestore</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/19/vim-using-skill/">vim-using-skill</a></li></ul>
-		</div>
-		
-		<div class="widget-tags">
-			<h2 class="widget-title">标签</h2>
-			<a href="/tags/AR/" style="font-size: 17.5px;">AR</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/ICCV/" style="font-size: 12.5px;">ICCV</a> <a href="/tags/IQ/" style="font-size: 10px;">IQ</a> <a href="/tags/Paper/" style="font-size: 12.5px;">Paper</a> <a href="/tags/VQ/" style="font-size: 10px;">VQ</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/bug/" style="font-size: 15px;">bug</a> <a href="/tags/command/" style="font-size: 12.5px;">command</a> <a href="/tags/conda/" style="font-size: 10px;">conda</a> <a href="/tags/cute/" style="font-size: 10px;">cute</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/gflags/" style="font-size: 10px;">gflags</a> <a href="/tags/hansome/" style="font-size: 10px;">hansome</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i3/" style="font-size: 10px;">i3</a> <a href="/tags/index/" style="font-size: 15px;">index</a> <a href="/tags/install/" style="font-size: 15px;">install</a> <a href="/tags/libtorch/" style="font-size: 10px;">libtorch</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mount/" style="font-size: 10px;">mount</a> <a href="/tags/pytorch/" style="font-size: 12.5px;">pytorch</a> <a href="/tags/qrestore/" style="font-size: 10px;">qrestore</a> <a href="/tags/skill/" style="font-size: 10px;">skill</a> <a href="/tags/卷积，反卷积/" style="font-size: 10px;">卷积，反卷积</a>
-		</div>
-		<div class="widget-categories">
-			<h2 class="widget-title">分类</h2>
-			<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AR/">AR</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Process/">Image Process</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/conda/">conda</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gflags/">gflags</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/gflags/libtorch/">libtorch</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/i3/">i3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/install/">install</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/install/bug/">bug</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/index/">index</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/pytorch/">pytorch</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/pytorch/index/">index</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/qiyi-ffmpeg-filter/">qiyi-ffmpeg-filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/report/">report</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/人物/">人物</a><span class="category-list-count">1</span></li></ul>
-		</div>
-	</div>
-</div>
-
-			<div class="content-article">
-				<div class="banner" style="background-image: url(/imgs/header.jpg)">
-					<i class="fa fa-reorder mobile-toggle" style="display:none;"></i>
-				</div>
-				<div class="content-article-box">
-					<article class="article  article-post">
-    <h2 class="article-title cl">
-        <a href="/2018/09/20/iccv-2017-gan-ar/" title="Deep Generative Adversarial Compression Artifact Removal">Deep Generative Adversarial Compression Artifact Removal</a>
-        <small class="article-time">2018-09-20</small>
-    </h2>
-    <div class="article-con">
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
         
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">Archives</a>
+            
+            <a class="navbar-item " href="/categories/LifeStyle">Lifestyle</a>
+            
+            <a class="navbar-item " href="/categories/Music">Music</a>
+            
+            <a class="navbar-item " href="/categories/Technology">Technology</a>
+            
+            <a class="navbar-item " href="/about">About</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="Search" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Deep Generative Adversarial Compression Artifact Removal
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-09-20T09:45:00.000Z" itemprop="datePublished">9月 20 2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Deep-Learning/">Deep Learning</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分钟 read (About 195 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
         <p>论文分析，文章2017年发表在ICCV上，使用GAN做压缩失真消除<br><a id="more"></a></p>
 <p>这篇文章是2017年ICCV的一篇文章， 主要是用GAN做压缩失真的消除，关于图像和视频压缩失真，前面的文章已经讨论过这个问题，感兴趣的可以查看这篇博客。</p>
 <h3 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h3><p>研究深度网络主要关注一下几点：</p>
@@ -123,72 +155,243 @@
 <p>本文使用GAN，一个生成网络和一个判别网络</p>
 <h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>下图是整个网络结构的架构图</p>
 <h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3>
+    
     </div>
     
-    <div class="article-navgition">
-        <div class="navgition-wrap">
-            
-                <div class="navgition-prev">
-                    <h2 class="navgition-title">上一篇: <a href="/2018/09/20/iccv-2015-arcnn/"> Compression Artifacts Removal Using Convolutional Neural Networks </a></h2>
-                </div>
-            
-
-            
-                <div class="navgition-next">
-                    <h2 class="navgition-title">下一篇: <a href="/2018/09/20/liulizhou/">liulizhou </a></h2>
-                </div>
-            
-        </div>
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/AR/">#AR</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/ICCV/">#ICCV</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Paper/">#Paper</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/GAN/">#GAN</a></span>
+    
     </div>
     
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2018/09/20/iccv-2015-arcnn/">Compression Artifacts Removal Using Convolutional Neural Networks</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2018/09/20/liulizhou/">liulizhou</a>
+            
+        </span>
+    </div>
     
 </article>
 
-				</div>
-				
-				<footer class="footer">
-	<p class="footer-intro">
-		
-		@2019 Liu Lizhou.
-	</p>
-	<p class="footer-intro">
-			Powered By <a href="https://hexo.io/zh-cn/" target="_blank">hexo</a>
-			theme <a href="https://github.com/shijuuu/hexo-theme-mokusei" target="_blank">Mokusei</a> by <a href="https://blog.shijukun.com" target="blank">Shiju</a>
-	</p>
-</footer>
 
-<script src="/js/org/jquery.min.js"></script>
+<div class="sharebox">
+    
+<div class="notification is-danger">
+    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
+</div>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
+    
+<div id="disqus_thread">
+    
+    <div class="notification is-danger">
+        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
+    </div>
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 Maxliu&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
 
 <script>
-	(function(){
-		var mobile_menu = $(".mobile-toggle");
-		var con_box= $(".content-article");
-		var ifs = 1;
-		mobile_menu.on("touchstart", function(){
-			if(ifs){
-				con_box.css('overflow','hidden');
-				con_box.animate({
-					left: '250px'
-				});
-				ifs = 0;
-			}else{
-				con_box.css('overflow','visible');
-				con_box.animate({
-					left: '0px'
-				});
-				ifs = 1;
-			}
-		})
-	})();
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
 </script>
 
 
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+      })
+    </script>
+
+    
+    
+
+    
 
 
-				
-			</div>
-		</div>
-		
-	</div>
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
 </body>
 </html>

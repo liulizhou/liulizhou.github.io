@@ -1,132 +1,159 @@
 <!DOCTYPE html>
-<html lang="zh-CN" >
+<html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="身后有尾巴!!!">
-	<meta name="keywords" content="Blog">
-	<title>Libtorch中的bug - Liu Lizhou</title>
-    <link rel="alternate" href type="application/atom+xml">
-	<link rel="shortcut icon" href>
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="/css/style.css">
+    <meta charset="utf-8">
+<title>Libtorch中的bug - Liu Lizhou</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="身后有尾巴!!!">
+
+
+
+<meta name="keywords" content="Blog">
+
+
+
+    <meta name="description" content="这篇文件记录了使用libtorch过程中运到的一些bug">
+<meta name="keywords" content="Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Libtorch中的bug">
+<meta property="og:url" content="http://liulizhou.github.io/2018/12/03/libtorch-bug-index/index.html">
+<meta property="og:site_name" content="Liu Lizhou">
+<meta property="og:description" content="这篇文件记录了使用libtorch过程中运到的一些bug">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-26T06:35:48.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Libtorch中的bug">
+<meta name="twitter:description" content="这篇文件记录了使用libtorch过程中运到的一些bug">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
 </head>
-
 <body>
-	<div class="body-box">
-		<!-- 内容 -->
-		<div class="content-box">
-			<div class="sidebar">
-	<div class="widget-me">
-			<h2 class="me-name">
-					<a href="/">llz</a>
-					<small>271</small>
-			</h2>
-			<div class="me-avatar">
-					<a href="/"><img src="/imgs/avatar.jpeg"></a>
-			</div>
-	</div>
-	<div class="sidebar-wrap">
-		<div class="widget-account">
-				<ul>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-github"></i>
-								</a>
-						</li>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-facebook"></i>
-								</a>
-						</li>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-google"></i>
-								</a>
-						</li>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-instagram"></i>
-								</a>
-						</li>
-					
-				</ul>
-		</div>
-		<div class="widget-nav">
-				<nav class="nav-list">
-						<ul>
-								
-										<li>
-												<a href="/" class>
-														<span>主页</span>
-												</a>
-										</li>
-								
-										<li>
-												<a href="/archives/" class>
-														<span>归档</span>
-												</a>
-										</li>
-								
-										<li>
-												<a href="/about/" class>
-														<span>关于</span>
-												</a>
-										</li>
-								
-						</ul>
-				</nav>
-		</div>
-		<div class="widget-search">
-			<h2 class="widget-title">搜索</h2>
-			<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search"><input type="search" name="q" class="search-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://liulizhou.github.io"></form>
-		</div>
-		
-			<div class="widget-late">
-			<h2 class="widget-title">近期</h2>
-			<ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/21/deep-learning-report/">deep-learning-report</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/deep-learning-architecture/">deep-learning-architecture</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/HDR-Project/">HDR-Project</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/vf-qrestore/">vf_qrestore</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/19/vim-using-skill/">vim-using-skill</a></li></ul>
-		</div>
-		
-		<div class="widget-tags">
-			<h2 class="widget-title">标签</h2>
-			<a href="/tags/AR/" style="font-size: 17.5px;">AR</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/ICCV/" style="font-size: 12.5px;">ICCV</a> <a href="/tags/IQ/" style="font-size: 10px;">IQ</a> <a href="/tags/Paper/" style="font-size: 12.5px;">Paper</a> <a href="/tags/VQ/" style="font-size: 10px;">VQ</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/bug/" style="font-size: 15px;">bug</a> <a href="/tags/command/" style="font-size: 12.5px;">command</a> <a href="/tags/conda/" style="font-size: 10px;">conda</a> <a href="/tags/cute/" style="font-size: 10px;">cute</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/gflags/" style="font-size: 10px;">gflags</a> <a href="/tags/hansome/" style="font-size: 10px;">hansome</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i3/" style="font-size: 10px;">i3</a> <a href="/tags/index/" style="font-size: 15px;">index</a> <a href="/tags/install/" style="font-size: 15px;">install</a> <a href="/tags/libtorch/" style="font-size: 10px;">libtorch</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mount/" style="font-size: 10px;">mount</a> <a href="/tags/pytorch/" style="font-size: 12.5px;">pytorch</a> <a href="/tags/qrestore/" style="font-size: 10px;">qrestore</a> <a href="/tags/skill/" style="font-size: 10px;">skill</a> <a href="/tags/卷积，反卷积/" style="font-size: 10px;">卷积，反卷积</a>
-		</div>
-		<div class="widget-categories">
-			<h2 class="widget-title">分类</h2>
-			<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AR/">AR</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Process/">Image Process</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/conda/">conda</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gflags/">gflags</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/gflags/libtorch/">libtorch</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/i3/">i3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/install/">install</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/install/bug/">bug</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/index/">index</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/pytorch/">pytorch</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/pytorch/index/">index</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/qiyi-ffmpeg-filter/">qiyi-ffmpeg-filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/report/">report</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/人物/">人物</a><span class="category-list-count">1</span></li></ul>
-		</div>
-	</div>
-</div>
-
-			<div class="content-article">
-				<div class="banner" style="background-image: url(/imgs/header.jpg)">
-					<i class="fa fa-reorder mobile-toggle" style="display:none;"></i>
-				</div>
-				<div class="content-article-box">
-					<article class="article  article-post">
-    <h2 class="article-title cl">
-        <a href="/2018/12/03/libtorch-bug-index/" title="Libtorch中的bug">Libtorch中的bug</a>
-        <small class="article-time">2018-12-03</small>
-    </h2>
-    <div class="article-con">
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
         
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">Archives</a>
+            
+            <a class="navbar-item " href="/categories/LifeStyle">Lifestyle</a>
+            
+            <a class="navbar-item " href="/categories/Music">Music</a>
+            
+            <a class="navbar-item " href="/categories/Technology">Technology</a>
+            
+            <a class="navbar-item " href="/about">About</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="Search" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Libtorch中的bug
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-12-03T14:44:53.000Z" itemprop="datePublished">12月 3 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            5 分钟 read (About 789 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
         <p>这篇文件记录了使用libtorch过程中运到的一些bug</p>
 <a id="more"></a>
 <h1 id="module-gt-get-parameters"><a href="#module-gt-get-parameters" class="headerlink" title="module-&gt;get_parameters()"></a>module-&gt;get_parameters()</h1><p>使用下面的调用方式：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> torch::OrderedDict&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, torch::jit::script::NamedParameter&gt; param = <span class="keyword">module</span>-&gt;get_parameters();</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++ hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> torch::OrderedDict&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, torch::jit::script::NamedParameter&gt; param = <span class="hljs-keyword">module</span>-&gt;get_parameters();</span><br></pre></td></tr></table></figure>
 <p>报下面的错误：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">/usr/include/c++/<span class="number">5</span>/ext/new_allocator.h:<span class="number">120</span>:<span class="number">4</span>: error: use of deleted function ‘torch::OrderedDict&lt;std::basic_string&lt;char&gt;, torch::jit::script::NamedParameter&gt;::Item::Item(const torch::OrderedDict&lt;std::basic_string&lt;char&gt;, torch::jit::script::NamedParameter&gt;::Item&amp;)’&#123; ::new((void *)__p) _Up(std::forward&lt;_Args&gt;(__args)...); &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">/usr/include/c++/<span class="hljs-number">5</span>/ext/new_allocator.h:<span class="hljs-number">120</span>:<span class="hljs-number">4</span>: error: use of deleted function ‘torch::OrderedDict&lt;std::basic_string&lt;char&gt;, torch::jit::script::NamedParameter&gt;::Item::Item(const torch::OrderedDict&lt;std::basic_string&lt;char&gt;, torch::jit::script::NamedParameter&gt;::Item&amp;)’&#123; ::new((void *)__p) _Up(std::forward&lt;_Args&gt;(__args)...); &#125;</span><br></pre></td></tr></table></figure>
 <p>需要看下<code>get_parameters()</code>的返回类型：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> torch::OrderedDict&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, NamedParameter&gt;&amp; get_parameters() <span class="keyword">const</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> parameters;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++ hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> torch::OrderedDict&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, NamedParameter&gt;&amp; get_parameters() <span class="hljs-keyword">const</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> parameters;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>get_parameters()</code>返回的是const类型的引用，不能使用一个引用赋值给一个对象，应该使用下面的调用方式：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> torch::OrderedDict&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, torch::jit::script::NamedParameter&gt;&amp; param = <span class="keyword">module</span>-&gt;get_parameters();</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++ hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> torch::OrderedDict&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, torch::jit::script::NamedParameter&gt;&amp; param = <span class="hljs-keyword">module</span>-&gt;get_parameters();</span><br></pre></td></tr></table></figure>
 <p>这里论述下面的两个问题：</p>
 <h2 id="关于const的使用"><a href="#关于const的使用" class="headerlink" title="关于const的使用"></a>关于const的使用</h2><h2 id="关于引用、对象的使用"><a href="#关于引用、对象的使用" class="headerlink" title="关于引用、对象的使用"></a>关于引用、对象的使用</h2><h1 id="libtorch和pytorch的版本问题"><a href="#libtorch和pytorch的版本问题" class="headerlink" title="libtorch和pytorch的版本问题"></a>libtorch和pytorch的版本问题</h1><p>高版本的pytorch trace生成的model不能用低版本的litorch load, 否则报下面的异常：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">terminate called after throwing an instance of <span class="string">'c10::Error'</span></span><br><span class="line">  what():  tag == RecordTags::FOOTER ASSERT FAILED at /pytorch/caffe2/serialize/inline_container.h:234, please report a bug to PyTorch. File footer has wrong record type. Is this file corrupted? (readAndV</span><br><span class="line">alidateFileFooter at /pytorch/caffe2/serialize/inline_container.h:<span class="number">234</span>)</span><br><span class="line">frame <span class="comment">#0: std::function&lt;std::string ()&gt;::operator()() const + 0x11 (0x7f95aad91b81 in /data/source/libtorch/lib/libc10.so)</span></span><br><span class="line">frame <span class="comment">#1: c10::Error::Error(c10::SourceLocation, std::string const&amp;) + 0x2a (0x7f95aad9144a in /data/source/libtorch/lib/libc10.so)</span></span><br><span class="line">frame <span class="comment">#2: &lt;unknown function&gt; + 0x682b0e (0x7f95d7c91b0e in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="comment">#3: &lt;unknown function&gt; + 0x686833 (0x7f95d7c95833 in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="comment">#4: &lt;unknown function&gt; + 0x67b5f9 (0x7f95d7c8a5f9 in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="comment">#5: torch::jit::load(std::istream&amp;) + 0x7c (0x7f95d7c9018c in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="comment">#6: torch::jit::load(std::string const&amp;) + 0x130 (0x7f95d7c903b0 in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="comment">#7: init_model(std::shared_ptr&lt;torch::jit::script::Module&gt;&amp;, std::string) + 0x50 (0x43d9d0 in ./pycvt)</span></span><br><span class="line">frame <span class="comment">#8: main + 0x8f (0x452862 in ./pycvt)</span></span><br><span class="line">frame <span class="comment">#9: __libc_start_main + 0xf0 (0x7f95aa433830 in /lib/x86_64-linux-gnu/libc.so.6)</span></span><br><span class="line">frame <span class="comment">#10: _start + 0x29 (0x43c4b9 in ./pycvt)</span></span><br><span class="line"></span><br><span class="line">已放弃</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">terminate called after throwing an instance of <span class="hljs-string">'c10::Error'</span></span><br><span class="line">  what():  tag == RecordTags::FOOTER ASSERT FAILED at /pytorch/caffe2/serialize/inline_container.h:234, please report a bug to PyTorch. File footer has wrong record type. Is this file corrupted? (readAndV</span><br><span class="line">alidateFileFooter at /pytorch/caffe2/serialize/inline_container.h:<span class="hljs-number">234</span>)</span><br><span class="line">frame <span class="hljs-comment">#0: std::function&lt;std::string ()&gt;::operator()() const + 0x11 (0x7f95aad91b81 in /data/source/libtorch/lib/libc10.so)</span></span><br><span class="line">frame <span class="hljs-comment">#1: c10::Error::Error(c10::SourceLocation, std::string const&amp;) + 0x2a (0x7f95aad9144a in /data/source/libtorch/lib/libc10.so)</span></span><br><span class="line">frame <span class="hljs-comment">#2: &lt;unknown function&gt; + 0x682b0e (0x7f95d7c91b0e in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="hljs-comment">#3: &lt;unknown function&gt; + 0x686833 (0x7f95d7c95833 in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="hljs-comment">#4: &lt;unknown function&gt; + 0x67b5f9 (0x7f95d7c8a5f9 in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="hljs-comment">#5: torch::jit::load(std::istream&amp;) + 0x7c (0x7f95d7c9018c in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="hljs-comment">#6: torch::jit::load(std::string const&amp;) + 0x130 (0x7f95d7c903b0 in /data/source/libtorch/lib/libtorch.so.1)</span></span><br><span class="line">frame <span class="hljs-comment">#7: init_model(std::shared_ptr&lt;torch::jit::script::Module&gt;&amp;, std::string) + 0x50 (0x43d9d0 in ./pycvt)</span></span><br><span class="line">frame <span class="hljs-comment">#8: main + 0x8f (0x452862 in ./pycvt)</span></span><br><span class="line">frame <span class="hljs-comment">#9: __libc_start_main + 0xf0 (0x7f95aa433830 in /lib/x86_64-linux-gnu/libc.so.6)</span></span><br><span class="line">frame <span class="hljs-comment">#10: _start + 0x29 (0x43c4b9 in ./pycvt)</span></span><br><span class="line"></span><br><span class="line">已放弃</span><br></pre></td></tr></table></figure>
 <h1 id="qiyi-ffmpeg链接libtorch"><a href="#qiyi-ffmpeg链接libtorch" class="headerlink" title="qiyi-ffmpeg链接libtorch"></a>qiyi-ffmpeg链接libtorch</h1><p>主要功能文件如下：</p>
 <ol>
 <li><p><code>vf_qrestore.c filter</code>功能实现文件，ffmpeg调用转换得到数据类型后调用<code>qrestore_wrapper</code></p>
@@ -138,80 +165,239 @@
 </ol>
 <p>测试简单版本vf_qrestore.c和wrapper没有问题</p>
 <p>qiiyi-ffmpeg编译</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./configure --<span class="built_in">enable</span>-cross-compile --<span class="built_in">enable</span>-yasm  --<span class="built_in">enable</span>-static   --<span class="built_in">enable</span>-nonfree --<span class="built_in">enable</span>-gpl   --<span class="built_in">disable</span>-filter=intertrustwm --<span class="built_in">disable</span>-filter=iqiyiwm --<span class="built_in">disable</span>-filter=css   --<span class="built_in">disable</span>-optimizations --extra-cflags=<span class="string">"-I/home/maxliu/eclipse_201908-workspace/wrappertest/src -I/home/maxliu/eclipse_201908-workspace/Qrestore/src"</span> --extra-ldflags=<span class="string">"-L/data/source/libtorch/lib -L/home/maxliu/eclipse_201908-workspace/wrappertest/src -L/home/maxliu/eclipse_201908-workspace/Qrestore/src/build"</span> --extra-libs=<span class="string">'-lCppAddWrapper -lCppAdd -lstqrestore_wrapper -lstqrestore -ltorch -lc10_cuda -lc10 -llibcudart-5d6d23a3.so.8.0.61 -llibgomp-7bcb08ae.so.1 -llibnvrtc-56d4825a.so.8.0.61 -lnvrtc-builtins -llibnvToolsExt-422e3301.so.1 -llibtorch.so.1 -lstdc++'</span> --prefix=/usr/<span class="built_in">local</span>/ffmpeg_new_master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">./configure --<span class="hljs-built_in">enable</span>-cross-compile --<span class="hljs-built_in">enable</span>-yasm  --<span class="hljs-built_in">enable</span>-static   --<span class="hljs-built_in">enable</span>-nonfree --<span class="hljs-built_in">enable</span>-gpl   --<span class="hljs-built_in">disable</span>-filter=intertrustwm --<span class="hljs-built_in">disable</span>-filter=iqiyiwm --<span class="hljs-built_in">disable</span>-filter=css   --<span class="hljs-built_in">disable</span>-optimizations --extra-cflags=<span class="hljs-string">"-I/home/maxliu/eclipse_201908-workspace/wrappertest/src -I/home/maxliu/eclipse_201908-workspace/Qrestore/src"</span> --extra-ldflags=<span class="hljs-string">"-L/data/source/libtorch/lib -L/home/maxliu/eclipse_201908-workspace/wrappertest/src -L/home/maxliu/eclipse_201908-workspace/Qrestore/src/build"</span> --extra-libs=<span class="hljs-string">'-lCppAddWrapper -lCppAdd -lstqrestore_wrapper -lstqrestore -ltorch -lc10_cuda -lc10 -llibcudart-5d6d23a3.so.8.0.61 -llibgomp-7bcb08ae.so.1 -llibnvrtc-56d4825a.so.8.0.61 -lnvrtc-builtins -llibnvToolsExt-422e3301.so.1 -llibtorch.so.1 -lstdc++'</span> --prefix=/usr/<span class="hljs-built_in">local</span>/ffmpeg_new_master</span><br></pre></td></tr></table></figure>
 <p><code>--extra-libs=&#39;-lCppAddWrapper -lCppAdd</code>中<code>-lCppAddWrapper</code>和<code>-lCppAdd</code>顺序不能颠倒</p>
 <p>configure_qiyi_simple.sh通过，编译Error:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gcc <span class="keyword">is</span> unable to create an executable file.</span><br><span class="line">If gcc <span class="keyword">is</span> a cross-compiler, use the --enable-cross-compile option.</span><br><span class="line">Only do this <span class="keyword">if</span> you know what cross compiling means.</span><br><span class="line">C compiler test failed.</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">gcc <span class="hljs-keyword">is</span> unable to create an executable file.</span><br><span class="line">If gcc <span class="hljs-keyword">is</span> a cross-compiler, use the --enable-cross-compile option.</span><br><span class="line">Only do this <span class="hljs-keyword">if</span> you know what cross compiling means.</span><br><span class="line">C compiler test failed.</span><br></pre></td></tr></table></figure>
 <p>编译pytorch source</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[ <span class="number">68</span>%] Linking CXX shared library ../lib/libcaffe2.so</span><br><span class="line">[ <span class="number">68</span>%] Built target caffe2</span><br><span class="line">Makefile:<span class="number">140</span>: recipe <span class="keyword">for</span> target <span class="string">'all'</span> failed</span><br><span class="line">make: *** [all] Error <span class="number">2</span></span><br><span class="line">Failed to run <span class="string">'bash ../tools/build_pytorch_libs.sh --use-cuda --use-fbgemm --use-nnpack --use-mkldnn --use-qnnpack caffe2'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">[ <span class="hljs-number">68</span>%] Linking CXX shared library ../lib/libcaffe2.so</span><br><span class="line">[ <span class="hljs-number">68</span>%] Built target caffe2</span><br><span class="line">Makefile:<span class="hljs-number">140</span>: recipe <span class="hljs-keyword">for</span> target <span class="hljs-string">'all'</span> failed</span><br><span class="line">make: *** [all] Error <span class="hljs-number">2</span></span><br><span class="line">Failed to run <span class="hljs-string">'bash ../tools/build_pytorch_libs.sh --use-cuda --use-fbgemm --use-nnpack --use-mkldnn --use-qnnpack caffe2'</span></span><br></pre></td></tr></table></figure>
 <p>编译pytorch source需要cuDNN &gt; 7, ATen 模块至少需要6以上版本，所以最好更新cudnn到比较高的版本</p>
 
+    
     </div>
     
-    <div class="article-navgition">
-        <div class="navgition-wrap">
-            
-                <div class="navgition-prev">
-                    <h2 class="navgition-title">上一篇: <a href="/2018/12/11/Artifact-Reduction-Project/"> Artifact Reduction Project </a></h2>
-                </div>
-            
-
-            
-                <div class="navgition-next">
-                    <h2 class="navgition-title">下一篇: <a href="/2018/11/30/conda-using-skill/">conda-using-skill </a></h2>
-                </div>
-            
-        </div>
-    </div>
     
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2018/12/11/Artifact-Reduction-Project/">Artifact Reduction Project</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2018/11/30/conda-using-skill/">conda-using-skill</a>
+            
+        </span>
+    </div>
     
 </article>
 
-				</div>
-				
-				<footer class="footer">
-	<p class="footer-intro">
-		
-		@2019 Liu Lizhou.
-	</p>
-	<p class="footer-intro">
-			Powered By <a href="https://hexo.io/zh-cn/" target="_blank">hexo</a>
-			theme <a href="https://github.com/shijuuu/hexo-theme-mokusei" target="_blank">Mokusei</a> by <a href="https://blog.shijukun.com" target="blank">Shiju</a>
-	</p>
-</footer>
 
-<script src="/js/org/jquery.min.js"></script>
+<div class="sharebox">
+    
+<div class="notification is-danger">
+    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
+</div>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
+    
+<div id="disqus_thread">
+    
+    <div class="notification is-danger">
+        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
+    </div>
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 Maxliu&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
 
 <script>
-	(function(){
-		var mobile_menu = $(".mobile-toggle");
-		var con_box= $(".content-article");
-		var ifs = 1;
-		mobile_menu.on("touchstart", function(){
-			if(ifs){
-				con_box.css('overflow','hidden');
-				con_box.animate({
-					left: '250px'
-				});
-				ifs = 0;
-			}else{
-				con_box.css('overflow','visible');
-				con_box.animate({
-					left: '0px'
-				});
-				ifs = 1;
-			}
-		})
-	})();
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
 </script>
 
 
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+      })
+    </script>
+
+    
+    
+
+    
 
 
-				
-			</div>
-		</div>
-		
-	</div>
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
 </body>
 </html>

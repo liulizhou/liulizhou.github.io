@@ -1,234 +1,437 @@
 <!DOCTYPE html>
-<html lang="zh-CN" >
+<html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="身后有尾巴!!!">
-	<meta name="keywords" content="Blog">
-	<title>各种安装BUG记录 - Liu Lizhou</title>
-    <link rel="alternate" href type="application/atom+xml">
-	<link rel="shortcut icon" href>
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="/css/style.css">
-</head>
+    <meta charset="utf-8">
+<title>各种安装BUG记录 - Liu Lizhou</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<body>
-	<div class="body-box">
-		<!-- 内容 -->
-		<div class="content-box">
-			<div class="sidebar">
-	<div class="widget-me">
-			<h2 class="me-name">
-					<a href="/">llz</a>
-					<small>271</small>
-			</h2>
-			<div class="me-avatar">
-					<a href="/"><img src="/imgs/avatar.jpeg"></a>
-			</div>
-	</div>
-	<div class="sidebar-wrap">
-		<div class="widget-account">
-				<ul>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-github"></i>
-								</a>
-						</li>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-facebook"></i>
-								</a>
-						</li>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-google"></i>
-								</a>
-						</li>
-					
-						<li>
-								<a href="/">
-										<i class="fa fa-instagram"></i>
-								</a>
-						</li>
-					
-				</ul>
-		</div>
-		<div class="widget-nav">
-				<nav class="nav-list">
-						<ul>
-								
-										<li>
-												<a href="/" class>
-														<span>主页</span>
-												</a>
-										</li>
-								
-										<li>
-												<a href="/archives/" class>
-														<span>归档</span>
-												</a>
-										</li>
-								
-										<li>
-												<a href="/about/" class>
-														<span>关于</span>
-												</a>
-										</li>
-								
-						</ul>
-				</nav>
-		</div>
-		<div class="widget-search">
-			<h2 class="widget-title">搜索</h2>
-			<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search"><input type="search" name="q" class="search-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://liulizhou.github.io"></form>
-		</div>
-		
-			<div class="widget-late">
-			<h2 class="widget-title">近期</h2>
-			<ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/21/deep-learning-report/">deep-learning-report</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/deep-learning-architecture/">deep-learning-architecture</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/HDR-Project/">HDR-Project</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/vf-qrestore/">vf_qrestore</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/19/vim-using-skill/">vim-using-skill</a></li></ul>
-		</div>
-		
-		<div class="widget-tags">
-			<h2 class="widget-title">标签</h2>
-			<a href="/tags/AR/" style="font-size: 17.5px;">AR</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/ICCV/" style="font-size: 12.5px;">ICCV</a> <a href="/tags/IQ/" style="font-size: 10px;">IQ</a> <a href="/tags/Paper/" style="font-size: 12.5px;">Paper</a> <a href="/tags/VQ/" style="font-size: 10px;">VQ</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/bug/" style="font-size: 15px;">bug</a> <a href="/tags/command/" style="font-size: 12.5px;">command</a> <a href="/tags/conda/" style="font-size: 10px;">conda</a> <a href="/tags/cute/" style="font-size: 10px;">cute</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/gflags/" style="font-size: 10px;">gflags</a> <a href="/tags/hansome/" style="font-size: 10px;">hansome</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i3/" style="font-size: 10px;">i3</a> <a href="/tags/index/" style="font-size: 15px;">index</a> <a href="/tags/install/" style="font-size: 15px;">install</a> <a href="/tags/libtorch/" style="font-size: 10px;">libtorch</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mount/" style="font-size: 10px;">mount</a> <a href="/tags/pytorch/" style="font-size: 12.5px;">pytorch</a> <a href="/tags/qrestore/" style="font-size: 10px;">qrestore</a> <a href="/tags/skill/" style="font-size: 10px;">skill</a> <a href="/tags/卷积，反卷积/" style="font-size: 10px;">卷积，反卷积</a>
-		</div>
-		<div class="widget-categories">
-			<h2 class="widget-title">分类</h2>
-			<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AR/">AR</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Process/">Image Process</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/conda/">conda</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gflags/">gflags</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/gflags/libtorch/">libtorch</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/i3/">i3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/install/">install</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/install/bug/">bug</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/index/">index</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/pytorch/">pytorch</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/pytorch/index/">index</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/qiyi-ffmpeg-filter/">qiyi-ffmpeg-filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/report/">report</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/人物/">人物</a><span class="category-list-count">1</span></li></ul>
-		</div>
-	</div>
-</div>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
-			<div class="content-article">
-				<div class="banner" style="background-image: url(/imgs/header.jpg)">
-					<i class="fa fa-reorder mobile-toggle" style="display:none;"></i>
-				</div>
-				<div class="content-article-box">
-					<article class="article  article-post">
-    <h2 class="article-title cl">
-        <a href="/2018/11/07/install-problems-index/" title="各种安装BUG记录">各种安装BUG记录</a>
-        <small class="article-time">2018-11-07</small>
-    </h2>
-    <div class="article-con">
-        
-        <p>本博客是一个系列博客，记录了我碰到的各种软件安装问题。<br><a id="more"></a></p>
-<h1 id="Anaconda安装opencv3"><a href="#Anaconda安装opencv3" class="headerlink" title="Anaconda安装opencv3"></a>Anaconda安装opencv3</h1><p>最常见的使用Anaconda安装opencv3的命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install -c menpo opencv3</span><br></pre></td></tr></table></figure>
-<p>如果使用上述命令，可能会出现包冲突问题，我使用conda5.3.0=py37,出现了以下包冲突问题：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">UnsatisfiableError: The following specifications were found to be <span class="keyword">in</span> conflict:</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; hdf51.10.2=hba1933b_1</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; mkl-service1.1.2=py37h90e4bf4_5</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; numexpr2.6.8=py37hd89afb7_0</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; pango1.42.4=h049681c_0 -&gt; harfbuzz[version='&gt;=1.7.6,&lt;2.0a0']&gt; - anaconda5.3.0=py37_0 -&gt; scikit-learn0.19.2=py37h4989274_0</span><br><span class="line">- opencv3</span><br></pre></td></tr></table></figure>
-<p>解决这个问题参考了<a href="https://github.com/ContinuumIO/anaconda-issues/issues/1674" target="_blank" rel="noopener">这个网址</a>，使用下面的命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install -c conda-forge opencv</span><br></pre></td></tr></table></figure>
-<p>使用conda上述命令直接安装Opencv，可以正常使用，但是imshow依赖第三分GUI，无法正常显示图像，imshow出现下面的问题：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.error: OpenCV(<span class="number">3.4</span><span class="number">.2</span>) /tmp/build/<span class="number">80754</span>af9/opencv-suite_1535558553474/work/modules/highgui/src/window.cpp:<span class="number">632</span>: error: (<span class="number">-2</span>:Unspecified error) The function <span class="keyword">is</span> <span class="keyword">not</span> implemented.</span><br></pre></td></tr></table></figure>
-<p>解决办法就是自己编译Opencv,打开开关GTK+2.x,这里给出我的cmake配置(下面一个bug index也讨论到了无法显示GUI的问题，下面的bug index给出的cmake没有配置python-opencv，这个给出编译python的cmake配置)：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span> -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_GTK2=ON -D WITH_OPENGL=ON -D PYTHON3_EXECUTABLE=~/anaconda3/bin/python3.7 -D PYTHON_INCLUDE_DIR=~/anaconda3/include/python3.7m -D PYTHON_LIBRARY=~/anaconda3/lib/python3.7/site-packages/numpy/core/include/ ..</span><br></pre></td></tr></table></figure>
-<p>cmake主要是打开GUI配置项<code>WITH_GTK2=ON</code>，配置python路径。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make -j7</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-<p>成功编译安装Opencv后，在python中还不能<code>import cv2</code>,还需要设置一下，取Opencv的安装路径下找到下面的文件（我的安装路径<code>/usr/local</code>）：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/lib/python3.7/site-packages/cv2.cpython-37m-x86_64-linux-gnu.so</span><br></pre></td></tr></table></figure>
-<p>复制到anaconda的site-packages,这个site-packages就是我们cmake配置里的那个。如果你不知道这个这个路径，可以在python代码中打印出来：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(next(p <span class="keyword">for</span> p <span class="keyword">in</span> sys.path <span class="keyword">if</span> <span class="string">'site-packages'</span> <span class="keyword">in</span> p))</span><br><span class="line">/home/maxliu/anaconda3/lib/python3<span class="number">.7</span>/site-packages</span><br></pre></td></tr></table></figure>
-<p>接下来拷贝cv2文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /usr/<span class="built_in">local</span>/lib/python3.7/site-packages/cv2.cpython-37m-x86_64-linux-gnu.so /home/maxliu/anaconda3/lib/python3.7/site-packages</span><br></pre></td></tr></table></figure>
-<p>python中成功<code>import cv2</code>。<a href="https://stackoverflow.com/questions/38787748/installing-opencv-3-1-with-anaconda-python3" target="_blank" rel="noopener">参考</a></p>
-<h1 id="eclipse-c-中不能添加带版本号的库"><a href="#eclipse-c-中不能添加带版本号的库" class="headerlink" title="eclipse c++中不能添加带版本号的库"></a>eclipse c++中不能添加带版本号的库</h1><p>这里以libtorch为例来说明这个情况。</p>
-<p>我们下载libtorch后，解压得到libtorch库如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">libbenchmark.a                    libcaffe2_protos.a     libcudart<span class="number">-5</span>d6d23a3.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnnpack.a                   libnvToolsExt<span class="number">-422e3301</span>.so<span class="number">.1</span>  libonnx_proto.a     libshm.so</span><br><span class="line">libbenchmark_main.a               libcaffe2.so           libgomp<span class="number">-7</span>bcb08ae.so           libnnpack_reference_layers.a  libonnx.a                    libprotobuf.a       libtorch.so</span><br><span class="line">libc10.so                         libclog.a              libgomp<span class="number">-7</span>bcb08ae.so<span class="number">.1</span>         libnvrtc<span class="number">-56</span>d4825a.so          libonnxifi_dummy.so          libprotobuf-lite.a  libtorch.so<span class="number">.1</span></span><br><span class="line">libcaffe2_gpu.so                  libcpuinfo.a           libgtest.a                    libnvrtc<span class="number">-56</span>d4825a.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libonnxifi_loader.a          libprotoc.a</span><br><span class="line">libcaffe2_module_test_dynamic.so  libcudart<span class="number">-5</span>d6d23a3.so  libgtest_main.a               libnvrtc-builtins.so          libonnxifi.so                libpthreadpool.a</span><br></pre></td></tr></table></figure>
-<p>上面的库中，我们主要使用libtorch.so, 我们ldd看下libtorch.so的依赖项：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ldd libtorch.so</span><br></pre></td></tr></table></figure>
-<p>得到下面的依赖项：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">maxliu@maxliu-tp:/data/source/libtorch/lib$ ldd libtorch.so</span><br><span class="line">        linux-vdso.so.1 =&gt;  (0x00007ffc1d396000)</span><br><span class="line">        libnvToolsExt-422e3301.so.1 =&gt; /data/source/libtorch/lib/libnvToolsExt-422e3301.so.1 (0x00007f83c70de000)</span><br><span class="line">        libdl.so.2 =&gt; /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f83c6eda000)</span><br><span class="line">        librt.so.1 =&gt; /lib/x86_64-linux-gnu/librt.so.1 (0x00007f83c6cd2000)</span><br><span class="line">        libcaffe2.so =&gt; /data/source/libtorch/lib/libcaffe2.so (0x00007f83be54d000)</span><br><span class="line">        libcaffe2_gpu.so =&gt; /data/source/libtorch/lib/libcaffe2_gpu.so (0x00007f839ce71000)</span><br><span class="line">        libc10.so =&gt; /data/source/libtorch/lib/libc10.so (0x00007f839cc59000)</span><br><span class="line">        libpthread.so.0 =&gt; /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f839ca3c000)</span><br><span class="line">        libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f839c733000)</span><br><span class="line">        libstdc++.so.6 =&gt; /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f839c3b1000)</span><br><span class="line">        libgcc_s.so.1 =&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f839c19b000)</span><br><span class="line">        libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f839bdd1000)</span><br><span class="line">        /lib64/ld-linux-x86<span class="number">-64.</span>so<span class="number">.2</span> (<span class="number">0x00007f83c809b000</span>)</span><br><span class="line">        libgomp-7bcb08ae.so.1 =&gt; /data/source/libtorch/lib/libgomp-7bcb08ae.so.1 (0x00007f839bba7000)</span><br></pre></td></tr></table></figure>
-<p>我们可以看到libtorch.so依赖libnvToolsExt-422e3301.so.1，这个so文件带版本号，而我们在eclipse中添加库时，只能添加so文件的名字，也就是nvToolsExt-422e3301, eclipse调用g++使用参数-l进行链接，即-lnvToolsExt-422e3301，在实际链接库会自动补上前缀lib和后缀so，所以无法找到带版本号的库，碰到这个问题，我目前还没有找到解决方法，不行的话我们还是写CMakeList来解决吧。</p>
-<h1 id="cmake编译安装Opencv3-4后，无法显示GUI"><a href="#cmake编译安装Opencv3-4后，无法显示GUI" class="headerlink" title="cmake编译安装Opencv3.4后，无法显示GUI"></a>cmake编译安装Opencv3.4后，无法显示GUI</h1><p>g++编译运行出现<code>imshow</code>无法显示的问题：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">terminate called after throwing an instance of <span class="string">'cv::Exception'</span></span><br><span class="line">what():  OpenCV(<span class="number">3.4</span><span class="number">.2</span>) /tmp/build/<span class="number">80754</span>af9/opencv-suite_1535558553474/work/modules/highgui/src/window.cpp:<span class="number">632</span>: error: (<span class="number">-2</span>:Unspecified error) The function <span class="keyword">is</span> <span class="keyword">not</span> implemented. Rebuild the library <span class="keyword">with</span> Windows, GTK+ <span class="number">2.</span>x <span class="keyword">or</span> Carbon support. If you are on Ubuntu <span class="keyword">or</span> Debian, install libgtk2<span class="number">.0</span>-dev <span class="keyword">and</span> pkg-config, then re-run cmake <span class="keyword">or</span> configure script <span class="keyword">in</span> function <span class="string">'cvShowImage'</span></span><br></pre></td></tr></table></figure>
-<p>按照<code>error</code>安装GTK和QT（linux下的gui支持），我下载Opncv3.4的版本安装QT4.x(注意这里不能安装QT5.x, 因为opencv3.4不支持配置QT5.x):</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install qt4*o</span><br><span class="line">sudo apt-get install qtcreator</span><br></pre></td></tr></table></figure>
-<p>安装GTK+2.x:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libgtk2.0-dev</span><br></pre></td></tr></table></figure>
-<p>配置Opencv, Cmkae命令如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span> -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_GTK2=ON -D WITH_OPENGL=ON ..</span><br><span class="line">O</span><br></pre></td></tr></table></figure>
-<p>我试验了下，好像不能同时开启QT和GTK, 我这里开启了GTK+2.x(我也安装了GTK+3.x,我没有试验能不能顺利编译通过，有兴趣的可以试验下，使用<code>WITH_GTK=ON</code>默认会使用GTK+3.x)查看配置结果，GTK+2.x配置成功：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">--   GUI:</span><br><span class="line">--     GTK+:                        YES (ver <span class="number">2.24</span><span class="number">.30</span>)</span><br><span class="line">--       GThread :                  YES (ver <span class="number">2.48</span><span class="number">.2</span>)</span><br><span class="line">--       GtkGlExt:                  NO</span><br><span class="line">--     OpenGL support:              NO</span><br><span class="line">--     VTK support:                 NO</span><br></pre></td></tr></table></figure>
-<p>我使用GTK+2.x成功了，如果你使用GTK+2.x失败，可以参考<a href="https://stackoverflow.com/questions/28776053/opencv-gtk2-x-error" target="_blank" rel="noopener">Stackoverflow</a>, 配置使用GTK+3.x代替，安装GTK+3.x:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libgtk-3-dev</span><br></pre></td></tr></table></figure>
-<p>重新执行上面的cmake配置命令，<code>make &amp;&amp; make install</code>.</p>
-<h1 id="编译Opencv-bug"><a href="#编译Opencv-bug" class="headerlink" title="编译Opencv bug"></a>编译Opencv bug</h1><p>真的是莫名其妙的bug，整了一天，最后重装了protobuf就好了，真的很莫名其妙！！！</p>
-<h1 id="安装PIL"><a href="#安装PIL" class="headerlink" title="安装PIL"></a>安装PIL</h1><p>使用conda安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install pil</span><br></pre></td></tr></table></figure>
-<p>出现下面的bug：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">UnsatisfiableError: The following specifications were found to be <span class="keyword">in</span> </span><br><span class="line">conflict:</span><br><span class="line"> - pil -&gt; python 2.6*</span><br><span class="line"> - python <span class="number">3.6</span>*</span><br></pre></td></tr></table></figure>
-<p>可能是由于<code>pil</code>包不支持跑一趟python3,安装<code>pillow</code>，同时支持python2和python3:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install pillow</span><br></pre></td></tr></table></figure>
 
-    </div>
+
+
+<meta name="description" content="身后有尾巴!!!">
+
+
+
+<meta name="keywords" content="Blog">
+
+
+
+    <meta name="description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
+<meta name="keywords" content="install,bug,linux,index">
+<meta property="og:type" content="article">
+<meta property="og:title" content="各种安装BUG记录">
+<meta property="og:url" content="http://liulizhou.github.io/2018/11/07/install-problems-index/index.html">
+<meta property="og:site_name" content="Liu Lizhou">
+<meta property="og:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-26T06:35:42.462Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="各种安装BUG记录">
+<meta name="twitter:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
     
-    <div class="article-navgition">
-        <div class="navgition-wrap">
-            
-                <div class="navgition-prev">
-                    <h2 class="navgition-title">上一篇: <a href="/2018/11/15/gflags-and-libtorch-compile-problem/"> libtorch和gflags的编译安装问题 </a></h2>
-                </div>
-            
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
             
-                <div class="navgition-next">
-                    <h2 class="navgition-title">下一篇: <a href="/2018/11/07/linux-mount-command/">linux-mount-command </a></h2>
-                </div>
+            <a class="navbar-item " href="/archives">Archives</a>
+            
+            <a class="navbar-item " href="/categories/LifeStyle">Lifestyle</a>
+            
+            <a class="navbar-item " href="/categories/Music">Music</a>
+            
+            <a class="navbar-item " href="/categories/Technology">Technology</a>
+            
+            <a class="navbar-item " href="/about">About</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="Search" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
             
         </div>
     </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            各种安装BUG记录
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-11-07T09:40:06.000Z" itemprop="datePublished">11月 7 2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/install/">install</a><span>></span><a class="article-category-link" href="/categories/install/bug/">bug</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            11 分钟 read (About 1586 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
+        <p>本博客是一个系列博客，记录了我碰到的各种软件安装问题。<br><a id="more"></a></p>
+<h1 id="Anaconda安装opencv3"><a href="#Anaconda安装opencv3" class="headerlink" title="Anaconda安装opencv3"></a>Anaconda安装opencv3</h1><p>最常见的使用Anaconda安装opencv3的命令：</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda install -c menpo opencv3</span><br></pre></td></tr></table></figure>
+<p>如果使用上述命令，可能会出现包冲突问题，我使用conda5.3.0=py37,出现了以下包冲突问题：</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">UnsatisfiableError: The following specifications were found to be <span class="hljs-keyword">in</span> conflict:</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; hdf51.10.2=hba1933b_1</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; mkl-service1.1.2=py37h90e4bf4_5</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; numexpr2.6.8=py37hd89afb7_0</span><br><span class="line">- anaconda5.3.0=py37_0 -&gt; pango1.42.4=h049681c_0 -&gt; harfbuzz[version='&gt;=1.7.6,&lt;2.0a0']&gt; - anaconda5.3.0=py37_0 -&gt; scikit-learn0.19.2=py37h4989274_0</span><br><span class="line">- opencv3</span><br></pre></td></tr></table></figure>
+<p>解决这个问题参考了<a href="https://github.com/ContinuumIO/anaconda-issues/issues/1674" target="_blank" rel="noopener">这个网址</a>，使用下面的命令：</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda install -c conda-forge opencv</span><br></pre></td></tr></table></figure>
+<p>使用conda上述命令直接安装Opencv，可以正常使用，但是imshow依赖第三分GUI，无法正常显示图像，imshow出现下面的问题：</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">cv2.error: OpenCV(<span class="hljs-number">3.4</span><span class="hljs-number">.2</span>) /tmp/build/<span class="hljs-number">80754</span>af9/opencv-suite_1535558553474/work/modules/highgui/src/window.cpp:<span class="hljs-number">632</span>: error: (<span class="hljs-number">-2</span>:Unspecified error) The function <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> implemented.</span><br></pre></td></tr></table></figure>
+<p>解决办法就是自己编译Opencv,打开开关GTK+2.x,这里给出我的cmake配置(下面一个bug index也讨论到了无法显示GUI的问题，下面的bug index给出的cmake没有配置python-opencv，这个给出编译python的cmake配置)：</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/<span class="hljs-built_in">local</span> -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_GTK2=ON -D WITH_OPENGL=ON -D PYTHON3_EXECUTABLE=~/anaconda3/bin/python3.7 -D PYTHON_INCLUDE_DIR=~/anaconda3/include/python3.7m -D PYTHON_LIBRARY=~/anaconda3/lib/python3.7/site-packages/numpy/core/include/ ..</span><br></pre></td></tr></table></figure>
+<p>cmake主要是打开GUI配置项<code>WITH_GTK2=ON</code>，配置python路径。</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">make -j7</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>成功编译安装Opencv后，在python中还不能<code>import cv2</code>,还需要设置一下，取Opencv的安装路径下找到下面的文件（我的安装路径<code>/usr/local</code>）：</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">/usr/<span class="hljs-built_in">local</span>/lib/python3.7/site-packages/cv2.cpython-37m-x86_64-linux-gnu.so</span><br></pre></td></tr></table></figure>
+<p>复制到anaconda的site-packages,这个site-packages就是我们cmake配置里的那个。如果你不知道这个这个路径，可以在python代码中打印出来：</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> sys</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>print(next(p <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> sys.path <span class="hljs-keyword">if</span> <span class="hljs-string">'site-packages'</span> <span class="hljs-keyword">in</span> p))</span><br><span class="line">/home/maxliu/anaconda3/lib/python3<span class="hljs-number">.7</span>/site-packages</span><br></pre></td></tr></table></figure>
+<p>接下来拷贝cv2文件：</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">cp /usr/<span class="hljs-built_in">local</span>/lib/python3.7/site-packages/cv2.cpython-37m-x86_64-linux-gnu.so /home/maxliu/anaconda3/lib/python3.7/site-packages</span><br></pre></td></tr></table></figure>
+<p>python中成功<code>import cv2</code>。<a href="https://stackoverflow.com/questions/38787748/installing-opencv-3-1-with-anaconda-python3" target="_blank" rel="noopener">参考</a></p>
+<h1 id="eclipse-c-中不能添加带版本号的库"><a href="#eclipse-c-中不能添加带版本号的库" class="headerlink" title="eclipse c++中不能添加带版本号的库"></a>eclipse c++中不能添加带版本号的库</h1><p>这里以libtorch为例来说明这个情况。</p>
+<p>我们下载libtorch后，解压得到libtorch库如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">libbenchmark.a                    libcaffe2_protos.a     libcudart<span class="hljs-number">-5</span>d6d23a3.so<span class="hljs-number">.8</span><span class="hljs-number">.0</span><span class="hljs-number">.61</span>  libnnpack.a                   libnvToolsExt<span class="hljs-number">-422e3301</span>.so<span class="hljs-number">.1</span>  libonnx_proto.a     libshm.so</span><br><span class="line">libbenchmark_main.a               libcaffe2.so           libgomp<span class="hljs-number">-7</span>bcb08ae.so           libnnpack_reference_layers.a  libonnx.a                    libprotobuf.a       libtorch.so</span><br><span class="line">libc10.so                         libclog.a              libgomp<span class="hljs-number">-7</span>bcb08ae.so<span class="hljs-number">.1</span>         libnvrtc<span class="hljs-number">-56</span>d4825a.so          libonnxifi_dummy.so          libprotobuf-lite.a  libtorch.so<span class="hljs-number">.1</span></span><br><span class="line">libcaffe2_gpu.so                  libcpuinfo.a           libgtest.a                    libnvrtc<span class="hljs-number">-56</span>d4825a.so<span class="hljs-number">.8</span><span class="hljs-number">.0</span><span class="hljs-number">.61</span>   libonnxifi_loader.a          libprotoc.a</span><br><span class="line">libcaffe2_module_test_dynamic.so  libcudart<span class="hljs-number">-5</span>d6d23a3.so  libgtest_main.a               libnvrtc-builtins.so          libonnxifi.so                libpthreadpool.a</span><br></pre></td></tr></table></figure>
+<p>上面的库中，我们主要使用libtorch.so, 我们ldd看下libtorch.so的依赖项：</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ldd libtorch.so</span><br></pre></td></tr></table></figure>
+<p>得到下面的依赖项：</p>
+<figure class="highlight hljs"><table><tr><td class="code"><pre><span class="line">maxliu@maxliu-tp:/data/source/libtorch/lib$ ldd libtorch.so</span><br><span class="line">        linux-vdso.so.1 =&gt;  (0x00007ffc1d396000)</span><br><span class="line">        libnvToolsExt-422e3301.so.1 =&gt; /data/source/libtorch/lib/libnvToolsExt-422e3301.so.1 (0x00007f83c70de000)</span><br><span class="line">        libdl.so.2 =&gt; /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f83c6eda000)</span><br><span class="line">        librt.so.1 =&gt; /lib/x86_64-linux-gnu/librt.so.1 (0x00007f83c6cd2000)</span><br><span class="line">        libcaffe2.so =&gt; /data/source/libtorch/lib/libcaffe2.so (0x00007f83be54d000)</span><br><span class="line">        libcaffe2_gpu.so =&gt; /data/source/libtorch/lib/libcaffe2_gpu.so (0x00007f839ce71000)</span><br><span class="line">        libc10.so =&gt; /data/source/libtorch/lib/libc10.so (0x00007f839cc59000)</span><br><span class="line">        libpthread.so.0 =&gt; /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f839ca3c000)</span><br><span class="line">        libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f839c733000)</span><br><span class="line">        libstdc++.so.6 =&gt; /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f839c3b1000)</span><br><span class="line">        libgcc_s.so.1 =&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f839c19b000)</span><br><span class="line">        libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f839bdd1000)</span><br><span class="line">        /lib64/ld-linux-x86<span class="hljs-number">-64.</span>so<span class="hljs-number">.2</span> (<span class="hljs-number">0x00007f83c809b000</span>)</span><br><span class="line">        libgomp-7bcb08ae.so.1 =&gt; /data/source/libtorch/lib/libgomp-7bcb08ae.so.1 (0x00007f839bba7000)</span><br></pre></td></tr></table></figure>
+<p>我们可以看到libtorch.so依赖libnvToolsExt-422e3301.so.1，这个so文件带版本号，而我们在eclipse中添加库时，只能添加so文件的名字，也就是nvToolsExt-422e3301, eclipse调用g++使用参数-l进行链接，即-lnvToolsExt-422e3301，在实际链接库会自动补上前缀lib和后缀so，所以无法找到带版本号的库，碰到这个问题，我目前还没有找到解决方法，不行的话我们还是写CMakeList来解决吧。</p>
+<h1 id="cmake编译安装Opencv3-4后，无法显示GUI"><a href="#cmake编译安装Opencv3-4后，无法显示GUI" class="headerlink" title="cmake编译安装Opencv3.4后，无法显示GUI"></a>cmake编译安装Opencv3.4后，无法显示GUI</h1><p>g++编译运行出现<code>imshow</code>无法显示的问题：</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">terminate called after throwing an instance of <span class="hljs-string">'cv::Exception'</span></span><br><span class="line">what():  OpenCV(<span class="hljs-number">3.4</span><span class="hljs-number">.2</span>) /tmp/build/<span class="hljs-number">80754</span>af9/opencv-suite_1535558553474/work/modules/highgui/src/window.cpp:<span class="hljs-number">632</span>: error: (<span class="hljs-number">-2</span>:Unspecified error) The function <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> implemented. Rebuild the library <span class="hljs-keyword">with</span> Windows, GTK+ <span class="hljs-number">2.</span>x <span class="hljs-keyword">or</span> Carbon support. If you are on Ubuntu <span class="hljs-keyword">or</span> Debian, install libgtk2<span class="hljs-number">.0</span>-dev <span class="hljs-keyword">and</span> pkg-config, then re-run cmake <span class="hljs-keyword">or</span> configure script <span class="hljs-keyword">in</span> function <span class="hljs-string">'cvShowImage'</span></span><br></pre></td></tr></table></figure>
+<p>按照<code>error</code>安装GTK和QT（linux下的gui支持），我下载Opncv3.4的版本安装QT4.x(注意这里不能安装QT5.x, 因为opencv3.4不支持配置QT5.x):</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install qt4*o</span><br><span class="line">sudo apt-get install qtcreator</span><br></pre></td></tr></table></figure>
+<p>安装GTK+2.x:</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libgtk2.0-dev</span><br></pre></td></tr></table></figure>
+<p>配置Opencv, Cmkae命令如下：</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/<span class="hljs-built_in">local</span> -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_GTK2=ON -D WITH_OPENGL=ON ..</span><br><span class="line">O</span><br></pre></td></tr></table></figure>
+<p>我试验了下，好像不能同时开启QT和GTK, 我这里开启了GTK+2.x(我也安装了GTK+3.x,我没有试验能不能顺利编译通过，有兴趣的可以试验下，使用<code>WITH_GTK=ON</code>默认会使用GTK+3.x)查看配置结果，GTK+2.x配置成功：</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">--   GUI:</span><br><span class="line">--     GTK+:                        YES (ver <span class="hljs-number">2.24</span><span class="hljs-number">.30</span>)</span><br><span class="line">--       GThread :                  YES (ver <span class="hljs-number">2.48</span><span class="hljs-number">.2</span>)</span><br><span class="line">--       GtkGlExt:                  NO</span><br><span class="line">--     OpenGL support:              NO</span><br><span class="line">--     VTK support:                 NO</span><br></pre></td></tr></table></figure>
+<p>我使用GTK+2.x成功了，如果你使用GTK+2.x失败，可以参考<a href="https://stackoverflow.com/questions/28776053/opencv-gtk2-x-error" target="_blank" rel="noopener">Stackoverflow</a>, 配置使用GTK+3.x代替，安装GTK+3.x:</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libgtk-3-dev</span><br></pre></td></tr></table></figure>
+<p>重新执行上面的cmake配置命令，<code>make &amp;&amp; make install</code>.</p>
+<h1 id="编译Opencv-bug"><a href="#编译Opencv-bug" class="headerlink" title="编译Opencv bug"></a>编译Opencv bug</h1><p>真的是莫名其妙的bug，整了一天，最后重装了protobuf就好了，真的很莫名其妙！！！</p>
+<h1 id="安装PIL"><a href="#安装PIL" class="headerlink" title="安装PIL"></a>安装PIL</h1><p>使用conda安装：</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda install pil</span><br></pre></td></tr></table></figure>
+<p>出现下面的bug：</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">UnsatisfiableError: The following specifications were found to be <span class="hljs-keyword">in</span> </span><br><span class="line">conflict:</span><br><span class="line"> - pil -&gt; python 2.6*</span><br><span class="line"> - python <span class="hljs-number">3.6</span>*</span><br></pre></td></tr></table></figure>
+<p>可能是由于<code>pil</code>包不支持跑一趟python3,安装<code>pillow</code>，同时支持python2和python3:</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda install pillow</span><br></pre></td></tr></table></figure>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/install/">#install</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/bug/">#bug</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/linux/">#linux</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/index/">#index</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2018/11/15/gflags-and-libtorch-compile-problem/">libtorch和gflags的编译安装问题</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2018/11/07/linux-mount-command/">linux-mount-command</a>
+            
+        </span>
+    </div>
     
 </article>
 
-				</div>
-				
-				<footer class="footer">
-	<p class="footer-intro">
-		
-		@2019 Liu Lizhou.
-	</p>
-	<p class="footer-intro">
-			Powered By <a href="https://hexo.io/zh-cn/" target="_blank">hexo</a>
-			theme <a href="https://github.com/shijuuu/hexo-theme-mokusei" target="_blank">Mokusei</a> by <a href="https://blog.shijukun.com" target="blank">Shiju</a>
-	</p>
-</footer>
 
-<script src="/js/org/jquery.min.js"></script>
+<div class="sharebox">
+    
+<div class="notification is-danger">
+    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
+</div>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
+    
+<div id="disqus_thread">
+    
+    <div class="notification is-danger">
+        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
+    </div>
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 Maxliu&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
 
 <script>
-	(function(){
-		var mobile_menu = $(".mobile-toggle");
-		var con_box= $(".content-article");
-		var ifs = 1;
-		mobile_menu.on("touchstart", function(){
-			if(ifs){
-				con_box.css('overflow','hidden');
-				con_box.animate({
-					left: '250px'
-				});
-				ifs = 0;
-			}else{
-				con_box.css('overflow','visible');
-				con_box.animate({
-					left: '0px'
-				});
-				ifs = 1;
-			}
-		})
-	})();
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
 </script>
 
 
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+      })
+    </script>
+
+    
+    
+
+    
 
 
-				
-			</div>
-		</div>
-		
-	</div>
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
 </body>
 </html>
