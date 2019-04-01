@@ -5,9 +5,9 @@
   <subtitle>271</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://liulizhou.github.io/"/>
   <updated>2019-01-22T03:13:42.591Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://liulizhou.github.io/</id>
   
   <author>
     <name>Maxliu</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>deep-learning-report</title>
-    <link href="http://yoursite.com/2019/01/21/deep-learning-report/"/>
-    <id>http://yoursite.com/2019/01/21/deep-learning-report/</id>
+    <link href="http://liulizhou.github.io/2019/01/21/deep-learning-report/"/>
+    <id>http://liulizhou.github.io/2019/01/21/deep-learning-report/</id>
     <published>2019-01-21T01:58:58.000Z</published>
     <updated>2019-01-22T03:13:42.591Z</updated>
     
@@ -31,15 +31,15 @@
     
     </summary>
     
-      <category term="report" scheme="http://yoursite.com/categories/report/"/>
+      <category term="report" scheme="http://liulizhou.github.io/categories/report/"/>
     
     
   </entry>
   
   <entry>
     <title>deep-learning-architecture</title>
-    <link href="http://yoursite.com/2019/01/07/deep-learning-architecture/"/>
-    <id>http://yoursite.com/2019/01/07/deep-learning-architecture/</id>
+    <link href="http://liulizhou.github.io/2019/01/07/deep-learning-architecture/"/>
+    <id>http://liulizhou.github.io/2019/01/07/deep-learning-architecture/</id>
     <published>2019-01-07T11:11:37.000Z</published>
     <updated>2019-01-07T11:13:19.806Z</updated>
     
@@ -59,8 +59,8 @@
   
   <entry>
     <title>HDR-Project</title>
-    <link href="http://yoursite.com/2018/12/28/HDR-Project/"/>
-    <id>http://yoursite.com/2018/12/28/HDR-Project/</id>
+    <link href="http://liulizhou.github.io/2018/12/28/HDR-Project/"/>
+    <id>http://liulizhou.github.io/2018/12/28/HDR-Project/</id>
     <published>2018-12-28T03:20:21.000Z</published>
     <updated>2019-03-12T09:14:58.541Z</updated>
     
@@ -77,8 +77,8 @@
   
   <entry>
     <title>vf_qrestore</title>
-    <link href="http://yoursite.com/2018/12/25/vf-qrestore/"/>
-    <id>http://yoursite.com/2018/12/25/vf-qrestore/</id>
+    <link href="http://liulizhou.github.io/2018/12/25/vf-qrestore/"/>
+    <id>http://liulizhou.github.io/2018/12/25/vf-qrestore/</id>
     <published>2018-12-25T15:19:47.000Z</published>
     <updated>2018-12-25T15:44:39.869Z</updated>
     
@@ -90,19 +90,19 @@
     
     </summary>
     
-      <category term="qiyi-ffmpeg-filter" scheme="http://yoursite.com/categories/qiyi-ffmpeg-filter/"/>
+      <category term="qiyi-ffmpeg-filter" scheme="http://liulizhou.github.io/categories/qiyi-ffmpeg-filter/"/>
     
     
-      <category term="qrestore" scheme="http://yoursite.com/tags/qrestore/"/>
+      <category term="qrestore" scheme="http://liulizhou.github.io/tags/qrestore/"/>
     
-      <category term="filter" scheme="http://yoursite.com/tags/filter/"/>
+      <category term="filter" scheme="http://liulizhou.github.io/tags/filter/"/>
     
   </entry>
   
   <entry>
     <title>vim-using-skill</title>
-    <link href="http://yoursite.com/2018/12/19/vim-using-skill/"/>
-    <id>http://yoursite.com/2018/12/19/vim-using-skill/</id>
+    <link href="http://liulizhou.github.io/2018/12/19/vim-using-skill/"/>
+    <id>http://liulizhou.github.io/2018/12/19/vim-using-skill/</id>
     <published>2018-12-19T07:14:40.000Z</published>
     <updated>2018-12-24T08:55:49.770Z</updated>
     
@@ -124,8 +124,8 @@
   
   <entry>
     <title>Artifact Reduction Project</title>
-    <link href="http://yoursite.com/2018/12/11/Artifact-Reduction-Project/"/>
-    <id>http://yoursite.com/2018/12/11/Artifact-Reduction-Project/</id>
+    <link href="http://liulizhou.github.io/2018/12/11/Artifact-Reduction-Project/"/>
+    <id>http://liulizhou.github.io/2018/12/11/Artifact-Reduction-Project/</id>
     <published>2018-12-11T07:46:58.000Z</published>
     <updated>2018-12-26T06:35:39.070Z</updated>
     
@@ -137,17 +137,17 @@
     
     </summary>
     
-      <category term="AR" scheme="http://yoursite.com/categories/AR/"/>
+      <category term="AR" scheme="http://liulizhou.github.io/categories/AR/"/>
     
     
-      <category term="AR" scheme="http://yoursite.com/tags/AR/"/>
+      <category term="AR" scheme="http://liulizhou.github.io/tags/AR/"/>
     
   </entry>
   
   <entry>
     <title>Libtorch中的bug</title>
-    <link href="http://yoursite.com/2018/12/03/libtorch-bug-index/"/>
-    <id>http://yoursite.com/2018/12/03/libtorch-bug-index/</id>
+    <link href="http://liulizhou.github.io/2018/12/03/libtorch-bug-index/"/>
+    <id>http://liulizhou.github.io/2018/12/03/libtorch-bug-index/</id>
     <published>2018-12-03T14:44:53.000Z</published>
     <updated>2018-12-26T06:35:48.266Z</updated>
     
@@ -164,8 +164,8 @@
   
   <entry>
     <title>conda-using-skill</title>
-    <link href="http://yoursite.com/2018/11/30/conda-using-skill/"/>
-    <id>http://yoursite.com/2018/11/30/conda-using-skill/</id>
+    <link href="http://liulizhou.github.io/2018/11/30/conda-using-skill/"/>
+    <id>http://liulizhou.github.io/2018/11/30/conda-using-skill/</id>
     <published>2018-11-30T09:20:41.000Z</published>
     <updated>2018-12-27T02:21:53.493Z</updated>
     
@@ -177,19 +177,19 @@
     
     </summary>
     
-      <category term="conda" scheme="http://yoursite.com/categories/conda/"/>
+      <category term="conda" scheme="http://liulizhou.github.io/categories/conda/"/>
     
     
-      <category term="conda" scheme="http://yoursite.com/tags/conda/"/>
+      <category term="conda" scheme="http://liulizhou.github.io/tags/conda/"/>
     
-      <category term="skill" scheme="http://yoursite.com/tags/skill/"/>
+      <category term="skill" scheme="http://liulizhou.github.io/tags/skill/"/>
     
   </entry>
   
   <entry>
     <title>pytorch-bug-index</title>
-    <link href="http://yoursite.com/2018/11/30/pytorch-debug-index/"/>
-    <id>http://yoursite.com/2018/11/30/pytorch-debug-index/</id>
+    <link href="http://liulizhou.github.io/2018/11/30/pytorch-debug-index/"/>
+    <id>http://liulizhou.github.io/2018/11/30/pytorch-debug-index/</id>
     <published>2018-11-30T07:47:35.000Z</published>
     <updated>2018-12-27T12:43:42.427Z</updated>
     
@@ -201,23 +201,23 @@
     
     </summary>
     
-      <category term="pytorch" scheme="http://yoursite.com/categories/pytorch/"/>
+      <category term="pytorch" scheme="http://liulizhou.github.io/categories/pytorch/"/>
     
-      <category term="index" scheme="http://yoursite.com/categories/pytorch/index/"/>
+      <category term="index" scheme="http://liulizhou.github.io/categories/pytorch/index/"/>
     
     
-      <category term="bug" scheme="http://yoursite.com/tags/bug/"/>
+      <category term="bug" scheme="http://liulizhou.github.io/tags/bug/"/>
     
-      <category term="pytorch" scheme="http://yoursite.com/tags/pytorch/"/>
+      <category term="index" scheme="http://liulizhou.github.io/tags/index/"/>
     
-      <category term="index" scheme="http://yoursite.com/tags/index/"/>
+      <category term="pytorch" scheme="http://liulizhou.github.io/tags/pytorch/"/>
     
   </entry>
   
   <entry>
     <title>linux-install-index</title>
-    <link href="http://yoursite.com/2018/11/19/linux-install-index/"/>
-    <id>http://yoursite.com/2018/11/19/linux-install-index/</id>
+    <link href="http://liulizhou.github.io/2018/11/19/linux-install-index/"/>
+    <id>http://liulizhou.github.io/2018/11/19/linux-install-index/</id>
     <published>2018-11-19T08:38:21.000Z</published>
     <updated>2018-11-19T08:47:48.076Z</updated>
     
@@ -229,23 +229,23 @@
     
     </summary>
     
-      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+      <category term="linux" scheme="http://liulizhou.github.io/categories/linux/"/>
     
-      <category term="index" scheme="http://yoursite.com/categories/linux/index/"/>
+      <category term="index" scheme="http://liulizhou.github.io/categories/linux/index/"/>
     
     
-      <category term="install" scheme="http://yoursite.com/tags/install/"/>
+      <category term="install" scheme="http://liulizhou.github.io/tags/install/"/>
     
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+      <category term="linux" scheme="http://liulizhou.github.io/tags/linux/"/>
     
-      <category term="index" scheme="http://yoursite.com/tags/index/"/>
+      <category term="index" scheme="http://liulizhou.github.io/tags/index/"/>
     
   </entry>
   
   <entry>
     <title>linux-any-commands</title>
-    <link href="http://yoursite.com/2018/11/16/linux-any-commands/"/>
-    <id>http://yoursite.com/2018/11/16/linux-any-commands/</id>
+    <link href="http://liulizhou.github.io/2018/11/16/linux-any-commands/"/>
+    <id>http://liulizhou.github.io/2018/11/16/linux-any-commands/</id>
     <published>2018-11-16T02:45:54.000Z</published>
     <updated>2019-01-16T06:18:11.364Z</updated>
     
@@ -257,19 +257,19 @@
     
     </summary>
     
-      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+      <category term="linux" scheme="http://liulizhou.github.io/categories/linux/"/>
     
     
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+      <category term="linux" scheme="http://liulizhou.github.io/tags/linux/"/>
     
-      <category term="command" scheme="http://yoursite.com/tags/command/"/>
+      <category term="command" scheme="http://liulizhou.github.io/tags/command/"/>
     
   </entry>
   
   <entry>
     <title>libtorch和gflags的编译安装问题</title>
-    <link href="http://yoursite.com/2018/11/15/gflags-and-libtorch-compile-problem/"/>
-    <id>http://yoursite.com/2018/11/15/gflags-and-libtorch-compile-problem/</id>
+    <link href="http://liulizhou.github.io/2018/11/15/gflags-and-libtorch-compile-problem/"/>
+    <id>http://liulizhou.github.io/2018/11/15/gflags-and-libtorch-compile-problem/</id>
     <published>2018-11-15T13:16:50.000Z</published>
     <updated>2018-11-15T14:06:30.743Z</updated>
     
@@ -281,25 +281,25 @@
     
     </summary>
     
-      <category term="gflags" scheme="http://yoursite.com/categories/gflags/"/>
+      <category term="gflags" scheme="http://liulizhou.github.io/categories/gflags/"/>
     
-      <category term="libtorch" scheme="http://yoursite.com/categories/gflags/libtorch/"/>
+      <category term="libtorch" scheme="http://liulizhou.github.io/categories/gflags/libtorch/"/>
     
     
-      <category term="gflags" scheme="http://yoursite.com/tags/gflags/"/>
+      <category term="gflags" scheme="http://liulizhou.github.io/tags/gflags/"/>
     
-      <category term="libtorch" scheme="http://yoursite.com/tags/libtorch/"/>
+      <category term="libtorch" scheme="http://liulizhou.github.io/tags/libtorch/"/>
     
-      <category term="install" scheme="http://yoursite.com/tags/install/"/>
+      <category term="install" scheme="http://liulizhou.github.io/tags/install/"/>
     
-      <category term="bug" scheme="http://yoursite.com/tags/bug/"/>
+      <category term="bug" scheme="http://liulizhou.github.io/tags/bug/"/>
     
   </entry>
   
   <entry>
     <title>各种安装BUG记录</title>
-    <link href="http://yoursite.com/2018/11/07/install-problems-index/"/>
-    <id>http://yoursite.com/2018/11/07/install-problems-index/</id>
+    <link href="http://liulizhou.github.io/2018/11/07/install-problems-index/"/>
+    <id>http://liulizhou.github.io/2018/11/07/install-problems-index/</id>
     <published>2018-11-07T09:40:06.000Z</published>
     <updated>2018-12-26T06:35:42.462Z</updated>
     
@@ -311,25 +311,25 @@
     
     </summary>
     
-      <category term="install" scheme="http://yoursite.com/categories/install/"/>
+      <category term="install" scheme="http://liulizhou.github.io/categories/install/"/>
     
-      <category term="bug" scheme="http://yoursite.com/categories/install/bug/"/>
+      <category term="bug" scheme="http://liulizhou.github.io/categories/install/bug/"/>
     
     
-      <category term="install" scheme="http://yoursite.com/tags/install/"/>
+      <category term="install" scheme="http://liulizhou.github.io/tags/install/"/>
     
-      <category term="bug" scheme="http://yoursite.com/tags/bug/"/>
+      <category term="bug" scheme="http://liulizhou.github.io/tags/bug/"/>
     
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+      <category term="linux" scheme="http://liulizhou.github.io/tags/linux/"/>
     
-      <category term="index" scheme="http://yoursite.com/tags/index/"/>
+      <category term="index" scheme="http://liulizhou.github.io/tags/index/"/>
     
   </entry>
   
   <entry>
     <title>linux-mount-command</title>
-    <link href="http://yoursite.com/2018/11/07/linux-mount-command/"/>
-    <id>http://yoursite.com/2018/11/07/linux-mount-command/</id>
+    <link href="http://liulizhou.github.io/2018/11/07/linux-mount-command/"/>
+    <id>http://liulizhou.github.io/2018/11/07/linux-mount-command/</id>
     <published>2018-11-07T08:35:17.000Z</published>
     <updated>2019-03-27T15:01:14.381Z</updated>
     
@@ -341,21 +341,21 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+      <category term="Linux" scheme="http://liulizhou.github.io/categories/Linux/"/>
     
     
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+      <category term="linux" scheme="http://liulizhou.github.io/tags/linux/"/>
     
-      <category term="command" scheme="http://yoursite.com/tags/command/"/>
+      <category term="command" scheme="http://liulizhou.github.io/tags/command/"/>
     
-      <category term="mount" scheme="http://yoursite.com/tags/mount/"/>
+      <category term="mount" scheme="http://liulizhou.github.io/tags/mount/"/>
     
   </entry>
   
   <entry>
     <title>i3wm-using-skills</title>
-    <link href="http://yoursite.com/2018/09/30/i3wm-using-skills/"/>
-    <id>http://yoursite.com/2018/09/30/i3wm-using-skills/</id>
+    <link href="http://liulizhou.github.io/2018/09/30/i3wm-using-skills/"/>
+    <id>http://liulizhou.github.io/2018/09/30/i3wm-using-skills/</id>
     <published>2018-09-30T07:57:27.000Z</published>
     <updated>2018-11-02T17:11:38.479Z</updated>
     
@@ -367,19 +367,19 @@
     
     </summary>
     
-      <category term="i3" scheme="http://yoursite.com/categories/i3/"/>
+      <category term="i3" scheme="http://liulizhou.github.io/categories/i3/"/>
     
     
-      <category term="i3" scheme="http://yoursite.com/tags/i3/"/>
+      <category term="i3" scheme="http://liulizhou.github.io/tags/i3/"/>
     
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+      <category term="linux" scheme="http://liulizhou.github.io/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>tmux-using-skills</title>
-    <link href="http://yoursite.com/2018/09/30/tmux-using-skills/"/>
-    <id>http://yoursite.com/2018/09/30/tmux-using-skills/</id>
+    <link href="http://liulizhou.github.io/2018/09/30/tmux-using-skills/"/>
+    <id>http://liulizhou.github.io/2018/09/30/tmux-using-skills/</id>
     <published>2018-09-30T07:57:00.000Z</published>
     <updated>2018-11-16T06:35:53.649Z</updated>
     
@@ -400,8 +400,8 @@
   
   <entry>
     <title>Pytorch API中的卷积与反卷积操作</title>
-    <link href="http://yoursite.com/2018/09/27/pytorch-api-Conv-Deconv/"/>
-    <id>http://yoursite.com/2018/09/27/pytorch-api-Conv-Deconv/</id>
+    <link href="http://liulizhou.github.io/2018/09/27/pytorch-api-Conv-Deconv/"/>
+    <id>http://liulizhou.github.io/2018/09/27/pytorch-api-Conv-Deconv/</id>
     <published>2018-09-27T02:10:46.000Z</published>
     <updated>2018-11-02T17:11:38.467Z</updated>
     
@@ -413,21 +413,21 @@
     
     </summary>
     
-      <category term="pytorch" scheme="http://yoursite.com/categories/pytorch/"/>
+      <category term="pytorch" scheme="http://liulizhou.github.io/categories/pytorch/"/>
     
     
-      <category term="pytorch" scheme="http://yoursite.com/tags/pytorch/"/>
+      <category term="pytorch" scheme="http://liulizhou.github.io/tags/pytorch/"/>
     
-      <category term="api" scheme="http://yoursite.com/tags/api/"/>
+      <category term="api" scheme="http://liulizhou.github.io/tags/api/"/>
     
-      <category term="卷积，反卷积" scheme="http://yoursite.com/tags/%E5%8D%B7%E7%A7%AF%EF%BC%8C%E5%8F%8D%E5%8D%B7%E7%A7%AF/"/>
+      <category term="卷积，反卷积" scheme="http://liulizhou.github.io/tags/%E5%8D%B7%E7%A7%AF%EF%BC%8C%E5%8F%8D%E5%8D%B7%E7%A7%AF/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建个人Blog记录</title>
-    <link href="http://yoursite.com/2018/09/20/hexo-next-blog/"/>
-    <id>http://yoursite.com/2018/09/20/hexo-next-blog/</id>
+    <link href="http://liulizhou.github.io/2018/09/20/hexo-next-blog/"/>
+    <id>http://liulizhou.github.io/2018/09/20/hexo-next-blog/</id>
     <published>2018-09-20T15:26:01.000Z</published>
     <updated>2018-11-02T17:11:38.423Z</updated>
     
@@ -439,17 +439,17 @@
     
     </summary>
     
-      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+      <category term="hexo" scheme="http://liulizhou.github.io/categories/hexo/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://liulizhou.github.io/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>图像视频质量</title>
-    <link href="http://yoursite.com/2018/09/20/image-video-quality/"/>
-    <id>http://yoursite.com/2018/09/20/image-video-quality/</id>
+    <link href="http://liulizhou.github.io/2018/09/20/image-video-quality/"/>
+    <id>http://liulizhou.github.io/2018/09/20/image-video-quality/</id>
     <published>2018-09-20T15:18:24.000Z</published>
     <updated>2018-11-02T17:11:38.451Z</updated>
     
@@ -461,21 +461,21 @@
     
     </summary>
     
-      <category term="Image Process" scheme="http://yoursite.com/categories/Image-Process/"/>
+      <category term="Image Process" scheme="http://liulizhou.github.io/categories/Image-Process/"/>
     
     
-      <category term="AR" scheme="http://yoursite.com/tags/AR/"/>
+      <category term="AR" scheme="http://liulizhou.github.io/tags/AR/"/>
     
-      <category term="IQ" scheme="http://yoursite.com/tags/IQ/"/>
+      <category term="IQ" scheme="http://liulizhou.github.io/tags/IQ/"/>
     
-      <category term="VQ" scheme="http://yoursite.com/tags/VQ/"/>
+      <category term="VQ" scheme="http://liulizhou.github.io/tags/VQ/"/>
     
   </entry>
   
   <entry>
     <title>Compression Artifacts Removal Using Convolutional Neural Networks</title>
-    <link href="http://yoursite.com/2018/09/20/iccv-2015-arcnn/"/>
-    <id>http://yoursite.com/2018/09/20/iccv-2015-arcnn/</id>
+    <link href="http://liulizhou.github.io/2018/09/20/iccv-2015-arcnn/"/>
+    <id>http://liulizhou.github.io/2018/09/20/iccv-2015-arcnn/</id>
     <published>2018-09-20T10:19:05.000Z</published>
     <updated>2018-11-02T17:11:38.459Z</updated>
     
@@ -487,16 +487,16 @@
     
     </summary>
     
-      <category term="Deep Learning" scheme="http://yoursite.com/categories/Deep-Learning/"/>
+      <category term="Deep Learning" scheme="http://liulizhou.github.io/categories/Deep-Learning/"/>
     
     
-      <category term="AR" scheme="http://yoursite.com/tags/AR/"/>
+      <category term="AR" scheme="http://liulizhou.github.io/tags/AR/"/>
     
-      <category term="ICCV" scheme="http://yoursite.com/tags/ICCV/"/>
+      <category term="CNN" scheme="http://liulizhou.github.io/tags/CNN/"/>
     
-      <category term="Paper" scheme="http://yoursite.com/tags/Paper/"/>
+      <category term="ICCV" scheme="http://liulizhou.github.io/tags/ICCV/"/>
     
-      <category term="CNN" scheme="http://yoursite.com/tags/CNN/"/>
+      <category term="Paper" scheme="http://liulizhou.github.io/tags/Paper/"/>
     
   </entry>
   
