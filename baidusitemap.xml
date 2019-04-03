@@ -1,70 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://liulizhou.github.io/2018/11/07/linux-mount-command/</loc>
-    <lastmod>2019-03-27</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2018/12/28/HDR-Project/</loc>
-    <lastmod>2019-03-12</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2019/01/21/deep-learning-report/</loc>
-    <lastmod>2019-01-22</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2018/11/16/linux-any-commands/</loc>
-    <lastmod>2019-01-16</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2019/01/07/deep-learning-architecture/</loc>
-    <lastmod>2019-01-07</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2018/11/30/pytorch-debug-index/</loc>
-    <lastmod>2018-12-27</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2018/11/30/conda-using-skill/</loc>
-    <lastmod>2018-12-27</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2018/12/03/libtorch-bug-index/</loc>
-    <lastmod>2018-12-26</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2018/11/07/install-problems-index/</loc>
-    <lastmod>2018-12-26</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2018/12/11/Artifact-Reduction-Project/</loc>
-    <lastmod>2018-12-26</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2018/12/25/vf-qrestore/</loc>
-    <lastmod>2018-12-25</lastmod>
+    <loc>http://liulizhou.github.io/2019/04/03/2019-qingmin-guiyang/</loc>
+    <lastmod>2019-04-03</lastmod>
   </url>  <url>
     <loc>http://liulizhou.github.io/2018/12/19/vim-using-skill/</loc>
-    <lastmod>2018-12-24</lastmod>
+    <lastmod>2019-04-03</lastmod>
   </url>  <url>
-    <loc>http://liulizhou.github.io/2018/11/19/linux-install-index/</loc>
-    <lastmod>2018-11-19</lastmod>
+    <loc>http://liulizhou.github.io/2018/12/25/vf-qrestore/</loc>
+    <lastmod>2019-04-03</lastmod>
   </url>  <url>
     <loc>http://liulizhou.github.io/2018/09/30/tmux-using-skills/</loc>
-    <lastmod>2018-11-16</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2018/11/15/gflags-and-libtorch-compile-problem/</loc>
-    <lastmod>2018-11-15</lastmod>
+    <lastmod>2019-04-03</lastmod>
   </url>  <url>
     <loc>http://liulizhou.github.io/2018/09/30/i3wm-using-skills/</loc>
-    <lastmod>2018-11-02</lastmod>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/11/30/pytorch-debug-index/</loc>
+    <lastmod>2019-04-03</lastmod>
   </url>  <url>
     <loc>http://liulizhou.github.io/2018/09/27/pytorch-api-Conv-Deconv/</loc>
-    <lastmod>2018-11-02</lastmod>
+    <lastmod>2019-04-03</lastmod>
   </url>  <url>
-    <loc>http://liulizhou.github.io/2018/09/20/iccv-2015-arcnn/</loc>
-    <lastmod>2018-11-02</lastmod>
+    <loc>http://liulizhou.github.io/2018/11/07/linux-mount-command/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/11/19/linux-install-index/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/11/16/linux-any-commands/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/12/03/libtorch-bug-index/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/11/07/install-problems-index/</loc>
+    <lastmod>2019-04-03</lastmod>
   </url>  <url>
     <loc>http://liulizhou.github.io/2018/09/20/image-video-quality/</loc>
-    <lastmod>2018-11-02</lastmod>
+    <lastmod>2019-04-03</lastmod>
   </url>  <url>
     <loc>http://liulizhou.github.io/2018/09/20/iccv-2017-gan-ar/</loc>
-    <lastmod>2018-11-02</lastmod>
+    <lastmod>2019-04-03</lastmod>
   </url>  <url>
-    <loc>http://liulizhou.github.io/2018/09/20/liulizhou/</loc>
-    <lastmod>2018-11-02</lastmod>
+    <loc>http://liulizhou.github.io/2018/09/20/iccv-2015-arcnn/</loc>
+    <lastmod>2019-04-03</lastmod>
   </url>  <url>
     <loc>http://liulizhou.github.io/2018/09/20/hexo-next-blog/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/12/28/HDR-Project/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/11/15/gflags-and-libtorch-compile-problem/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2019/01/21/deep-learning-report/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/11/30/conda-using-skill/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/12/11/Artifact-Reduction-Project/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2019/01/07/deep-learning-architecture/</loc>
+    <lastmod>2019-04-03</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/09/20/liulizhou/</loc>
     <lastmod>2018-11-02</lastmod>
   </url>
 </urlset>

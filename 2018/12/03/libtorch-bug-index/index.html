@@ -19,14 +19,14 @@
 
 
     <meta name="description" content="这篇文件记录了使用libtorch过程中运到的一些bug">
-<meta name="keywords" content="Blog">
+<meta name="keywords" content="libtorch,bug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Libtorch中的bug">
 <meta property="og:url" content="http://liulizhou.github.io/2018/12/03/libtorch-bug-index/index.html">
 <meta property="og:site_name" content="MAXZZPLUS&#39; Blog">
 <meta property="og:description" content="这篇文件记录了使用libtorch过程中运到的一些bug">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-12-26T06:35:48.266Z">
+<meta property="og:updated_time" content="2019-04-03T12:38:39.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Libtorch中的bug">
 <meta name="twitter:description" content="这篇文件记录了使用libtorch过程中运到的一些bug">
@@ -89,11 +89,11 @@
             
             <a class="navbar-item " href="/archives">归档</a>
             
-            <a class="navbar-item " href="/categories/Project">项目</a>
+            <a class="navbar-item " href="/categories/project">项目</a>
             
-            <a class="navbar-item " href="/categories/Paper">论文</a>
+            <a class="navbar-item " href="/categories/paper">论文</a>
             
-            <a class="navbar-item " href="/categories/Lifestyle">生活</a>
+            <a class="navbar-item " href="/categories/lifestyle">生活</a>
             
             <a class="navbar-item " href="/about">关于</a>
             
@@ -129,6 +129,11 @@
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             <time datetime="2018-12-03T14:44:53.000Z" itemprop="datePublished">12月 3 2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/libtorch/">libtorch</a><span>></span><a class="article-category-link" href="/categories/libtorch/bug/">bug</a>
         </span>
         
         
@@ -173,6 +178,14 @@
 <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">[ <span class="hljs-number">68</span>%] Linking CXX shared library ../lib/libcaffe2.so</span><br><span class="line">[ <span class="hljs-number">68</span>%] Built target caffe2</span><br><span class="line">Makefile:<span class="hljs-number">140</span>: recipe <span class="hljs-keyword">for</span> target <span class="hljs-string">'all'</span> failed</span><br><span class="line">make: *** [all] Error <span class="hljs-number">2</span></span><br><span class="line">Failed to run <span class="hljs-string">'bash ../tools/build_pytorch_libs.sh --use-cuda --use-fbgemm --use-nnpack --use-mkldnn --use-qnnpack caffe2'</span></span><br></pre></td></tr></table></figure>
 <p>编译pytorch source需要cuDNN &gt; 7, ATen 模块至少需要6以上版本，所以最好更新cudnn到比较高的版本</p>
 
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/libtorch/">#libtorch</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/bug/">#bug</a></span>
     
     </div>
     

@@ -19,14 +19,14 @@
 
 
     <meta name="description" content="这篇文章记录了tmux的一些使用技巧。 启用鼠标滚屏和窗口切换我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下Ctrl+b后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在~/.tmux.conf，如果没有需要自己创建一个，文件中加入下面的指令，这个指令重写了Mouse-mode的一系列指令，包括窗格切">
-<meta name="keywords" content="Blog">
+<meta name="keywords" content="technique,tmux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tmux-using-skills">
 <meta property="og:url" content="http://liulizhou.github.io/2018/09/30/tmux-using-skills/index.html">
 <meta property="og:site_name" content="MAXZZPLUS&#39; Blog">
 <meta property="og:description" content="这篇文章记录了tmux的一些使用技巧。 启用鼠标滚屏和窗口切换我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下Ctrl+b后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在~/.tmux.conf，如果没有需要自己创建一个，文件中加入下面的指令，这个指令重写了Mouse-mode的一系列指令，包括窗格切">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-11-16T06:35:53.649Z">
+<meta property="og:updated_time" content="2019-04-03T12:44:36.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tmux-using-skills">
 <meta name="twitter:description" content="这篇文章记录了tmux的一些使用技巧。 启用鼠标滚屏和窗口切换我们安装tmux后，默认是没有启用鼠标滚屏的，必须按下Ctrl+b后使用PageUp和PageDown来翻页，这样浏览不如自由滚动窗口方便，我们可以开启鼠标滚屏和窗口切换，编辑tmux的配置文件，配置文件在~/.tmux.conf，如果没有需要自己创建一个，文件中加入下面的指令，这个指令重写了Mouse-mode的一系列指令，包括窗格切">
@@ -89,11 +89,11 @@
             
             <a class="navbar-item " href="/archives">归档</a>
             
-            <a class="navbar-item " href="/categories/Project">项目</a>
+            <a class="navbar-item " href="/categories/project">项目</a>
             
-            <a class="navbar-item " href="/categories/Paper">论文</a>
+            <a class="navbar-item " href="/categories/paper">论文</a>
             
-            <a class="navbar-item " href="/categories/Lifestyle">生活</a>
+            <a class="navbar-item " href="/categories/lifestyle">生活</a>
             
             <a class="navbar-item " href="/about">关于</a>
             
@@ -131,6 +131,11 @@
             <time datetime="2018-09-30T07:57:00.000Z" itemprop="datePublished">9月 30 2018</time>
         </span>
         
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/tmux/">tmux</a><span>></span><a class="article-category-link" href="/categories/tmux/technique/">technique</a>
+        </span>
+        
         
         <span class="column is-narrow">
             
@@ -148,6 +153,14 @@
 <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">tmux <span class="hljs-built_in">source</span>-file ~/.tmux.conf</span><br></pre></td></tr></table></figure>
 <p>另外启用鼠标后，不能正常的复制tmux中的内容和粘贴，复制tmux中的内容时需要按住<code>Shift</code>键，可以使用<code>Shift+Insert</code>粘贴剪贴板内容到命令行。</p>
 
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/technique/">#technique</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/tmux/">#tmux</a></span>
     
     </div>
     
