@@ -248,9 +248,9 @@
       <category term="technique" scheme="http://liulizhou.github.io/categories/conda/technique/"/>
     
     
-      <category term="technique" scheme="http://liulizhou.github.io/tags/technique/"/>
-    
       <category term="conda" scheme="http://liulizhou.github.io/tags/conda/"/>
+    
+      <category term="technique" scheme="http://liulizhou.github.io/tags/technique/"/>
     
   </entry>
   
@@ -302,9 +302,9 @@
       <category term="index" scheme="http://liulizhou.github.io/categories/linux/install/index/"/>
     
     
-      <category term="linux" scheme="http://liulizhou.github.io/tags/linux/"/>
-    
       <category term="install" scheme="http://liulizhou.github.io/tags/install/"/>
+    
+      <category term="linux" scheme="http://liulizhou.github.io/tags/linux/"/>
     
       <category term="index" scheme="http://liulizhou.github.io/tags/index/"/>
     
@@ -394,11 +394,11 @@
       <category term="index" scheme="http://liulizhou.github.io/categories/linux/install/bug/index/"/>
     
     
-      <category term="linux" scheme="http://liulizhou.github.io/tags/linux/"/>
-    
       <category term="install" scheme="http://liulizhou.github.io/tags/install/"/>
     
       <category term="bug" scheme="http://liulizhou.github.io/tags/bug/"/>
+    
+      <category term="linux" scheme="http://liulizhou.github.io/tags/linux/"/>
     
       <category term="index" scheme="http://liulizhou.github.io/tags/index/"/>
     
@@ -452,11 +452,11 @@
       <category term="technique" scheme="http://liulizhou.github.io/categories/i3/linux/technique/"/>
     
     
+      <category term="technique" scheme="http://liulizhou.github.io/tags/technique/"/>
+    
       <category term="i3" scheme="http://liulizhou.github.io/tags/i3/"/>
     
       <category term="linux" scheme="http://liulizhou.github.io/tags/linux/"/>
-    
-      <category term="technique" scheme="http://liulizhou.github.io/tags/technique/"/>
     
   </entry>
   

@@ -250,9 +250,9 @@
       
         <tags>
             
-            <tag> technique </tag>
-            
             <tag> conda </tag>
+            
+            <tag> technique </tag>
             
         </tags>
       
@@ -310,9 +310,9 @@
       
         <tags>
             
-            <tag> linux </tag>
-            
             <tag> install </tag>
+            
+            <tag> linux </tag>
             
             <tag> index </tag>
             
@@ -411,11 +411,11 @@
       
         <tags>
             
-            <tag> linux </tag>
-            
             <tag> install </tag>
             
             <tag> bug </tag>
+            
+            <tag> linux </tag>
             
             <tag> index </tag>
             
@@ -475,11 +475,11 @@
       
         <tags>
             
+            <tag> technique </tag>
+            
             <tag> i3 </tag>
             
             <tag> linux </tag>
-            
-            <tag> technique </tag>
             
         </tags>
       
