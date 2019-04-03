@@ -208,9 +208,9 @@
     
       <category term="bug" scheme="http://liulizhou.github.io/tags/bug/"/>
     
-      <category term="index" scheme="http://liulizhou.github.io/tags/index/"/>
-    
       <category term="pytorch" scheme="http://liulizhou.github.io/tags/pytorch/"/>
+    
+      <category term="index" scheme="http://liulizhou.github.io/tags/index/"/>
     
   </entry>
   
@@ -492,11 +492,11 @@
     
       <category term="AR" scheme="http://liulizhou.github.io/tags/AR/"/>
     
-      <category term="CNN" scheme="http://liulizhou.github.io/tags/CNN/"/>
-    
       <category term="ICCV" scheme="http://liulizhou.github.io/tags/ICCV/"/>
     
       <category term="Paper" scheme="http://liulizhou.github.io/tags/Paper/"/>
+    
+      <category term="CNN" scheme="http://liulizhou.github.io/tags/CNN/"/>
     
   </entry>
   
