@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="MAXZZPLUS&#39; Blog">
 <meta property="og:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-04-03T12:38:04.414Z">
+<meta property="og:updated_time" content="2019-04-24T02:01:03.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="各种安装BUG记录">
 <meta name="twitter:description" content="本博客是一个系列博客，记录了我碰到的各种软件安装问题。">
@@ -101,7 +101,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Search" href="javascript:;">
+            <a class="navbar-item search" title="Buscar" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -140,7 +140,7 @@
         <span class="column is-narrow">
             
             
-            11 分钟 read (About 1586 words)
+            11 分钟 de lectura (Alrededor de 1694 palabras)
         </span>
         
     </div>
@@ -194,6 +194,11 @@
 <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">UnsatisfiableError: The following specifications were found to be <span class="hljs-keyword">in</span> </span><br><span class="line">conflict:</span><br><span class="line"> - pil -&gt; python 2.6*</span><br><span class="line"> - python <span class="hljs-number">3.6</span>*</span><br></pre></td></tr></table></figure>
 <p>可能是由于<code>pil</code>包不支持跑一趟python3,安装<code>pillow</code>，同时支持python2和python3:</p>
 <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda install pillow</span><br></pre></td></tr></table></figure>
+<h1 id="Ubuntu系统问题"><a href="#Ubuntu系统问题" class="headerlink" title="Ubuntu系统问题"></a>Ubuntu系统问题</h1><p>ubuntu 系统软件升级后出现下面问题:</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">manpath: can<span class="hljs-string">'t set the locale; make sure $LC_* and $LANG are correct</span></span><br></pre></td></tr></table></figure>
+<p>由于系统语言环境设置出现问题,导致系统不能正常的工作,解决方法:</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo locale-gen <span class="hljs-string">"en_US.UTF-8"</span></span><br><span class="line">sudo dpkg-reconfigure locales (此处gui设置en_US.UTF-8)</span><br><span class="line">sudo vim /etc/default/locale, 修改下面两项</span><br><span class="line"></span><br><span class="line">LANG=en_US.UTF-8</span><br><span class="line">LC_ALL=en_US.UTF-8</span><br></pre></td></tr></table></figure>
+<p>重启后问题解决.</p>
 
     
     </div>
@@ -230,7 +235,7 @@
 
 
 <div class="comments">
-    <h3 class="title is-4">Comments</h3>
+    <h3 class="title is-4">Comentarios</h3>
     
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
@@ -408,7 +413,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Escribe algo...">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -421,10 +426,10 @@
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
+                PAGES: 'Páginas',
+                CATEGORIES: 'Categorías',
                 TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                UNTITLED: '(Sin título)',
             },
             CONTENT_URL: '/content.json',
         };

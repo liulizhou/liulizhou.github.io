@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://liulizhou.github.io/2019/06/12/my-little-fat-girl-20190612/</loc>
+    <lastmod>2019-06-12</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2019/04/08/ffmpeg-mediainfo-command/</loc>
+    <lastmod>2019-05-23</lastmod>
+  </url>  <url>
+    <loc>http://liulizhou.github.io/2018/11/07/install-problems-index/</loc>
+    <lastmod>2019-04-24</lastmod>
+  </url>  <url>
     <loc>http://liulizhou.github.io/2019/04/03/2019-qingmin-guiyang/</loc>
     <lastmod>2019-04-03</lastmod>
   </url>  <url>
@@ -32,9 +41,6 @@
     <lastmod>2019-04-03</lastmod>
   </url>  <url>
     <loc>http://liulizhou.github.io/2018/12/03/libtorch-bug-index/</loc>
-    <lastmod>2019-04-03</lastmod>
-  </url>  <url>
-    <loc>http://liulizhou.github.io/2018/11/07/install-problems-index/</loc>
     <lastmod>2019-04-03</lastmod>
   </url>  <url>
     <loc>http://liulizhou.github.io/2018/09/20/image-video-quality/</loc>

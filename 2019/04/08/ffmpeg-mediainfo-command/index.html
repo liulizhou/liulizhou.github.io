@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>记录ffmpeg以及mediainfo用法和命令 - MAXZZPLUS&#39; Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="身后有尾巴!!!">
+
+
+
+<meta name="keywords" content="Blog">
+
+
+
+    <meta name="description" content="这篇文章主要记录ffmpeg、mediainfo的用法和命令。">
+<meta name="keywords" content="ffmpeg,mediainfo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录ffmpeg以及mediainfo用法和命令">
+<meta property="og:url" content="http://liulizhou.github.io/2019/04/08/ffmpeg-mediainfo-command/index.html">
+<meta property="og:site_name" content="MAXZZPLUS&#39; Blog">
+<meta property="og:description" content="这篇文章主要记录ffmpeg、mediainfo的用法和命令。">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-05-23T08:27:00.367Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录ffmpeg以及mediainfo用法和命令">
+<meta name="twitter:description" content="这篇文章主要记录ffmpeg、mediainfo的用法和命令。">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">归档</a>
+            
+            <a class="navbar-item " href="/categories/project">项目</a>
+            
+            <a class="navbar-item " href="/categories/paper">论文</a>
+            
+            <a class="navbar-item " href="/categories/lifestyle">生活</a>
+            
+            <a class="navbar-item " href="/about">关于</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="Buscar" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            记录ffmpeg以及mediainfo用法和命令
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-04-08T08:19:15.000Z" itemprop="datePublished">4月 8 2019</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/ffmpeg/">ffmpeg</a><span>></span><a class="article-category-link" href="/categories/ffmpeg/mediainfo/">mediainfo</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 de lectura (Alrededor de 616 palabras)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>这篇文章主要记录ffmpeg、mediainfo的用法和命令。</p>
+<a id="more"></a>
+<h1 id="ffmpeg-命令"><a href="#ffmpeg-命令" class="headerlink" title="ffmpeg 命令"></a>ffmpeg 命令</h1><ul>
+<li>get rgb raw format from video.</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input_video -pix_fmt gbrp10le -f rawvideo raw.rgb</span><br><span class="line">ffmpeg -i input_video -pix_fmt gbrp10be -f rawvideo raw.rgb</span><br><span class="line">ffmpeg -i input_video -pix_fmt gbrp -f rawvideo raw.rgb</span><br><span class="line">p means plannar</span><br><span class="line">10 means 10bit</span><br><span class="line">le means little-endian</span><br><span class="line">be means big-endian</span><br></pre></td></tr></table></figure>
+<p>where the green plane is stored first, then blue, then red.<br>The above is for big-endian so the byte order isn’t reversed.</p>
+<ul>
+<li>extract frame by frame from video</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input_video -ss 00:00:00.00 -f image2 -vf fps=fps=1/10 %03d.png</span><br><span class="line">-ss means start extract time</span><br><span class="line">-f means</span><br></pre></td></tr></table></figure>
+<ul>
+<li>extract only one frame</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input_video -ss 00:00:00.00 -vframes 1 output.png</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>get yuv raw format from video</p>
+<p>we can get the whole list of the format:</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -pix_fmts | grep pixel_format_name</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p> get the yuv file</p>
+ <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input_video -vcodc rawvideo -pix_fmt yuv420p output.yuv</span><br><span class="line">ffmpeg -i input_video -c:v rawvideo -pix_fmt yuv420p output.yuv</span><br></pre></td></tr></table></figure>
+<ul>
+<li>using  ffmpeg to convert a set of images into a video</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -r 60 -f image2 -s 1920x1080 -i pic%04d.png -vcodec libx264 -crf 25  -pix_fmt yuv420p test.mp4</span><br><span class="line">-r is the framerate(fps)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>convert gbrp file to hdr10 video</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -pix_fmt gbrp16le -s 512x288 -framerate 25.0 -f rawvideo -i /data/dataset/gbr16_video.rgb -c:v libx265 -x265-params colorprim=<span class="hljs-string">'bt2020'</span>:transfer=<span class="hljs-string">'smpte-st-2084'</span>:colormatrix=<span class="hljs-string">'bt2020nc'</span> -preset slow -pix_fmt yuv420p10le /data/dataset/hdr10_test_video.mkv</span><br><span class="line">ffmpeg -pix_fmt gbrp16le -s 1920x1080 -framerate 25.0 -f rawvideo -i src-tenggongxueyuan-sdr-4-014633-30s.gbr -c:v libx265 -preset veryslow -x265-params lossless -pix_fmt yuv420p10le src-tenggongxueyuan-sdr-4-014633-30s.mp4</span><br><span class="line">ffmpeg -pix_fmt gbrp16le -s 1920x1080 -framerate 25.0 -f rawvideo -i src-tenggongxueyuan-sdr-1-001542-30s_enhanced_pq2100_bt2020_16bit.gbr -c:v libx265 -x265-params <span class="hljs-string">"hrd=1:aud=1:no-info=1:sar='1:1':colorprim='bt2020':transfer='smpte-st-2084':colormatrix='bt2020nc':master-display='G(8500,39850)B(6500,2300)R(35400,14600)WP(15635,16450)L(0,0)':max-cll='0,0':no-open-gop=1"</span> -b:v 10000k -preset slow -pix_fmt yuv420p10le src-tenggongxueyuan-sdr-1-001542-30s_enhanced_pq2100_bt2020_10M_10bit.mp4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>convert gbrp10le file to 8bit video</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -pix_fmt gbrp16le -s 1920x108</span><br><span class="line">0 -framerate 25.0 -f rawvideo -i src-tenggongxueyuan-sdr-0-000042-20s.gbr -c:v libx265 -preset veryslow -x265-params lossless -b:v 10000k -pix_fmt yuv420p ../sdr_enhanced/src-tenggongxueyuan-sdr-0-000042-20s_10M_8bit_enhanced.mp4</span><br><span class="line"></span><br><span class="line">* scale video</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">ffmpeg -i 调色_sdrp.MP4 -vf scale=512:-1 -c:v libx264 -crf 0 -preset veryslow -c:a copy tm_512.mkv</span><br></pre></td></tr></table></figure>
+<ul>
+<li>convert 8bit to 10bit</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i tm_512.mkv -frames 40 -c:v libx265 -preset veryslow -x265-params crf=28 -pix_fmt yuv420p10le tm_512_10bit.mkv</span><br></pre></td></tr></table></figure>
+<ul>
+<li>denoise filter</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i /data2/downloads/paper_video_bt/hdr10_test_videos/sdr_test_videos/sdr2hdr_videos_paired/sdr_source/src-tenggongxueyuan-sdr-2-004734-30s.mkv -vf nlmeans -c:a copy /data2/downloads/paper_video_bt/hdr10_test_videos/sdr_test_videos/sdr2hdr_videos_paired/sdr_source/output.mp</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ffmpeg select  filter</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg_new_master -i ydmg_hdr.mkv -vf <span class="hljs-string">"select=not(mod(n\,100))"</span> -vsync vfr  -pix_fmt rgb48 ydmg_hdr_tif/ydmg_%04d.tiff</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ffmpeg create a video from image frame with a start and a count. <a href="https://superuser.com/questions/688015/ffmpeg-create-a-video-from-image-frame-with-a-start-and-a-cout" target="_blank" rel="noopener">参考</a></li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -start_number 1 -i test_%d.jpg -vframes 100 -vcodec mpeg4 test.avi</span><br></pre></td></tr></table></figure>
+<h1 id="key-words"><a href="#key-words" class="headerlink" title="key words"></a>key words</h1><ul>
+<li><p>bitshift</p>
+<h1 id="mediainfo-command"><a href="#mediainfo-command" class="headerlink" title="mediainfo command"></a>mediainfo command</h1></li>
+<li><p>get frame counts</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mediainfo --Output=<span class="hljs-string">"Video;%FrameCount%"</span> input</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/ffmpeg/">#ffmpeg</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/mediainfo/">#mediainfo</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2019/06/12/my-little-fat-girl-20190612/">my_little_fat_girl_20190612</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2019/04/03/2019-qingmin-guiyang/">2019_qingmin_guiyang</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comentarios</h3>
+    
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://www.wenjunjiang.win/js/gitment.js"></script>
+<script>
+	var gitment = new Gitment({
+		id: '2019/04/08/ffmpeg-mediainfo-command/',
+		owner: 'liulizhou',
+		repo: 'liulizhou.github.io',
+		oauth: {
+			client_id: '50840b55f95b140ecab5',
+			client_secret: '5c7b26c93d5a10b29e27b3e7c72f161ccf402e0c',
+		},
+	})
+	gitment.render('comment-container')
+</script>
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 maxliu&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Escribe algo...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Páginas',
+                CATEGORIES: 'Categorías',
+                TAGS: 'Tags',
+                UNTITLED: '(Sin título)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>
