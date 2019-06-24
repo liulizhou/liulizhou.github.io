@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>记录ffmpeg以及mediainfo用法和命令 - MAXZZPLUS&#39; Blog</title>
+<title>最好的我们 - MAXZZPLUS&#39; Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -18,18 +18,20 @@
 
 
 
-    <meta name="description" content="这篇文章主要记录ffmpeg、mediainfo的用法和命令。">
-<meta name="keywords" content="ffmpeg,mediainfo">
+    <meta name="description" content="记我们的相识到第一次旅行.">
+<meta name="keywords" content="Blog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记录ffmpeg以及mediainfo用法和命令">
-<meta property="og:url" content="http://liulizhou.github.io/2019/04/08/ffmpeg-mediainfo-command/index.html">
+<meta property="og:title" content="最好的我们">
+<meta property="og:url" content="http://liulizhou.github.io/2019/06/24/the-best-of-us/index.html">
 <meta property="og:site_name" content="MAXZZPLUS&#39; Blog">
-<meta property="og:description" content="这篇文章主要记录ffmpeg、mediainfo的用法和命令。">
+<meta property="og:description" content="记我们的相识到第一次旅行.">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-05-23T08:27:00.367Z">
+<meta property="og:image" content="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/livestyle/little_fat_girl002.png">
+<meta property="og:updated_time" content="2019-06-24T15:22:12.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记录ffmpeg以及mediainfo用法和命令">
-<meta name="twitter:description" content="这篇文章主要记录ffmpeg、mediainfo的用法和命令。">
+<meta name="twitter:title" content="最好的我们">
+<meta name="twitter:description" content="记我们的相识到第一次旅行.">
+<meta name="twitter:image" content="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/livestyle/little_fat_girl002.png">
 
 
 
@@ -123,109 +125,44 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            记录ffmpeg以及mediainfo用法和命令
+            最好的我们
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2019-04-08T08:19:15.000Z" itemprop="datePublished">4月 8 2019</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/ffmpeg/">ffmpeg</a><span>></span><a class="article-category-link" href="/categories/ffmpeg/mediainfo/">mediainfo</a>
+            <time datetime="2019-06-24T14:24:35.000Z" itemprop="datePublished">6月 24 2019</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 分钟 read (About 616 words)
+            16 分钟 read (About 2441 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>这篇文章主要记录ffmpeg、mediainfo的用法和命令。</p>
+        <p>记我们的相识到第一次旅行.</p>
+<p><img src="https://zzblog-1252410218.cos.ap-beijing-1.myqcloud.com/livestyle/little_fat_girl002.png" alt="little_fat_girl"></p>
 <a id="more"></a>
-<h1 id="ffmpeg-命令"><a href="#ffmpeg-命令" class="headerlink" title="ffmpeg 命令"></a>ffmpeg 命令</h1><ul>
-<li>get rgb raw format from video.</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input_video -pix_fmt gbrp10le -f rawvideo raw.rgb</span><br><span class="line">ffmpeg -i input_video -pix_fmt gbrp10be -f rawvideo raw.rgb</span><br><span class="line">ffmpeg -i input_video -pix_fmt gbrp -f rawvideo raw.rgb</span><br><span class="line">p means plannar</span><br><span class="line">10 means 10bit</span><br><span class="line">le means little-endian</span><br><span class="line">be means big-endian</span><br></pre></td></tr></table></figure>
-<p>where the green plane is stored first, then blue, then red.<br>The above is for big-endian so the byte order isn’t reversed.</p>
-<ul>
-<li>extract frame by frame from video</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input_video -ss 00:00:00.00 -f image2 -vf fps=fps=1/10 %03d.png</span><br><span class="line">-ss means start extract time</span><br><span class="line">-f means</span><br></pre></td></tr></table></figure>
-<ul>
-<li>extract only one frame</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input_video -ss 00:00:00.00 -vframes 1 output.png</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>get yuv raw format from video</p>
-<p>we can get the whole list of the format:</p>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -pix_fmts | grep pixel_format_name</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p> get the yuv file</p>
- <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input_video -vcodc rawvideo -pix_fmt yuv420p output.yuv</span><br><span class="line">ffmpeg -i input_video -c:v rawvideo -pix_fmt yuv420p output.yuv</span><br></pre></td></tr></table></figure>
-<ul>
-<li>using  ffmpeg to convert a set of images into a video</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -r 60 -f image2 -s 1920x1080 -i pic%04d.png -vcodec libx264 -crf 25  -pix_fmt yuv420p test.mp4</span><br><span class="line">-r is the framerate(fps)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>convert gbrp file to hdr10 video</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -pix_fmt gbrp16le -s 512x288 -framerate 25.0 -f rawvideo -i /data/dataset/gbr16_video.rgb -c:v libx265 -x265-params colorprim=<span class="hljs-string">'bt2020'</span>:transfer=<span class="hljs-string">'smpte-st-2084'</span>:colormatrix=<span class="hljs-string">'bt2020nc'</span> -preset slow -pix_fmt yuv420p10le /data/dataset/hdr10_test_video.mkv</span><br><span class="line">ffmpeg -pix_fmt gbrp16le -s 1920x1080 -framerate 25.0 -f rawvideo -i src-tenggongxueyuan-sdr-4-014633-30s.gbr -c:v libx265 -preset veryslow -x265-params lossless -pix_fmt yuv420p10le src-tenggongxueyuan-sdr-4-014633-30s.mp4</span><br><span class="line">ffmpeg -pix_fmt gbrp16le -s 1920x1080 -framerate 25.0 -f rawvideo -i src-tenggongxueyuan-sdr-1-001542-30s_enhanced_pq2100_bt2020_16bit.gbr -c:v libx265 -x265-params <span class="hljs-string">"hrd=1:aud=1:no-info=1:sar='1:1':colorprim='bt2020':transfer='smpte-st-2084':colormatrix='bt2020nc':master-display='G(8500,39850)B(6500,2300)R(35400,14600)WP(15635,16450)L(0,0)':max-cll='0,0':no-open-gop=1"</span> -b:v 10000k -preset slow -pix_fmt yuv420p10le src-tenggongxueyuan-sdr-1-001542-30s_enhanced_pq2100_bt2020_10M_10bit.mp4</span><br></pre></td></tr></table></figure>
-<ul>
-<li>convert gbrp10le file to 8bit video</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -pix_fmt gbrp16le -s 1920x108</span><br><span class="line">0 -framerate 25.0 -f rawvideo -i src-tenggongxueyuan-sdr-0-000042-20s.gbr -c:v libx265 -preset veryslow -x265-params lossless -b:v 10000k -pix_fmt yuv420p ../sdr_enhanced/src-tenggongxueyuan-sdr-0-000042-20s_10M_8bit_enhanced.mp4</span><br><span class="line"></span><br><span class="line">* scale video</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">ffmpeg -i 调色_sdrp.MP4 -vf scale=512:-1 -c:v libx264 -crf 0 -preset veryslow -c:a copy tm_512.mkv</span><br></pre></td></tr></table></figure>
-<ul>
-<li>convert 8bit to 10bit</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i tm_512.mkv -frames 40 -c:v libx265 -preset veryslow -x265-params crf=28 -pix_fmt yuv420p10le tm_512_10bit.mkv</span><br></pre></td></tr></table></figure>
-<ul>
-<li>denoise filter</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i /data2/downloads/paper_video_bt/hdr10_test_videos/sdr_test_videos/sdr2hdr_videos_paired/sdr_source/src-tenggongxueyuan-sdr-2-004734-30s.mkv -vf nlmeans -c:a copy /data2/downloads/paper_video_bt/hdr10_test_videos/sdr_test_videos/sdr2hdr_videos_paired/sdr_source/output.mp</span><br></pre></td></tr></table></figure>
-<ul>
-<li>ffmpeg select  filter</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg_new_master -i ydmg_hdr.mkv -vf <span class="hljs-string">"select=not(mod(n\,100))"</span> -vsync vfr  -pix_fmt rgb48 ydmg_hdr_tif/ydmg_%04d.tiff</span><br></pre></td></tr></table></figure>
-<ul>
-<li>ffmpeg create a video from image frame with a start and a count. <a href="https://superuser.com/questions/688015/ffmpeg-create-a-video-from-image-frame-with-a-start-and-a-cout" target="_blank" rel="noopener">参考</a></li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -start_number 1 -i test_%d.jpg -vframes 100 -vcodec mpeg4 test.avi</span><br></pre></td></tr></table></figure>
-<h1 id="key-words"><a href="#key-words" class="headerlink" title="key words"></a>key words</h1><ul>
-<li><p>bitshift</p>
-<h1 id="mediainfo-command"><a href="#mediainfo-command" class="headerlink" title="mediainfo command"></a>mediainfo command</h1></li>
-<li><p>get frame counts</p>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mediainfo --Output=<span class="hljs-string">"Video;%FrameCount%"</span> input</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<p>&emsp;&emsp;从我们刚开始认识一点点回忆.</p>
+<p>&emsp;&emsp;先说说见面以前的印象和感觉吧, 在比较正式和你见面以前聊天几次天, 也一起吃过饭, 对你整体的印象有个大致的判断, 见面的时候觉得你挺羞涩的, 微信聊天以及朋友圈给人的感觉就是三观比较正, 所以给我的印象就是比较文静的女生, 这种印象还是挺好的. 不知道你还记不记那天和你聊天的契机, 2019年4月1号你发了个自拍, 我觉得那个自拍很像周笔畅, 然后知道你是周笔畅的铁粉, 所以问了一下, 说实话, 我很少评论朋友圈, 那天我也不知道为什么会评论一下, 我们就因为这个开始聊起来, 后面可能越聊感觉越棒, 我突然说想要去贵阳玩一下, 不知道是出于什么样的原因产生了这样的想法, 也许是想呼吸一下贵阳的新鲜空气, 毕竟在北京待太久了, 也许是想见见你, 聊聊天.</p>
+<p>&emsp;&emsp;准备去的过程并不是很顺利, 到了假期, 可能是自己还是比较懒惰, 也不确定自己去的真正想法是什么, 名不正言不顺嘛, 那时候也没告诉你我们之间可能存在的微妙的感觉, 说去玩吧, 就一天的时间, 说不过去, 在犹豫的时候干脆说出了我们对你有那么一点的想法, 告诉你我对你有些好感, 想见见面, 因为我好像记得你告诉过我你不一定在贵阳工作, 可能这才更加鼓足勇气, 万一真的很合适呢. 到了贵阳, 让你生气了, 没有第一时间见你, 而是去见了个朋友, 我都不知道你会把这个看的那么重, 我以为你只是想随便见见我, 吃吃饭什么的, 你的生气我还挺开心的, 说明你还挺重视这次见面的嘛. 在公园见到你的时候, 注意到你擦了口红, 心里又窃喜了一阵. 第一次比较正式的见还是要说心里的想法嘛, 你打扮的比较简单, 干净整洁, 脸有点微胖, 可能我会不自觉的和本科时候的样子对比一下, 觉得比那时候要胖一点, 整体印象还是很好, 是我喜欢的感觉, 后面在贵阳市区走的过程中, 下了大雨, 我们去躲雨, 去吃饭, 现在想想, 那种感觉还挺棒的, 你说你身体很诚实, 想靠近我, 其实我也很想靠近你, 不知道为什么, 就是感觉很好, 如果那个时候我突然抱住你, 不知道你会不会反抗呢, 哈哈(我那个时候可没有这样的想法). 后来和你闺蜜分开以后, 我们去找酒店, 决定去花溪以后去打车, 坐在车上, 心里也会有很想靠近的感觉, 这种感觉挺微妙的吧. 那次见你的时间比较紧, 只有一个下午和一个晚上, 我想和你聊天, 聊聊心里真正的想法, 聊一个晚上也不介意. 晚上我们一起去吃了鸡公煲, 你那天回去了后是不是换衣服了, 变的好白好白, 吃鸡公煲的时候才发现你吃饭超级文静, 我都着急你是不是真的想吃, 你又说你想吃, 其实这也让我觉得你的性格很好, 然后我们坐在食堂前面聊天, 因为第一次见面, 有很多不确定的东西, 短短的几个小时根本确定不了, 我也不确定是不是真的能和你在一起, 后面送你回宿舍的时候还是挺不舍的, 可能觉得没聊出个真正的结果吧. 我们需要纠结很多事情, 彼此情感的交流不会一下子就心有灵犀. 因为彼此之间的那份感觉, 我们坚持了下来.</p>
+<p>&emsp;&emsp;我回北京后我会不时的想起在贵阳的那点和你在一起的时间, 想起你, 感觉越来越深刻, 我相信你也是这样, 所以后面你成为了我的小胖妞, O(∩_∩)O哈哈(此处起鸡皮疙瘩). 在我们去南昌旅游之前的这段时间, 可能不是很习惯有了女朋友, 我的做法还是我行我素, 该玩游戏的时候还是玩游戏, 没有太多的思考应该怎么和你相处, 你有时候说我不是很重视你, 但是我心里觉得自己还是很重视你的, 可能重视你的同时我又想玩游戏, 我那个时候没有太明白谈恋爱需要付出什么东西, 不知道两个人在一起需要慢慢的经营感情. 因为上次见面的冲忙, 为了加深彼此之间的情感交流, 我们觉得五一一起去旅行.</p>
+<p>&emsp;&emsp;决定去旅行之后, 需要定地点, 规划路线, 订车票等等. 我也是第一次像这样有计划的去玩, 所以做的并不好, 更多的是你在那儿操心, 跌跌撞撞的选了南昌九岭尖这个地方. 我们主要的目的是见彼此, 就算在南昌市中心逛一逛也是可以的. 在去南昌的高铁上, 我觉得自己有点恍惚, 因为不敢相信真的就快要见到你了, 这就像考试得了高分一样, 不敢相信是真的, 因为心里会认定这是一件很美妙的事情. 下了高铁, 不需要多费劲就找到了你, 见到你的时候突然会变得有点拘谨, 可能这次反而没有第一次在贵阳见的时候自在, 也不知道为什么会这样. 后面打车去订的酒店后慢慢的好了很多, 可能是那天晚上一起看了电影, 整个过程我都在思考, 你是不是真的喜欢我, 我们是不是真的会一直在一起, 这个问题不想明白, 我可能都不会想去牵你的手. 我们晚上去了一个商场吃饭, 饭菜并不是很合胃口, 又是一次失败的吃饭经历, 想起那天在贵阳和你闺蜜一起吃饭的那次, 也不太好吃, 怎么总是吃不到好吃呢, 希望下次能一起吃一顿都非常满意美餐. 接下来就是一路奔波到久岭尖了, 从南昌到靖安县城的大巴上, <code>阳光很好, 微风不躁</code>, 我终于忍不住鼓足勇气第一次亲了你, 虽然是从牵手直接过渡到了亲嘴, 但是我却觉得非常自然, 而且感觉上已经浓到了可以亲嘴的地步了, 所以亲你也不觉得是很突然的事情, 而是很自然的事情, 你也没有过多的反抗, 只是觉得车上有点害羞, 这让我很开心, 接下来就是不知疲倦的想亲你了. 从南昌到靖安并不远, 靖安是个小城市, 给人一种很安静的感觉, 尤其是和你在一起的时候, 这种感觉是最美好不过了吧, <code>不吵闹的地方, 喜欢的人</code>. 在晋安剪了个头发, 去网吧玩了局游戏, 挺想带你学会这个游戏, 然后有时间和你一起双排, 那样一定会有很多乐趣吧. 从靖安到中源乡很远, 在纠结了一会后还是决定去中源乡, 久岭尖, 我们踏上了路途漫长的大巴, 毕竟都奔波到了靖安, 不想错过最后一站. 去中源乡的路上虽然路很长很颠簸, 但有你靠在我身上, 牵着你的手, 时间再长也不会觉得无聊, 整个过程都让我觉得很甜蜜. 大巴开了将近4个小时, 终于到了久岭尖, 下车了有点懵, 几乎看不到一个游客, 冷冷清清, 我们甚至怀疑是否有地方吃饭, 是否有地方住宿, 这时候才意识到没有规划的旅游是一件多么错误的事情. 下车后天已经快要黑了, 寒气也开始慢慢逼近, 已经没时间去爬山了, 预感到晚上山上会特别冷, 也很危险, 放弃了晚上爬上的打算. 我们找了个农家吃了顿饭, 饭菜还是不太满意, 可能也不是什么正规的饭馆吧, 做的比较随意. 我们在镇上逛了逛, 除了山还是山, 没有什么特别的地方, 接下来找了另一个农家住了下来, 和这家的主人们聊了聊, 这一天都在路上奔波, 草草的结束了. 因为中源乡到靖安的车比较少, 第二天醒来后我们已经不想再去爬上了, 早早的就坐上了回靖安的车, 然后直接回到了南昌. 到了南昌, 我们一起去看了电影&lt;&lt;复仇者联盟&gt;&gt;, 我们在路上拥抱, 接吻. 短暂的假期终于迎来了离别的时刻, 我们都知道, 这次的离别一定会迎来更加开心的重逢.</p>
 
-    
-    </div>
-    
-    <div class="columns is-variable is-1 is-multiline is-mobile">
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/ffmpeg/">#ffmpeg</a></span>
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/mediainfo/">#mediainfo</a></span>
     
     </div>
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
-            
-            <a href="/2019/06/24/the-best-of-us/">最好的我们</a>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/2019/04/03/2019-qingmin-guiyang/">2019_qingmin_guiyang</a>
+            <a href="/2019/04/08/ffmpeg-mediainfo-command/">记录ffmpeg以及mediainfo用法和命令</a>
             
         </span>
     </div>
@@ -243,7 +180,7 @@
 <script src="https://www.wenjunjiang.win/js/gitment.js"></script>
 <script>
 	var gitment = new Gitment({
-		id: '2019/04/08/ffmpeg-mediainfo-command/',
+		id: '2019/06/24/the-best-of-us/',
 		owner: 'liulizhou',
 		repo: 'liulizhou.github.io',
 		oauth: {
